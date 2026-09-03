@@ -1,6 +1,6 @@
 ```yaml
 document: Vocabulary
-version: 1.0.2
+version: 1.0.3
 tier: 0
 owns:
   - what each term denotes
@@ -428,7 +428,7 @@ Other documents cite a V-ID only where a term is genuinely contested or confusab
 **V-466 · Landmark** — A structural region assistive technology can navigate between.
 **V-467 · ARIA** — Attributes supplementing HTML semantics where native elements are insufficient.
 **V-468 · Role** — What an element is, semantically.
-<!-- vale Suite.RefusedTerms = NO --><!-- "accessible name" is WCAG's own defined term (see also C042, K013); not the refused binary-adjective usage -->
+<!-- vale Suite.RefusedTerms = NO --><!-- "accessible name" is WCAG's own defined term (see also C046, K013); not the refused binary-adjective usage -->
 **V-469 · Accessible name** — The label announced by assistive technology.
 <!-- vale Suite.RefusedTerms = YES -->
 **V-470 · Live region** — An area whose updates are announced without moving focus.
