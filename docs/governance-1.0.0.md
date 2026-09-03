@@ -1,6 +1,6 @@
 ```yaml
 document: Governance
-version: 1.0.0
+version: 1.0.1
 tier: none — orthogonal to the stack by design
 owns:
   - who owns each document
@@ -227,6 +227,20 @@ Skip: deprecation windows — deprecate and migrate in the same sitting. Proposa
 
 Add: named owners, second-reader review on citations, the single calendar, recorded rejections.
 Still skip: formal proposal process. A conversation and an edit is sufficient at this size.
+
+**Second-reader review on citations means evidence, not invocation.** A change description
+naming who the second reader will be is a promise; it is not the review. Evidence is a named
+reviewer, distinct from the author, leaving something checkable against the change itself — an
+approval, a review comment, or an equivalent recorded note naming which citation was checked and
+by whom. Review that happened but left nothing checkable is indistinguishable, to anyone reading
+the history afterward, from review that never happened, and this document does not get to assume
+the more generous of the two.
+
+**The signal to move to G083 is review falling behind change, not the contributor count rising.**
+A single account authoring everything can still outrun what one person can review; concurrent
+batches merging faster than a citation can plausibly be re-read is the observable tell. Contributor
+headcount can stay flat while this is already true, so it is not what this tier's exit condition
+should be measured against.
 
 ## G083 · An organization
 
