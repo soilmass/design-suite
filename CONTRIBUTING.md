@@ -94,7 +94,9 @@ regenerates on every `validate.py` run, so any PR touching `docs/` and any PR to
 `validate.py`'s own registry-generation logic both rewrite it — from whatever `main` looked like
 when their worktree was created. PR #9 (`fix/registry-since-provenance`, changing how
 `validate.py` computes each ID's `since` field) and PR #14 (adding A-067–A-076 and regenerating
-the registry as a side effect) were both in the second batch, merged eight minutes apart. The
+the registry as a side effect) were both in the second batch, opened eight minutes apart and
+merged seventeen seconds apart — close enough that neither could have seen the other's diff
+before its own PR was open. The
 result wasn't a text conflict — it was subtler: PR #9's fix preserves whatever `since` value
 already exists for a known ID rather than recomputing it (correct behavior in general), so once
 A-062–A-076 had merged under the old, briefly-wrong logic, the new logic had no way to tell
