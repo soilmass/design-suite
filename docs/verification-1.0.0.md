@@ -1,6 +1,6 @@
 ```yaml
 document: Verification
-version: 1.0.3
+version: 1.0.4
 tier: 3
 owns:
   - how to confirm something works
@@ -75,7 +75,7 @@ Every screen rendered RTL. Verifies K012 and K049. Failures here are almost alwa
 Rendered at the narrowest supported width, the widest, and each declared breakpoint boundary — plus one width either side of each boundary, where the failures actually are.
 
 ## X015 · Zoom and reflow
-Rendered at 400% on a 1280px viewport, which is the 320px equivalent C026 requires. Verifies K058.
+Rendered at the equivalent width C026 requires. Verifies K058.
 
 ## X016 · Visual regression
 Snapshot comparison across the matrix above. Catches unintended change, not incorrectness — a regression suite validates that nothing moved, never that it was right to begin with.
@@ -183,23 +183,23 @@ A system with a seven-step type scale rendering twenty-three distinct sizes has 
 
 The uncomputable half. Decision states a set of coherence tests — combinations that produce a specific misreading. Each becomes a periodic human check, because no tool can evaluate them.
 
-| Check | Tests | Reads as |
-|---|---|---|
-| X211 | Craft standard against failure surfaces | Demo-ware |
-| X212 | Claim strength against endorsement provenance | Unbacked |
-| X213 | Commercial pressure against pricing disclosure | Evasive |
-| X214 | Scale signaling against authorship presence | Faceless or costumed |
-| X215 | Density against craft level | Cluttered |
-| X216 | Layout generosity against copy volume | Endless |
-| X217 | Motion quantity against measured speed | Showy and slow |
-| X218 | Distribution of convention departures | Unlearnable |
-| X219 | Audience expertise against path control | Condescending |
+| Check | Verifies | Tests | Reads as |
+|---|---|---|---|
+| X211 | D100 | Craft standard against failure surfaces | Demo-ware |
+| X212 | D101 | Claim strength against endorsement provenance | Unbacked |
+| X213 | D102 | Commercial pressure against pricing disclosure | Evasive |
+| X214 | D103, D104 | Scale signaling against authorship presence | Faceless or costumed |
+| X215 | D105 | Density against craft level | Cluttered |
+| X216 | D106 | Layout generosity against copy volume | Endless |
+| X217 | D107 | Motion quantity against measured speed | Showy and slow |
+| X218 | D108 | Distribution of convention departures | Unlearnable |
+| X219 | D109 | Audience expertise against path control | Condescending |
 
 *Method* — one reviewer who did not build it, walking the primary journey, answering each as a yes or no with one sentence of evidence. Quarterly, or before any launch.
 
 ## X220 · The three questions
 
-Decision reduces every congruence failure to one of three being answered inconsistently: how big are we, how much do we mean it, how much care went into this. A faster version of X210, when time is short, is to answer those three from the artifact alone and check the answers against the decision record.
+Per D111, Decision reduces every congruence failure to one of three being answered inconsistently: how big are we, how much do we mean it, how much care went into this. A faster version of X210, when time is short, is to answer those three from the artifact alone and check the answers against the decision record.
 
 ---
 
