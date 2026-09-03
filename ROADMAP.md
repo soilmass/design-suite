@@ -32,7 +32,7 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   `tests/decision_completeness/fixtures/` for the ADR format and worked examples.
 - **Anatomy volume 2.** Partially done. Components, tokens, information architecture, and content
   — the volumes `README.md` already flags as needed beyond the current rendering-primitives-only
-  scope. Five slices have landed: `docs/anatomy-1.0.0.md` is now 1.5.0, exports `A-001`–`A-094`.
+  scope. Six slices have landed: `docs/anatomy-1.0.0.md` is now 1.6.0, exports `A-001`–`A-096`.
   The first slice added `A-062`–`A-066` for Button, Card, Tooltip/Popover, Dialog, and Tabs; the
   second added `A-067`–`A-076` for the input controls — Text input, Checkbox, Radio group,
   Switch, Select and combobox, Slider, Stepper, Segmented control, Dropzone, and Fieldset; the
@@ -42,12 +42,10 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   hamburger menu as a sub-part), and Skip link; the fifth added `A-084`–`A-094` for content —
   Headline, Deck, Eyebrow, Byline, Body, Pull-quote, Stat/callout, Caption, CTA text, List, and
   Metadata block, drawn from Vocabulary's `L · Content and language` part rather than `H ·
-  Components`. Counted against the current export index, the first four slices together cite 32
-  of the 55 names in Vocabulary's `H · Components` part (`V-310`–`V-364`) — a little over half —
-  with the navigation-variant and skip-link names the fourth slice covers sitting outside that
-  part's own count; the fifth slice does not add to that count, since content draws from a
-  different Vocabulary part entirely. Tokens are no longer an open gap: the scoping discussion the
-  first slice deferred it to has since happened and closed negative (issue #13, closed) —
+  Components`; the sixth added `A-095`–`A-096` for message surfaces — Toast and banner (folded
+  into one entry) and Callout, the `H`-part, severity-keyed sense of the term the fifth slice had
+  left open. Tokens are no longer an open gap: the scoping discussion the first slice deferred it
+  to has since happened and closed negative (issue #13, closed) —
   `docs/anatomy-1.0.0.md`'s own **Settled decisions** section now records tokens as settled out of
   scope, not deferred, because every parameter, range, and derived fact a token could need already
   resolves to an existing A-ID (a color-ramp step to `A-014`, spacing to `A-036`, a radius to
@@ -58,19 +56,33 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   raised was rejected as Composition's or Diagnosis's shape, not Anatomy's), and the fourth slice
   drafted the full named candidate set against that shape. Content is no longer open either — issue
   #10 closed with content anatomized as atomic content elements (Headline, Deck, Eyebrow, Byline,
-  Body, Pull-quote, Stat/callout, Caption, CTA text, List, Metadata block), and the fifth slice has
-  now drafted the full named candidate set, citing a small companion Vocabulary addition
+  Body, Pull-quote, Stat/callout, Caption, CTA text, List, Metadata block), and the fifth slice
+  drafted the full named candidate set, citing a small companion Vocabulary addition
   (`V-613`–`V-621`) the same slice added alongside it for the eight candidates and one partial
-  match (Stat, against the pre-existing Callout) that had no term yet. One nuance flagged rather
-  than resolved: `A-090` Stat/callout cites the pre-existing Callout (`V-348`) for the
-  content-element sense of a callout specifically; a general-purpose `H`-part Callout component —
-  with a severity, an icon, and an accent color, the shape most callout implementations actually
-  take — is not covered by this slice and stays open below. The remaining ~23 names in Vocabulary's
-  `H` part (toasts and banners, callouts, badges and chips, avatars, progress and spinner, skeleton
-  and empty/zero state, carousel, lightbox, and toolbar, among others) remain the one open gap,
-  natural first projects for an outside contributor, each its own bounded, separately scoped
-  contribution rather than one PR closing the whole gap. Phase 2 is not complete while those remain
-  unbuilt.
+  match (Stat, against the pre-existing Callout) that had no term yet. The nuance the fifth slice
+  flagged rather than resolved — `A-090` Stat/callout cites the pre-existing Callout (`V-348`) for
+  the content-element sense of a callout specifically, leaving a general-purpose `H`-part Callout
+  component open — is resolved by the sixth slice's `A-096`, which cites the same `V-348` for that
+  richer, severity-keyed construction and states in `docs/anatomy-1.0.0.md`'s own **Settled
+  decisions** why it folds with neither Toast/Banner nor Badge/Chip.
+
+  Counted against the current export index, the sixth slice's own re-verification against
+  Vocabulary's `H · Components` part (`V-310`–`V-364`, 55 names) found this document's citations
+  account for 35 of them — the 32 the first four slices cite (component-only; the fifth slice adds
+  no `H`-part citations, since content draws from a different Vocabulary part entirely) plus
+  Label, Placeholder text, and Helper text (`V-318`–`V-320`), folded into the pre-existing `A-061`
+  Form field rather than counted in that 32 — leaving 20 open before the sixth slice, not the
+  ~23 this entry previously estimated. The sixth slice closes 3 of those 20 (Toast, Banner,
+  Callout); 17 remain: badges and chips, avatars, progress and spinner, skeleton and empty/zero
+  state, carousel, lightbox, and toolbar (11 names, already flagged in `docs/anatomy-1.0.0.md`'s
+  own **Settled decisions**), plus six names that re-verification found cited nowhere in the
+  document and named in none of its "still open" notes — Link, Table, Data grid, Accordion,
+  Disclosure, and Infinite scroll — tracked in issue #48 rather than assigned to a slice here,
+  since how they group is a scoping call for a human, the same way tokens, information
+  architecture, and content each got their own scoping issue before being drafted. Each of the 17
+  is additive follow-up work, a natural first project for an outside contributor, each its own
+  bounded, separately scoped contribution rather than one PR closing the whole gap. Phase 2 is not
+  complete while those remain unbuilt.
 
 Everything else in the gap register (language-plane consistency measurement, representation-plane
 verification, citation-intent checking, legal-change monitoring) stays explicitly out of scope —
