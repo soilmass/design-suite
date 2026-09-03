@@ -25,10 +25,11 @@ mechanical check to catch structural errors before a human has to.
 
 Close the gaps the suite already knows about, in the order the suite itself recommends:
 
-- **Decision-completeness checker.** `audit/tooling-audit-2.0.0.md` recommends exactly one build:
-  join the ADR/decision set against `tooling/registry.yaml` and report which of the 67
-  Composition families are still on default. Small, high-value, uses artifacts the suite already
-  produces. Converts Composition from a reference into a checklist that knows its own state.
+- **Decision-completeness checker.** Done — `tooling/decision_completeness.py`. Joins a
+  downstream project's ADR directory against `tooling/registry.yaml` and reports which of the 67
+  Composition families are decided versus still on default. Converts Composition from a reference
+  into a checklist that knows its own state; see `README.md`'s command list for usage and
+  `tests/decision_completeness/fixtures/` for the ADR format and worked examples.
 - **Anatomy volume 2.** Components, tokens, information architecture, and content — the volumes
   `README.md` already flags as needed beyond the current rendering-primitives-only scope. Larger
   than the decision-completeness build and a natural first project for an outside contributor

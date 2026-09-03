@@ -49,6 +49,16 @@ Prose linting for the refused-terms list:
 vale --config=tooling/vale/.vale.ini docs/
 ```
 
+Decision completeness — for a team using this suite, not for this repo. Joins your project's
+ADR directory against `tooling/registry.yaml` and reports which of the 67 Composition families
+are decided versus still on default:
+
+```bash
+python3 tooling/decision_completeness.py path/to/your/adrs
+```
+
+ADR format and sample fixtures: `tests/decision_completeness/fixtures/`.
+
 ---
 
 ## Contributing
