@@ -1,6 +1,6 @@
 ```yaml
 document: Composition
-version: 1.0.2
+version: 1.0.3
 tier: 1
 owns:
   - what choices a website presents
@@ -226,9 +226,7 @@ Absence of a coupling line means the family is independent.
 *Coupling* — tight with F36.
 
 ### F20 · Adaptation
-<!-- vale Suite.RefusedTerms = NO --><!-- "Responsive" here is F20.1's exported family name, naming the same distinction Vocabulary V-611 disambiguates; not the refused vague usage, and not ours to rename -->
-**F20.1** Responsive strategy — reflow / rearrange / remove content
-<!-- vale Suite.RefusedTerms = YES -->
+**F20.1** Adaptation strategy — reflow / rearrange / remove content
 **F20.2** Breakpoint count
 **F20.3** Sizing basis — viewport ←→ container
 **F20.4** Input priority — touch-first / pointer-first / keyboard-first
@@ -707,3 +705,5 @@ Recorded so they are not relitigated.
 **Provenance is an outcome, with one dial hiding inside it.** Whether a site reads as templated, bespoke, individually authored, or machine-generated is fully determined by the other families — two sites with identical settings across all 67 cannot differ on it. What produces the reading is F41.2 platform and F04.1 convention appetite, both already present. But one genuine choice was concealed in the question: whether you *disclose* your origin, through a colophon, credits, or naming your tooling. That is now F58.5.
 
 **Craft is independent of style but not of state.** The claim that F40 couples to nothing was too strong in one direction and correct in the other. Correct: no stylistic family constrains it. Changing typeface, palette, or shape language does not change your level of finish, which is what makes craft available at any aesthetic. Too strong: F40.3 state completeness and F64.2 failure surfaces are asking a version of the same question, so that coupling is now recorded as moderate. Separately, cursor and sound were removed from F40 — they were a junk drawer, not finish. Pointer feedback is now F39.5, interface sound is F63.4, and ambient audio is F38.5.
+
+**F20.1 was renamed off "Responsive," not exempted.** The segment carried a Vale exemption claiming "Responsive strategy" named the same distinction Vocabulary V-611 disambiguates. It didn't: V-611 (via V-081/V-082) draws a strictly two-way line — layout scaling continuously versus layout switching between a fixed number of discrete arrangements. F20.1's dial has three values — reflow, rearrange, remove content — and "remove content" is a content-depth strategy, not a form of either responsive or adaptive layout scaling; it has no home in V-611 at all. An exemption citing V-611 as covering all three values was inaccurate, and widening V-611 itself to cover "remove content" would have papered over a real difference between a layout-scaling axis and a content-inclusion axis to save a name. The segment is now **Adaptation strategy**, matching the family name (F20 · Adaptation) instead of a narrower technical term two-thirds of its range doesn't fit. Per `suite-architecture.md` §3, the rename is free — `F20.1` did not move and nothing that cites it by ID needed to change — and it also removes the Vale exemption entirely, since the word "Responsive" no longer appears there to need one. The reflow/rearrange distinction inside the dial still corresponds to V-081/V-082 and V-611 remains the correct citation for anyone who needs *that* pair disambiguated; this document just no longer asserts it covers the whole segment.
