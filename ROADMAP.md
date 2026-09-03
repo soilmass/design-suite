@@ -43,10 +43,14 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   drafting their anatomy risked duplicating ownership rather than filling a gap; information
   architecture and content are not rendering primitives in the sense the rest of this document
   is, and each looks like it wants its own organizing shape rather than a bolt-on section here.
-  Both are left for a scoping discussion before either gets A-IDs." The remaining ~40 component
-  terms, plus tokens and information architecture and content, remain natural first projects for
-  an outside contributor, each its own bounded, separately scoped contribution rather than one PR
-  closing the whole gap.
+  Both are left for a scoping discussion before either gets A-IDs." That scoping discussion has
+  since happened for tokens, and closed negative: `docs/anatomy-1.0.0.md`'s own **Settled
+  decisions** section now records tokens as settled out of scope, not deferred — Implementation's
+  `T`-namespace and the DTCG spec it cites already own the whole of a token's structure, so tokens
+  is no longer tracked as an open gap here. Information architecture and content remain open on
+  the same terms as before; only tokens is resolved. The remaining ~40 component terms, plus
+  information architecture and content, remain natural first projects for an outside contributor,
+  each its own bounded, separately scoped contribution rather than one PR closing the whole gap.
 
 Everything else in the gap register (language-plane consistency measurement, representation-plane
 verification, citation-intent checking, legal-change monitoring) stays explicitly out of scope —

@@ -1,13 +1,13 @@
 ```yaml
 document: Anatomy
-version: 1.2.0
+version: 1.3.0
 tier: 1
-scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls
+scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus
 owns:
   - what each thing is made of, expressed as parameters
   - the range or type of each parameter
   - what is derived rather than chosen
-exports: A-001–A-076
+exports: A-001–A-078
 depends:
   - Vocabulary ^1
   - Constraints ^1
@@ -21,6 +21,8 @@ What each thing is made of. Where Vocabulary establishes what a term denotes, th
 **Scope of 1.1.0** — rendering primitives, plus a first slice of component anatomy: Button, Card, Tooltip/Popover, Dialog, and Tabs (A-062–A-066). The rest of components, tokens, information architecture, and content are not yet covered; they enter as additive minor versions with new A-IDs.
 
 **Scope of 1.2.0** — adds a second slice of component anatomy, input controls: Text input, Checkbox, Radio group, Switch, Select and combobox, Slider, Stepper, Segmented control, Dropzone, and Fieldset (A-067–A-076). Menus, toasts and banners, badges and chips, avatars, and the rest of Vocabulary's `H · Components` part remain open; see **Settled decisions**.
+
+**Scope of 1.3.0** — adds a third slice of component anatomy, the menu family: Menu, covering dropdown menu and context menu, and Command palette (A-077–A-078). Toasts and banners, callouts, badges and chips, avatars, breadcrumb and pagination, progress and spinner, skeleton and empty/zero state, facets, carousel, lightbox, toolbar, and hamburger menu remain open; see **Settled decisions**. This version also closes tokens as a settled out-of-scope finding rather than a deferral — see **Settled decisions**.
 
 ## What this document does not own
 
@@ -785,6 +787,8 @@ A first slice: five components whose parts are least reducible to the primitives
 
 A-067–A-076 below are the second such addition: the input controls, the group most of the remaining `H` names sit beside rather than compose from. See **Settled decisions** for why this group and this boundary.
 
+A-077–A-078 below are the third such addition: the menu family — dropdown menu, context menu, and command palette — the group whose anatomy leans most heavily on A-064 Tooltip and popover's placement machinery while still differing enough in interior structure to earn its own entries. See **Settled decisions** for why this group and this boundary.
+
 ## A-062 · Button
 
 `container` · `label` · `leading icon` · `trailing icon` · `hit target` · `state matrix`
@@ -947,6 +951,33 @@ Fieldset (V-330) is a grouping of related controls with a group-level label: a `
 
 ---
 
+## A-077 · Menu
+
+`trigger` · `panel` · `item[]` · `placement` · `offset` · `collision behavior`
+
+`item` sub-parts — `label` · `icon` · `shortcut` · `submenu indicator` · `state`
+
+Dropdown menu (V-343) and context menu (V-344) share one anatomy — a panel of items positioned and collided the same way as a popover anchored to its trigger (A-064) — and diverge only in what supplies that anchor: a dropdown menu's trigger is a persistent, visible control, while a context menu's is the point where a secondary click or long press occurred, so its panel is anchored to that point rather than to any element, and it is scoped to whatever the invoking event targeted.
+**Navigation** — the panel is a single stop in the page's tab order; individual items are reached inside it by arrow key, a roving tabindex (V-403) rather than one tab stop each. A `submenu indicator` marks an item that opens a nested panel on a further arrow key or activation, returning focus to the parent item on close.
+**Breaks when** — a context menu has no means of invocation reachable without a pointer; C030 requires all functionality to be operable through a keyboard interface, and a menu invoked only by secondary click or long press provides none on its own.
+**Also breaks when** — an item's role, checked state, or disabled state is carried only by its visual treatment; C046 requires each to be programmatically determinable regardless of what markup produces the panel.
+
+---
+
+## A-078 · Command palette
+
+`invocation` · `overlay` · `query input` · `result[]` · `section[]` · `initial focus` · `return focus`
+
+`result` sub-parts — `label` · `icon` · `shortcut` · `group`
+
+Command palette (V-345) is invoked by a global keyboard shortcut rather than anchored to any on-page trigger: opening it presents an overlay, typically centered or full-width, whose primary chrome is a `query input` filtering `result[]` as it is typed into. Results may be grouped into labeled `section[]` (recent, suggested, matched-by-category) before any query is entered.
+**Distinguished from Menu (A-077)** — there is no element to anchor a panel against, so `placement`, `offset`, and `collision behavior` do not apply; the overlay's position is fixed relative to the viewport, not derived from a trigger's geometry.
+**Initial and return focus** — initial focus moves onto `query input` on open; return focus restores to whatever held focus before invocation on close, the same obligation A-065 states for dialog.
+**Breaks when** — either focus move is missing; C038 requires the resulting sequence to still make sense, and a palette that opens without moving focus into `query input`, or closes without restoring it, breaks that sequence.
+**Also breaks when** — the query matches nothing and no state is defined for that case — the same unresolved-input gap A-071 names for combobox, here with no result list to fall back on at all.
+
+---
+
 ---
 
 # EXPORT INDEX
@@ -1029,12 +1060,16 @@ Fieldset (V-330) is a grouping of related controls with a group-level label: a `
 | A-074 | Segmented control |
 | A-075 | Dropzone |
 | A-076 | Fieldset |
+| A-077 | Menu |
+| A-078 | Command palette |
 
 ---
 
 ## Settled decisions
 
-**Components was the chosen slice of the four named in README's "What is not covered," over tokens, information architecture, and content.** Vocabulary's `H · Components` part (V-310–V-364) already names roughly forty-five components with no anatomy anywhere in the suite, which made this the gap with the most existing scaffolding and the clearest boundary to work inside. Tokens sit close enough to Implementation's `T`/`K` namespace — the build artifact a choice becomes — that drafting their anatomy risked duplicating ownership rather than filling a gap; information architecture and content are not rendering primitives in the sense the rest of this document is, and each looks like it wants its own organizing shape rather than a bolt-on section here. Both are left for a scoping discussion before either gets A-IDs, not attempted in this pass.
+**Components was the chosen slice of the four named in README's "What is not covered," over tokens, information architecture, and content.** Vocabulary's `H · Components` part (V-310–V-364) already names roughly forty-five components with no anatomy anywhere in the suite, which made this the gap with the most existing scaffolding and the clearest boundary to work inside. Information architecture and content are not rendering primitives in the sense the rest of this document is, and each looks like it wants its own organizing shape rather than a bolt-on section here; both remain left for a scoping discussion before either gets A-IDs, not attempted in this pass. Tokens do not remain open the same way — see the settled finding below.
+
+**Tokens are settled out of scope for Anatomy, not deferred.** A later scoping pass, run specifically to close the "left for a scoping discussion" note above, found no parameter, range, or derived fact about a token that this document does not already own by another route. Implementation's `T`-namespace owns the token wrapper itself — the reference-tier structure, the naming grammar, and the DTCG-mandated envelope (`$value`, `$type`, `$description`, `$deprecated`, `$extensions`, and the reference/aliasing syntax) — none of which describes anything that renders; it describes a build pipeline's own bookkeeping, which is Implementation's stated ownership ("how a choice becomes a token, component, or line of code"), not this document's. Every value a token can hold, in turn, resolves to a parameter set already published under its own A-ID: a color-ramp step to A-014, spacing to A-036, a radius to A-026, a shadow to A-028, a duration or easing curve to A-043–A-047, typography to A-018–A-024, a breakpoint to A-041 — and the DTCG spec's composite types (border, shadow, gradient, typography, transition) don't introduce new value-parameters beyond these either, they wrap them. Even the two candidates that looked most like Anatomy-shaped derived facts turn out to already be stated here: a token's inner-radius-from-outer-radius derivation is A-026's own **Derived** line, and its multi-layer shadow requirement is A-028's own **Layered shadow** construction. Unlike A-001 "the color value" or A-020's variable font axes, which are genuinely prior to and independent of any particular format, a design token has no shape independent of the tooling decision to represent a value as referenceable, typed, buildable data — drafting an Anatomy entry for it would either re-derive the DTCG spec Implementation already cites correctly, or re-list parameters this document has already published under other A-IDs. Information architecture and content are unaffected by this finding and remain open questions for a future scoping pass, as stated above; only tokens close here.
 
 **Five entries, not forty-five.** A-062–A-066 cover Button, Card, Tooltip/Popover, Dialog, and Tabs: the components most others in Vocabulary's `H` part either compose from directly (a card holding buttons, a dropdown menu sharing tooltip/popover placement anatomy) or differ from structurally (a dialog's scrim and focus trap, a tabs set's roving tabindex). This is a first slice, not the volume — the remaining names in V-310–V-364 (inputs and their variants, menus, toasts and banners, badges and chips, avatars, and the rest) are additive follow-up work under new A-IDs, each its own bounded contribution rather than one PR closing the whole part.
 
@@ -1049,3 +1084,7 @@ Fieldset (V-330) is a grouping of related controls with a group-level label: a `
 **Checkbox, radio group, and switch stayed three entries, not one.** The precedent A-064 Tooltip/Popover and A-065's dialog family set folds variants that share an identical parameter set and diverge only in which parameters are present, absent, or fixed. These three don't clear that bar: a checkbox's indicator is a box with an optional mark, a switch's is a track and a thumb, and a radio's is a set of options with group-level navigation absent from either — three different constructions wearing a similar "toggle" reputation, which is exactly the confusion V-608 exists to correct. Select and combobox, by contrast, do clear that bar — the same trigger/panel/option construction, diverging only in whether the trigger accepts typed text — and were folded into one entry, A-071, on the same reasoning A-064 already established.
 
 **Still open after this slice.** Menus (dropdown, context, command palette), toasts and banners, callouts, badges and chips, avatars, breadcrumb and pagination, progress and spinner, skeleton and empty/zero state, facets, carousel, lightbox, toolbar, and hamburger menu remain uncovered in Vocabulary's `H` part. Each is additive follow-up work under further new A-IDs, on the same terms this document has already set twice.
+
+**Third slice: the menu family, two entries covering three of Vocabulary's `H` names.** A-077 Menu folds dropdown menu (V-343) and context menu (V-344) into one entry on the same "shares a parameter set, diverges only in what's present or fixed" test A-064 and A-071 already established; A-078 Command palette (V-345) stays separate because it has no anchor element at all — no `placement`, `offset`, or `collision behavior` to inherit from A-064's popover machinery — and adds a `query input` and `result[]` construction the other two don't have. This group was chosen over toasts and banners, callouts, badges and chips, avatars, breadcrumb and pagination, progress and spinner, skeleton and empty/zero state, facets, carousel, lightbox, toolbar, and hamburger menu — the full list the second slice's settled decisions left open — because it reuses more of this document's own published anatomy than any other remaining group (A-064's placement/offset/collision-behavior parameters, V-403's roving-tabindex pattern already used by A-066 and A-069) while still containing genuine new parts (`item`, `submenu indicator`, `query input`), making it the tightest-bounded remaining slice rather than only the next one on the list. It also carries the same order-of-magnitude accessibility exposure the second slice cited for input controls: a context menu with no keyboard-reachable equivalent, or a command palette that fails to move focus into its own query field, is a WCAG failure a screen-reader or keyboard-only user hits immediately, not an edge case.
+
+**Still open after this slice.** Toasts and banners, callouts, badges and chips, avatars, breadcrumb and pagination, progress and spinner, skeleton and empty/zero state, facets, carousel, lightbox, toolbar, and hamburger menu remain uncovered in Vocabulary's `H` part. Each is additive follow-up work under further new A-IDs, on the same terms this document has already set three times.
