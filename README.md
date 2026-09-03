@@ -65,7 +65,8 @@ ADR format and sample fixtures: `tests/decision_completeness/fixtures/`.
 
 Contributions are welcome. `CONTRIBUTING.md` has the process — kinds of change, what a pull
 request needs to contain, review — and `ROADMAP.md` has where the suite is headed next and why
-that order.
+that order. If you are an AI agent, start at `AGENTS.md` instead: orientation, how to find a task
+with no one assigning you one, and how to get reviewed.
 
 ---
 
