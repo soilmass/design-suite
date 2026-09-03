@@ -818,7 +818,7 @@ Tooltip (V-342) and popover (V-341) share one anatomy and diverge only in whethe
 `scrim` · `surface` · `header` · `body` · `footer` · `dismissal affordance` · `focus trap` · `initial focus` · `return focus`
 
 Covers modal (V-337) and non-modal (V-338) dialogs, and drawer (V-339) and sheet (V-340) as edge-anchored variants of the same parts.
-**Scrim** — V-195, present for a modal dialog and absent for a non-modal one, whose page beneath stays operable.
+**Scrim** — a layer dimming the page behind the dialog, present for a modal dialog and absent for a non-modal one, whose page beneath stays operable. Vocabulary has no ID for this sense of the term yet — V-195 defines "scrim" only for text-over-imagery legibility, a different concept — so this is described in place rather than mis-cited; a dedicated disambiguation entry (in the style of V-609–V-612) is a candidate for a future Vocabulary addition.
 **Focus trap** — V-404, required only where a scrim is present. A trap without an exit violates C031; every trap needs a stated escape hatch (V-406), conventionally the Escape key in addition to the dismissal affordance, not instead of it.
 **Initial and return focus** — initial focus moves onto the dialog on open; return focus restores to the element that triggered it on close. Either one missing breaks the meaningful focus order required by C038.
 **Breaks when** — the scrim dismisses the dialog on click but Escape does not, or the reverse; the two are expected as redundant paths to the same result, not alternatives that only sometimes work.
