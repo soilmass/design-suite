@@ -13,13 +13,13 @@ New to the suite, read three: **Suite Architecture** for how the documents relat
 | # | Document | Version | Tier | Answers |
 |---|---|---|---|---|
 | — | `suite-architecture.md` | 1.0.0 | — | How the documents depend on each other |
-| 1 | `docs/vocabulary-1.0.0.md` | 1.0.1 | 0 | What does this term mean? |
-| 2 | `docs/constraints-1.0.0.md` | 1.0.0 | 0 | What may not be done? |
-| 3 | `docs/anatomy-1.0.0.md` | 1.0.0 | 1 | What is this made of? |
-| 4 | `docs/composition-1.0.0.md` | 1.0.1 | 1 | What choices exist? |
-| 5 | `docs/decision-1.0.0.md` | 1.0.1 | 2 | What should they be set to? |
-| 6 | `docs/implementation-1.0.0.md` | 1.0.1 | 2 | How does that get built? |
-| 7 | `docs/verification-1.0.0.md` | 1.0.2 | 3 | How do I confirm it? |
+| 1 | `docs/vocabulary-1.0.0.md` | 1.0.2 | 0 | What does this term mean? |
+| 2 | `docs/constraints-1.0.0.md` | 1.0.1 | 0 | What may not be done? |
+| 3 | `docs/anatomy-1.0.0.md` | 1.2.0 | 1 | What is this made of? |
+| 4 | `docs/composition-1.0.0.md` | 1.0.2 | 1 | What choices exist? |
+| 5 | `docs/decision-1.0.0.md` | 1.0.2 | 2 | What should they be set to? |
+| 6 | `docs/implementation-1.0.0.md` | 1.0.2 | 2 | How does that get built? |
+| 7 | `docs/verification-1.0.0.md` | 1.0.3 | 3 | How do I confirm it? |
 | 8 | `docs/diagnosis-1.0.0.md` | 1.0.1 | 3 | How do I read a site I did not build? |
 | 9 | `docs/governance-1.0.0.md` | 1.0.0 | none | How does any of this change? |
 
