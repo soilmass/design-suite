@@ -1908,7 +1908,7 @@
   since: 1.0.0
 - id: F20.1
   owner: composition
-  name: Responsive strategy
+  name: Adaptation strategy
   type: segment
   status: active
   since: 1.0.0
