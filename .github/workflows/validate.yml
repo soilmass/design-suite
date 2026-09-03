@@ -41,3 +41,21 @@ jobs:
 
       - name: Run prose lint (refused-terms list)
         run: vale --config=tooling/vale/.vale.ini docs/
+
+  pytest-suites:
+    name: Pytest suites (tests/**)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies
+        run: pip install pytest pyyaml
+
+      - name: Run all pytest suites under tests/
+        run: python3 -m pytest tests/ -v
