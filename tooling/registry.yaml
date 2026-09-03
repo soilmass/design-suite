@@ -1,0 +1,7176 @@
+- id: A-001
+  owner: anatomy
+  name: The color value
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-002
+  owner: anatomy
+  name: sRGB
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-003
+  owner: anatomy
+  name: HSL
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-004
+  owner: anatomy
+  name: OKLCH
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-005
+  owner: anatomy
+  name: OKLab
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-006
+  owner: anatomy
+  name: Display P3
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-007
+  owner: anatomy
+  name: Color components
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-008
+  owner: anatomy
+  name: Hue
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-009
+  owner: anatomy
+  name: Chroma / saturation
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-010
+  owner: anatomy
+  name: Lightness vs luminance vs brightness
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-011
+  owner: anatomy
+  name: Alpha
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-012
+  owner: anatomy
+  name: Gradient
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-013
+  owner: anatomy
+  name: Mesh gradient
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-014
+  owner: anatomy
+  name: Color scale (ramp)
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-015
+  owner: anatomy
+  name: Contrast
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-016
+  owner: anatomy
+  name: Blend mode
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-017
+  owner: anatomy
+  name: Dark theme
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-018
+  owner: anatomy
+  name: Glyph anatomy
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-019
+  owner: anatomy
+  name: Font metrics
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-020
+  owner: anatomy
+  name: Variable font axes
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-021
+  owner: anatomy
+  name: The text block
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-022
+  owner: anatomy
+  name: Type scale
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-023
+  owner: anatomy
+  name: OpenType features
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-024
+  owner: anatomy
+  name: Font loading
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-025
+  owner: anatomy
+  name: The box
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-026
+  owner: anatomy
+  name: Corner
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-027
+  owner: anatomy
+  name: Stroke
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-028
+  owner: anatomy
+  name: Shadow
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-029
+  owner: anatomy
+  name: Elevation
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-030
+  owner: anatomy
+  name: Blur
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-031
+  owner: anatomy
+  name: Glass surface
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-032
+  owner: anatomy
+  name: Fill
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-033
+  owner: anatomy
+  name: Mask and clip
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-034
+  owner: anatomy
+  name: Noise and grain
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-035
+  owner: anatomy
+  name: Pattern
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-036
+  owner: anatomy
+  name: Spacing scale
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-037
+  owner: anatomy
+  name: Grid
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-038
+  owner: anatomy
+  name: Flex
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-039
+  owner: anatomy
+  name: Position
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-040
+  owner: anatomy
+  name: Stacking context
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-041
+  owner: anatomy
+  name: Breakpoint
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-042
+  owner: anatomy
+  name: Fluid value
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-043
+  owner: anatomy
+  name: Timing
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-044
+  owner: anatomy
+  name: Easing
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-045
+  owner: anatomy
+  name: Cubic-bézier
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-046
+  owner: anatomy
+  name: linear()
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-047
+  owner: anatomy
+  name: Spring
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-048
+  owner: anatomy
+  name: Transform
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-049
+  owner: anatomy
+  name: Choreography
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-050
+  owner: anatomy
+  name: Micro-interaction
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-051
+  owner: anatomy
+  name: Scroll-driven animation
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-052
+  owner: anatomy
+  name: Reduced motion
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-053
+  owner: anatomy
+  name: Raster image
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-054
+  owner: anatomy
+  name: Responsive image
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-055
+  owner: anatomy
+  name: SVG
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-056
+  owner: anatomy
+  name: Icon
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-057
+  owner: anatomy
+  name: The state matrix
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-058
+  owner: anatomy
+  name: Focus ring
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-059
+  owner: anatomy
+  name: Hit target
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-060
+  owner: anatomy
+  name: Feedback loop
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-061
+  owner: anatomy
+  name: Form field
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: C001
+  owner: constraints
+  name: Acknowledgment window
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C002
+  owner: constraints
+  name: Flow threshold
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C003
+  owner: constraints
+  name: Attention threshold
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C004
+  owner: constraints
+  name: Measure for sustained reading
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C005
+  owner: constraints
+  name: Reading rate
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C006
+  owner: constraints
+  name: Working memory limit
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C007
+  owner: constraints
+  name: Foveal acuity
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C008
+  owner: constraints
+  name: Change blindness
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C009
+  owner: constraints
+  name: Vestibular sensitivity
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C010
+  owner: constraints
+  name: Photosensitivity
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C011
+  owner: constraints
+  name: Color vision deficiency
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C012
+  owner: constraints
+  name: Contrast is a luminance relationship
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C020
+  owner: constraints
+  name: Text contrast minimum
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C021
+  owner: constraints
+  name: Text contrast enhanced
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C022
+  owner: constraints
+  name: Non-text contrast
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C023
+  owner: constraints
+  name: Color is not sufficient alone
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C024
+  owner: constraints
+  name: Text alternatives
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C025
+  owner: constraints
+  name: Resize text
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C026
+  owner: constraints
+  name: Reflow
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C027
+  owner: constraints
+  name: Text spacing tolerance
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C028
+  owner: constraints
+  name: Target size minimum
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C029
+  owner: constraints
+  name: Target size enhanced
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C030
+  owner: constraints
+  name: Keyboard operability
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C031
+  owner: constraints
+  name: No keyboard trap
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C032
+  owner: constraints
+  name: Focus visible
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C033
+  owner: constraints
+  name: Focus not obscured
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C034
+  owner: constraints
+  name: Flash threshold
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C035
+  owner: constraints
+  name: Pause, stop, hide
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C036
+  owner: constraints
+  name: Motion from interaction
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C037
+  owner: constraints
+  name: Dragging alternative
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C038
+  owner: constraints
+  name: Meaningful sequence and focus order
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C039
+  owner: constraints
+  name: Labels or instructions
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C040
+  owner: constraints
+  name: Error identification and suggestion
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C041
+  owner: constraints
+  name: Redundant entry
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C042
+  owner: constraints
+  name: Accessible authentication
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C043
+  owner: constraints
+  name: Consistent navigation and identification
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C044
+  owner: constraints
+  name: Page titled
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C045
+  owner: constraints
+  name: Language of page
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C046
+  owner: constraints
+  name: Name, role, value
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C060
+  owner: constraints
+  name: EU — European Accessibility Act
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C061
+  owner: constraints
+  name: US public sector — ADA Title II
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C062
+  owner: constraints
+  name: US healthcare and education — Section 504
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C063
+  owner: constraints
+  name: US private sector — ADA Title III
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C064
+  owner: constraints
+  name: US federal — Section 508
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C065
+  owner: constraints
+  name: Accessibility statement
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C066
+  owner: constraints
+  name: Prior consent for non-essential processing
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C067
+  owner: constraints
+  name: Data subject rights
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C068
+  owner: constraints
+  name: Sale and sharing opt-out
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C069
+  owner: constraints
+  name: Subscription cancellation
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C070
+  owner: constraints
+  name: Material terms before purchase
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C080
+  owner: constraints
+  name: iOS input zoom
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C081
+  owner: constraints
+  name: Email rendering
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C082
+  owner: constraints
+  name: Platform target conventions
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C083
+  owner: constraints
+  name: Safe areas
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C084
+  owner: constraints
+  name: OS text size settings
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C085
+  owner: constraints
+  name: Browser minimum font size
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C086
+  owner: constraints
+  name: Autofill token vocabulary
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C100
+  owner: constraints
+  name: Bit depth and banding
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C101
+  owner: constraints
+  name: Untagged color is assumed sRGB
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C102
+  owner: constraints
+  name: Animation cost tiers
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C103
+  owner: constraints
+  name: Frame budget
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C104
+  owner: constraints
+  name: Font swap and layout shift
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C105
+  owner: constraints
+  name: Unsized media shifts layout
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C120
+  owner: constraints
+  name: Core Web Vitals thresholds
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C121
+  owner: constraints
+  name: Page weight budget
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C122
+  owner: constraints
+  name: JavaScript budget
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C123
+  owner: constraints
+  name: Font budget
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: C124
+  owner: constraints
+  name: Third-party budget
+  type: constraint
+  status: active
+  since: 1.0.0
+- id: D001
+  owner: decision
+  name: Three forces determine order
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D002
+  owner: decision
+  name: Round 0 — Constraint intake
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D003
+  owner: decision
+  name: Round 1 — Purpose
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D004
+  owner: decision
+  name: Round 2 — Structure and naming, jointly
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D005
+  owner: decision
+  name: Round 3 — Inventory
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D006
+  owner: decision
+  name: Round 4 — The density cluster
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D007
+  owner: decision
+  name: Round 5 — The emphasis triangle
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D008
+  owner: decision
+  name: Round 6 — Remaining language
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D009
+  owner: decision
+  name: Round 7 — Remaining surface
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D010
+  owner: decision
+  name: Round 8 — Adaptation and access
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D011
+  owner: decision
+  name: Round 9 — Substrate
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D012
+  owner: decision
+  name: Round 10 — Conduct
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D013
+  owner: decision
+  name: Round 11 — Time
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D014
+  owner: decision
+  name: Round 12 — Representation and social
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D015
+  owner: decision
+  name: Rounds are not phases
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D020
+  owner: decision
+  name: Leverage is impression per unit of effort
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D021
+  owner: decision
+  name: High leverage
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D022
+  owner: decision
+  name: Moderate leverage
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D023
+  owner: decision
+  name: Low leverage, and worth knowing it
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D024
+  owner: decision
+  name: Leverage inverts by site type
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D050
+  owner: decision
+  name: Density ↔ Craft
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D051
+  owner: decision
+  name: Density ↔ Target size
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D052
+  owner: decision
+  name: Motion ↔ Speed
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D053
+  owner: decision
+  name: Personalization ↔ Rendering
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D054
+  owner: decision
+  name: Pricing disclosure ↔ Lead capture
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D055
+  owner: decision
+  name: Novelty ↔ Comprehension
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D056
+  owner: decision
+  name: Typeface count ↔ Payload
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D057
+  owner: decision
+  name: Progressive disclosure ↔ Findability
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D058
+  owner: decision
+  name: Navigation breadth ↔ depth
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D059
+  owner: decision
+  name: Copy volume ↔ Above-fold load
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D060
+  owner: decision
+  name: Proof density ↔ Density
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D061
+  owner: decision
+  name: Single-page ↔ Representation
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D062
+  owner: decision
+  name: Custom controls ↔ Access cost
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D063
+  owner: decision
+  name: Optimistic UI ↔ Error honesty
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D064
+  owner: decision
+  name: Human presence ↔ Scale signaling
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D065
+  owner: decision
+  name: Theme options ↔ Every color decision
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D066
+  owner: decision
+  name: Docs depth ↔ Terminology
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D100
+  owner: decision
+  name: Craft high, failure handling low
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D101
+  owner: decision
+  name: Claim strength high, endorsement provenance low
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D102
+  owner: decision
+  name: Pressure high, pricing withheld
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D103
+  owner: decision
+  name: Institutional scale, no authorship
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D104
+  owner: decision
+  name: Solo scale, formal register
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D105
+  owner: decision
+  name: Dense layout, low craft
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D106
+  owner: decision
+  name: Sparse layout, high copy volume
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D107
+  owner: decision
+  name: Motion high, speed poor
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D108
+  owner: decision
+  name: Novelty distributed
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D109
+  owner: decision
+  name: Expert audience, site-driven path
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D110
+  owner: decision
+  name: Mismatches worth incurring
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D111
+  owner: decision
+  name: The general rule
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D150
+  owner: decision
+  name: What a default is
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D151
+  owner: decision
+  name: Purpose and inventory
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D152
+  owner: decision
+  name: Structure
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D153
+  owner: decision
+  name: Arrangement and language
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D154
+  owner: decision
+  name: Surface
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D155
+  owner: decision
+  name: Substrate and conduct
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D156
+  owner: decision
+  name: Families with no default
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D157
+  owner: decision
+  name: Failure states are not defaultable either
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D200
+  owner: decision
+  name: When to depart from a default
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D201
+  owner: decision
+  name: Decision record
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D202
+  owner: decision
+  name: Re-deciding
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D203
+  owner: decision
+  name: Craft is a standard, not a round
+  type: rule
+  status: active
+  since: 1.0.0
+- id: D204
+  owner: decision
+  name: When the sixty-seven are still too many
+  type: rule
+  status: active
+  since: 1.0.0
+- id: F01
+  owner: composition
+  name: Mandate
+  type: family
+  status: active
+  since: 1.0.0
+- id: F01.1
+  owner: composition
+  name: Purpose singularity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F01.2
+  owner: composition
+  name: Primary conversion
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F01.3
+  owner: composition
+  name: Success definition
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F01.4
+  owner: composition
+  name: Time horizon
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F02
+  owner: composition
+  name: Audience
+  type: family
+  status: active
+  since: 1.0.0
+- id: F02.1
+  owner: composition
+  name: Breadth
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F02.2
+  owner: composition
+  name: Assumed expertise
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F02.3
+  owner: composition
+  name: Assumed intent
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F02.4
+  owner: composition
+  name: Address term
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F03
+  owner: composition
+  name: Position
+  type: family
+  status: active
+  since: 1.0.0
+- id: F03.1
+  owner: composition
+  name: Positioning claim
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F03.2
+  owner: composition
+  name: Competitive posture
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F03.3
+  owner: composition
+  name: Editorial stance
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F03.4
+  owner: composition
+  name: Scale signaling
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F04
+  owner: composition
+  name: Risk posture
+  type: family
+  status: active
+  since: 1.0.0
+- id: F04.1
+  owner: composition
+  name: Convention appetite
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F04.2
+  owner: composition
+  name: Business model legibility
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F04.3
+  owner: composition
+  name: Disclosure willingness
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F05
+  owner: composition
+  name: Commercial surfaces
+  type: family
+  status: active
+  since: 1.0.0
+- id: F05.1
+  owner: composition
+  name: Pricing
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F05.2
+  owner: composition
+  name: Plan comparison
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F05.3
+  owner: composition
+  name: Case studies
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F05.4
+  owner: composition
+  name: Customer logos
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F05.5
+  owner: composition
+  name: Product access
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F05.6
+  owner: composition
+  name: Estimator or calculator
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F06
+  owner: composition
+  name: Knowledge surfaces
+  type: family
+  status: active
+  since: 1.0.0
+- id: F06.1
+  owner: composition
+  name: Documentation
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F06.2
+  owner: composition
+  name: API reference
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F06.3
+  owner: composition
+  name: Writing or blog
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F06.4
+  owner: composition
+  name: Changelog
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F06.5
+  owner: composition
+  name: Roadmap
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F06.6
+  owner: composition
+  name: Glossary
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F06.7
+  owner: composition
+  name: Tutorials and examples
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07
+  owner: composition
+  name: Institutional surfaces
+  type: family
+  status: active
+  since: 1.0.0
+- id: F07.1
+  owner: composition
+  name: About
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07.2
+  owner: composition
+  name: Team
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07.3
+  owner: composition
+  name: Careers
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07.4
+  owner: composition
+  name: Press kit
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07.5
+  owner: composition
+  name: Legal and terms
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07.6
+  owner: composition
+  name: Privacy policy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07.7
+  owner: composition
+  name: Security
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07.8
+  owner: composition
+  name: Status
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F07.9
+  owner: composition
+  name: Accessibility statement
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F08
+  owner: composition
+  name: Contact surfaces
+  type: family
+  status: active
+  since: 1.0.0
+- id: F08.1
+  owner: composition
+  name: Contact
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F08.2
+  owner: composition
+  name: Support
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F08.3
+  owner: composition
+  name: Community
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F08.4
+  owner: composition
+  name: Newsletter
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F08.5
+  owner: composition
+  name: Social presence
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F08.6
+  owner: composition
+  name: Booking
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F09
+  owner: composition
+  name: Machine surfaces
+  type: family
+  status: active
+  since: 1.0.0
+- id: F09.1
+  owner: composition
+  name: Sitemap
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F09.2
+  owner: composition
+  name: Robots directives
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F09.3
+  owner: composition
+  name: Feeds
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F09.4
+  owner: composition
+  name: Structured data
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F09.5
+  owner: composition
+  name: Open Graph tags
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F09.6
+  owner: composition
+  name: '`llms.txt`'
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F09.7
+  owner: composition
+  name: Canonical tags
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F10
+  owner: composition
+  name: Gating
+  type: family
+  status: active
+  since: 1.0.0
+- id: F10.1
+  owner: composition
+  name: Account gate depth
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F10.2
+  owner: composition
+  name: Purchase path
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F10.3
+  owner: composition
+  name: Data asked before value delivered
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F10.4
+  owner: composition
+  name: Identity requirement
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F11
+  owner: composition
+  name: Topology
+  type: family
+  status: active
+  since: 1.0.0
+- id: F11.1
+  owner: composition
+  name: Site shape
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F11.2
+  owner: composition
+  name: Page count
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F11.3
+  owner: composition
+  name: Navigation breadth
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F11.4
+  owner: composition
+  name: Navigation depth
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F12
+  owner: composition
+  name: Navigation
+  type: family
+  status: active
+  since: 1.0.0
+- id: F12.1
+  owner: composition
+  name: Model
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F12.2
+  owner: composition
+  name: Labeling scheme
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F12.3
+  owner: composition
+  name: Wayfinding cues
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F12.4
+  owner: composition
+  name: Cross-linking density
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F13
+  owner: composition
+  name: Path
+  type: family
+  status: active
+  since: 1.0.0
+- id: F13.1
+  owner: composition
+  name: Linearity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F13.2
+  owner: composition
+  name: Locus of control
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F13.3
+  owner: composition
+  name: Progressive disclosure depth
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F13.4
+  owner: composition
+  name: Entry assumption
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F14
+  owner: composition
+  name: Addressing
+  type: family
+  status: active
+  since: 1.0.0
+- id: F14.1
+  owner: composition
+  name: URL legibility
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F14.2
+  owner: composition
+  name: Canonical discipline
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F14.3
+  owner: composition
+  name: Durability
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F14.4
+  owner: composition
+  name: Content model granularity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F15
+  owner: composition
+  name: Density
+  type: family
+  status: active
+  since: 1.0.0
+- id: F15.1
+  owner: composition
+  name: Information density
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F15.2
+  owner: composition
+  name: Content-to-chrome ratio
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F15.3
+  owner: composition
+  name: Whitespace allocation
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F16
+  owner: composition
+  name: Pacing
+  type: family
+  status: active
+  since: 1.0.0
+- id: F16.1
+  owner: composition
+  name: Scroll distance per idea
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F16.2
+  owner: composition
+  name: Section count per page
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F16.3
+  owner: composition
+  name: Above-fold load
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F17
+  owner: composition
+  name: Emphasis
+  type: family
+  status: active
+  since: 1.0.0
+- id: F17.1
+  owner: composition
+  name: Hierarchy steepness
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F17.2
+  owner: composition
+  name: CTA count
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F17.3
+  owner: composition
+  name: CTA placement
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F17.4
+  owner: composition
+  name: Repetition
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F17.5
+  owner: composition
+  name: Persistence on scroll
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F18
+  owner: composition
+  name: Composition
+  type: family
+  status: active
+  since: 1.0.0
+- id: F18.1
+  owner: composition
+  name: Template count
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F18.2
+  owner: composition
+  name: Grid system
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F18.3
+  owner: composition
+  name: Reading path
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F18.4
+  owner: composition
+  name: Measure
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F18.5
+  owner: composition
+  name: Alignment discipline
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F18.6
+  owner: composition
+  name: Section uniformity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F19
+  owner: composition
+  name: Media balance
+  type: family
+  status: active
+  since: 1.0.0
+- id: F19.1
+  owner: composition
+  name: Image-to-text ratio
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F19.2
+  owner: composition
+  name: Media placement
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F19.3
+  owner: composition
+  name: Data presentation mode
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F20
+  owner: composition
+  name: Adaptation
+  type: family
+  status: active
+  since: 1.0.0
+- id: F20.1
+  owner: composition
+  name: Responsive strategy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F20.2
+  owner: composition
+  name: Breakpoint count
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F20.3
+  owner: composition
+  name: Sizing basis
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F20.4
+  owner: composition
+  name: Input priority
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F21
+  owner: composition
+  name: Form design
+  type: family
+  status: active
+  since: 1.0.0
+- id: F21.1
+  owner: composition
+  name: Field count
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F21.2
+  owner: composition
+  name: Step count
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F21.3
+  owner: composition
+  name: Grouping
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F21.4
+  owner: composition
+  name: Validation timing
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F21.5
+  owner: composition
+  name: Required-field strategy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F22
+  owner: composition
+  name: Person
+  type: family
+  status: active
+  since: 1.0.0
+- id: F22.1
+  owner: composition
+  name: Speaker
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F22.2
+  owner: composition
+  name: Addressee
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F22.3
+  owner: composition
+  name: Voice
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F22.4
+  owner: composition
+  name: Visibility
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F23
+  owner: composition
+  name: Register
+  type: family
+  status: active
+  since: 1.0.0
+- id: F23.1
+  owner: composition
+  name: Formality
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F23.2
+  owner: composition
+  name: Contractions
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F23.3
+  owner: composition
+  name: Humor
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F23.4
+  owner: composition
+  name: Idiom
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F24
+  owner: composition
+  name: Sentence
+  type: family
+  status: active
+  since: 1.0.0
+- id: F24.1
+  owner: composition
+  name: Length
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F24.2
+  owner: composition
+  name: Variance
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F24.3
+  owner: composition
+  name: Verb density
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F24.4
+  owner: composition
+  name: Paragraph length
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F24.5
+  owner: composition
+  name: Reading level
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F25
+  owner: composition
+  name: Claim structure
+  type: family
+  status: active
+  since: 1.0.0
+- id: F25.1
+  owner: composition
+  name: Assertion strength
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F25.2
+  owner: composition
+  name: Quantification
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F25.3
+  owner: composition
+  name: Attribution
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F25.4
+  owner: composition
+  name: Promise vs. description
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F26
+  owner: composition
+  name: Naming
+  type: family
+  status: active
+  since: 1.0.0
+- id: F26.1
+  owner: composition
+  name: Product name
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F26.2
+  owner: composition
+  name: Feature names
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F26.3
+  owner: composition
+  name: Tier names
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F26.4
+  owner: composition
+  name: Navigation labels
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F27
+  owner: composition
+  name: Terminology load
+  type: family
+  status: active
+  since: 1.0.0
+- id: F27.1
+  owner: composition
+  name: Jargon density
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F27.2
+  owner: composition
+  name: Definition on first use
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F27.3
+  owner: composition
+  name: Acronym policy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F28
+  owner: composition
+  name: Headline strategy
+  type: family
+  status: active
+  since: 1.0.0
+- id: F28.1
+  owner: composition
+  name: Type
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F28.2
+  owner: composition
+  name: Length
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F28.3
+  owner: composition
+  name: Load-bearing
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F29
+  owner: composition
+  name: Mechanics
+  type: family
+  status: active
+  since: 1.0.0
+- id: F29.1
+  owner: composition
+  name: Capitalization convention
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F29.2
+  owner: composition
+  name: Number formatting
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F29.3
+  owner: composition
+  name: Date formatting
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F29.4
+  owner: composition
+  name: Punctuation policy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F29.5
+  owner: composition
+  name: Abbreviation style
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F30
+  owner: composition
+  name: Copy volume
+  type: family
+  status: active
+  since: 1.0.0
+- id: F30.1
+  owner: composition
+  name: Words per screen
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F30.2
+  owner: composition
+  name: Verbosity per point
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F30.3
+  owner: composition
+  name: Label length
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F30.4
+  owner: composition
+  name: Redundancy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F31
+  owner: composition
+  name: Typography
+  type: family
+  status: active
+  since: 1.0.0
+- id: F31.1
+  owner: composition
+  name: Typeface count
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F31.2
+  owner: composition
+  name: Pairing relationship
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F31.3
+  owner: composition
+  name: Classification
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F31.4
+  owner: composition
+  name: Base text size
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F31.5
+  owner: composition
+  name: Scale range
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F31.6
+  owner: composition
+  name: Weight range
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F31.7
+  owner: composition
+  name: Case convention
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F32
+  owner: composition
+  name: Color
+  type: family
+  status: active
+  since: 1.0.0
+- id: F32.1
+  owner: composition
+  name: Palette size
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F32.2
+  owner: composition
+  name: Chroma level
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F32.3
+  owner: composition
+  name: Neutral character
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F32.4
+  owner: composition
+  name: Contrast level
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F32.5
+  owner: composition
+  name: Theme options
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F32.6
+  owner: composition
+  name: Semantic assignments
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F33
+  owner: composition
+  name: Space
+  type: family
+  status: active
+  since: 1.0.0
+- id: F33.1
+  owner: composition
+  name: Generosity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F33.2
+  owner: composition
+  name: Rhythm
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F33.3
+  owner: composition
+  name: Scale progression
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F34
+  owner: composition
+  name: Shape
+  type: family
+  status: active
+  since: 1.0.0
+- id: F34.1
+  owner: composition
+  name: Corner radius
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F34.2
+  owner: composition
+  name: Geometry
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F34.3
+  owner: composition
+  name: Border weight
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F34.4
+  owner: composition
+  name: Cross-scale consistency
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F35
+  owner: composition
+  name: Depth
+  type: family
+  status: active
+  since: 1.0.0
+- id: F35.1
+  owner: composition
+  name: Model
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F35.2
+  owner: composition
+  name: Separation method
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F35.3
+  owner: composition
+  name: Elevation cue
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F36
+  owner: composition
+  name: Imagery
+  type: family
+  status: active
+  since: 1.0.0
+- id: F36.1
+  owner: composition
+  name: Approach
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F36.2
+  owner: composition
+  name: Treatment
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F36.3
+  owner: composition
+  name: Human depiction
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F36.4
+  owner: composition
+  name: Set consistency
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F37
+  owner: composition
+  name: Iconography
+  type: family
+  status: active
+  since: 1.0.0
+- id: F37.1
+  owner: composition
+  name: Set
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F37.2
+  owner: composition
+  name: Style
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F37.3
+  owner: composition
+  name: Stroke weight
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F37.4
+  owner: composition
+  name: Density of use
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F37.5
+  owner: composition
+  name: Optical sizing
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F38
+  owner: composition
+  name: Texture and ornament
+  type: family
+  status: active
+  since: 1.0.0
+- id: F38.1
+  owner: composition
+  name: Noise or grain
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F38.2
+  owner: composition
+  name: Pattern use
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F38.3
+  owner: composition
+  name: Decoration level
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F38.4
+  owner: composition
+  name: Borrowed material
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F38.5
+  owner: composition
+  name: Ambient audio
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F39
+  owner: composition
+  name: Motion
+  type: family
+  status: active
+  since: 1.0.0
+- id: F39.1
+  owner: composition
+  name: Quantity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F39.2
+  owner: composition
+  name: Character
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F39.3
+  owner: composition
+  name: Transition treatment
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F39.4
+  owner: composition
+  name: Loading treatment
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F39.5
+  owner: composition
+  name: Pointer feedback
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F40
+  owner: composition
+  name: Craft
+  type: family
+  status: active
+  since: 1.0.0
+- id: F40.1
+  owner: composition
+  name: Optical corrections
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F40.2
+  owner: composition
+  name: Detail resolution
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F40.3
+  owner: composition
+  name: State completeness
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F40.4
+  owner: composition
+  name: Cross-surface consistency
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F41
+  owner: composition
+  name: Rendering
+  type: family
+  status: active
+  since: 1.0.0
+- id: F41.1
+  owner: composition
+  name: Model
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F41.2
+  owner: composition
+  name: Platform
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F41.3
+  owner: composition
+  name: JavaScript dependence
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F42
+  owner: composition
+  name: Payload
+  type: family
+  status: active
+  since: 1.0.0
+- id: F42.1
+  owner: composition
+  name: Total page weight budget
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F42.2
+  owner: composition
+  name: JavaScript budget
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F42.3
+  owner: composition
+  name: Font count and loading strategy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F42.4
+  owner: composition
+  name: Image formats and delivery
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F42.5
+  owner: composition
+  name: Third-party script count
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F43
+  owner: composition
+  name: Instrumentation
+  type: family
+  status: active
+  since: 1.0.0
+- id: F43.1
+  owner: composition
+  name: Analytics posture
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F43.2
+  owner: composition
+  name: Consent mechanism
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F43.3
+  owner: composition
+  name: Cookie usage
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F43.4
+  owner: composition
+  name: Tracking visibility
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F44
+  owner: composition
+  name: Infrastructure
+  type: family
+  status: active
+  since: 1.0.0
+- id: F44.1
+  owner: composition
+  name: Hosting and CDN
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F44.2
+  owner: composition
+  name: Domain structure
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F44.3
+  owner: composition
+  name: Security posture
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F44.4
+  owner: composition
+  name: Uptime visibility
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F45
+  owner: composition
+  name: Maintenance
+  type: family
+  status: active
+  since: 1.0.0
+- id: F45.1
+  owner: composition
+  name: Build cadence
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F45.2
+  owner: composition
+  name: Dependency posture
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F45.3
+  owner: composition
+  name: Content update mechanism
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F46
+  owner: composition
+  name: Recurrence
+  type: family
+  status: active
+  since: 1.0.0
+- id: F46.1
+  owner: composition
+  name: First-visit vs. return treatment
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F46.2
+  owner: composition
+  name: Memory between sessions
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F46.3
+  owner: composition
+  name: Re-entry point
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F47
+  owner: composition
+  name: Mutation
+  type: family
+  status: active
+  since: 1.0.0
+- id: F47.1
+  owner: composition
+  name: Change with use
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F47.2
+  owner: composition
+  name: Personalization accrual
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F47.3
+  owner: composition
+  name: Volume tolerance
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F48
+  owner: composition
+  name: Cadence
+  type: family
+  status: active
+  since: 1.0.0
+- id: F48.1
+  owner: composition
+  name: Publish rate
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F48.2
+  owner: composition
+  name: Seasonal or campaign variation
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F48.3
+  owner: composition
+  name: Maintenance visibility
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F48.4
+  owner: composition
+  name: Dating
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F49
+  owner: composition
+  name: Accretion
+  type: family
+  status: active
+  since: 1.0.0
+- id: F49.1
+  owner: composition
+  name: Archive policy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F49.2
+  owner: composition
+  name: Versioning
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F49.3
+  owner: composition
+  name: Correction policy
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F49.4
+  owner: composition
+  name: Link durability over years
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F50
+  owner: composition
+  name: Search appearance
+  type: family
+  status: active
+  since: 1.0.0
+- id: F50.1
+  owner: composition
+  name: Title construction
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F50.2
+  owner: composition
+  name: Meta description
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F50.3
+  owner: composition
+  name: Rich result eligibility
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F50.4
+  owner: composition
+  name: Sitelink structure
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F51
+  owner: composition
+  name: Link preview
+  type: family
+  status: active
+  since: 1.0.0
+- id: F51.1
+  owner: composition
+  name: Preview image
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F51.2
+  owner: composition
+  name: Card title and description
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F51.3
+  owner: composition
+  name: Embed behavior in messaging and documents
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F52
+  owner: composition
+  name: Machine summary
+  type: family
+  status: active
+  since: 1.0.0
+- id: F52.1
+  owner: composition
+  name: Structured data coverage
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F52.2
+  owner: composition
+  name: '`llms.txt` presence and content'
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F52.3
+  owner: composition
+  name: Framing durability
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F53
+  owner: composition
+  name: Third-party listing
+  type: family
+  status: active
+  since: 1.0.0
+- id: F53.1
+  owner: composition
+  name: Directory presence
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F53.2
+  owner: composition
+  name: App store or marketplace listing
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F53.3
+  owner: composition
+  name: Review site presence
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F53.4
+  owner: composition
+  name: Comparison page handling
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F54
+  owner: composition
+  name: Secondhand appearance
+  type: family
+  status: active
+  since: 1.0.0
+- id: F54.1
+  owner: composition
+  name: Screenshot legibility
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F54.2
+  owner: composition
+  name: Quotability
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F54.3
+  owner: composition
+  name: Scaled appearance
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F55
+  owner: composition
+  name: Other visitors
+  type: family
+  status: active
+  since: 1.0.0
+- id: F55.1
+  owner: composition
+  name: Activity traces
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F55.2
+  owner: composition
+  name: Counts
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F55.3
+  owner: composition
+  name: Recency signals
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F55.4
+  owner: composition
+  name: Inhabitation
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F56
+  owner: composition
+  name: User contribution
+  type: family
+  status: active
+  since: 1.0.0
+- id: F56.1
+  owner: composition
+  name: Contribution channel
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F56.2
+  owner: composition
+  name: Moderation posture
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F56.3
+  owner: composition
+  name: Attribution
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F57
+  owner: composition
+  name: Endorsement
+  type: family
+  status: active
+  since: 1.0.0
+- id: F57.1
+  owner: composition
+  name: Testimonial presence and specificity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F57.2
+  owner: composition
+  name: Logo wall
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F57.3
+  owner: composition
+  name: Ratings
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F57.4
+  owner: composition
+  name: Provenance
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F58
+  owner: composition
+  name: Authorship
+  type: family
+  status: active
+  since: 1.0.0
+- id: F58.1
+  owner: composition
+  name: Named people
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F58.2
+  owner: composition
+  name: Bylines on content
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F58.3
+  owner: composition
+  name: Photographs of actual people
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F58.4
+  owner: composition
+  name: Evidence of human making
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F58.5
+  owner: composition
+  name: Making disclosure
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F59
+  owner: composition
+  name: Sensory independence
+  type: family
+  status: active
+  since: 1.0.0
+- id: F59.1
+  owner: composition
+  name: Contrast level across all pairings
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F59.2
+  owner: composition
+  name: Color independence
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F59.3
+  owner: composition
+  name: Text alternatives
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F59.4
+  owner: composition
+  name: Captions and transcripts
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F60
+  owner: composition
+  name: Input independence
+  type: family
+  status: active
+  since: 1.0.0
+- id: F60.1
+  owner: composition
+  name: Hover dependence
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F60.2
+  owner: composition
+  name: Keyboard operability
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F60.3
+  owner: composition
+  name: Focus order
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F60.4
+  owner: composition
+  name: Target size
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F61
+  owner: composition
+  name: Tolerance
+  type: family
+  status: active
+  since: 1.0.0
+- id: F61.1
+  owner: composition
+  name: Reduced motion
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F61.2
+  owner: composition
+  name: Forced colors and high contrast
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F61.3
+  owner: composition
+  name: Zoom
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F61.4
+  owner: composition
+  name: Degraded network and no-JavaScript behavior
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F62
+  owner: composition
+  name: Conformance declaration
+  type: family
+  status: active
+  since: 1.0.0
+- id: F62.1
+  owner: composition
+  name: Stated level
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F62.2
+  owner: composition
+  name: Gap acknowledgment
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F62.3
+  owner: composition
+  name: Feedback channel for barriers
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F63
+  owner: composition
+  name: Responsiveness
+  type: family
+  status: active
+  since: 1.0.0
+- id: F63.1
+  owner: composition
+  name: Acknowledgment latency
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F63.2
+  owner: composition
+  name: Feedback fidelity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F63.3
+  owner: composition
+  name: Optimism
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F63.4
+  owner: composition
+  name: Feedback channels
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F64
+  owner: composition
+  name: Failure handling
+  type: family
+  status: active
+  since: 1.0.0
+- id: F64.1
+  owner: composition
+  name: Error message quality
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F64.2
+  owner: composition
+  name: Failure surfaces designed
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F64.3
+  owner: composition
+  name: Empty state treatment
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F64.4
+  owner: composition
+  name: Forgiveness
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F65
+  owner: composition
+  name: Pressure
+  type: family
+  status: active
+  since: 1.0.0
+- id: F65.1
+  owner: composition
+  name: Commercial intensity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F65.2
+  owner: composition
+  name: Urgency and scarcity devices
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F65.3
+  owner: composition
+  name: Defaults and preselection
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F65.4
+  owner: composition
+  name: Choice architecture
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F66
+  owner: composition
+  name: Exit
+  type: family
+  status: active
+  since: 1.0.0
+- id: F66.1
+  owner: composition
+  name: Unsubscribe friction
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F66.2
+  owner: composition
+  name: Data portability
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F66.3
+  owner: composition
+  name: Account deletion path
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F66.4
+  owner: composition
+  name: Cancellation path
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F67
+  owner: composition
+  name: Aftercare
+  type: family
+  status: active
+  since: 1.0.0
+- id: F67.1
+  owner: composition
+  name: Support model
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F67.2
+  owner: composition
+  name: Post-conversion craft
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F67.3
+  owner: composition
+  name: Notification frequency
+  type: segment
+  status: active
+  since: 1.0.0
+- id: F67.4
+  owner: composition
+  name: Cross-surface continuity
+  type: segment
+  status: active
+  since: 1.0.0
+- id: G001
+  owner: governance
+  name: Governance exists to make change cheap
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G002
+  owner: governance
+  name: The small-change test
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G003
+  owner: governance
+  name: What this is not
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G010
+  owner: governance
+  name: One named owner per document
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G011
+  owner: governance
+  name: Committees own nothing
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G012
+  owner: governance
+  name: The owner's four obligations
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G013
+  owner: governance
+  name: Continuity
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G014
+  owner: governance
+  name: An unowned check is a failure, not a gap
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G020
+  owner: governance
+  name: Three kinds of change
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G021
+  owner: governance
+  name: Additive change passes without a gate
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G022
+  owner: governance
+  name: Corrective change takes one reader
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G023
+  owner: governance
+  name: Breaking change is coordinated, and slow on purpose
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G024
+  owner: governance
+  name: Anyone may propose; the owner decides; nobody may silently overrule
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G025
+  owner: governance
+  name: The review that actually matters
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G030
+  owner: governance
+  name: How to propose
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G031
+  owner: governance
+  name: What a proposal contains
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G032
+  owner: governance
+  name: Rejection is recorded
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G033
+  owner: governance
+  name: Two weeks, then it is the owner's problem
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G040
+  owner: governance
+  name: Deprecate, never delete
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G041
+  owner: governance
+  name: A deprecation carries a successor and a date
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G042
+  owner: governance
+  name: Retiring a document
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G043
+  owner: governance
+  name: Sunsetting the suite
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G050
+  owner: governance
+  name: Documents describe practice or they are fiction
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G051
+  owner: governance
+  name: Correction runs both ways
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G052
+  owner: governance
+  name: Divergence is a signal before it is a violation
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G053
+  owner: governance
+  name: The lapsed-check rule
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G060
+  owner: governance
+  name: Resolution order
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G061
+  owner: governance
+  name: Reality outranks every document
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G062
+  owner: governance
+  name: When the order does not resolve it
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G070
+  owner: governance
+  name: One calendar, not one per document
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G071
+  owner: governance
+  name: Most of it blocks nothing, and must therefore be reported
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G072
+  owner: governance
+  name: A missed period is recorded as missed
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G080
+  owner: governance
+  name: The adoption gradient
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G081
+  owner: governance
+  name: One person
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G082
+  owner: governance
+  name: A small team
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G083
+  owner: governance
+  name: An organization
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G084
+  owner: governance
+  name: What never scales away
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G090
+  owner: governance
+  name: Governance theater
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G091
+  owner: governance
+  name: The fossilized suite
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G092
+  owner: governance
+  name: The abandoned suite
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G093
+  owner: governance
+  name: The single point of understanding
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: G094
+  owner: governance
+  name: Scope creep in the documents
+  type: process rule
+  status: active
+  since: 1.0.0
+- id: K001
+  owner: implementation
+  name: Native element first
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K002
+  owner: implementation
+  name: Required states
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K003
+  owner: implementation
+  name: Focus is separate from focus-visible
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K004
+  owner: implementation
+  name: Focus containment for overlays
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K005
+  owner: implementation
+  name: Target size is a component property
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K006
+  owner: implementation
+  name: Content tolerance
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K007
+  owner: implementation
+  name: No fixed heights on text containers
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K008
+  owner: implementation
+  name: API surface
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K009
+  owner: implementation
+  name: Leaf components contain no layout
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K010
+  owner: implementation
+  name: Overlays render through a portal
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K011
+  owner: implementation
+  name: Controlled and uncontrolled
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K012
+  owner: implementation
+  name: Logical properties throughout
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K013
+  owner: implementation
+  name: One accessible name per control
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K014
+  owner: implementation
+  name: Motion respects the reduced path
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K015
+  owner: implementation
+  name: Loading is a state, not a wrapper
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K016
+  owner: implementation
+  name: Errors state cause and next action
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K040
+  owner: implementation
+  name: No hardcoded visual values
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K041
+  owner: implementation
+  name: Font-swap survival
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K042
+  owner: implementation
+  name: Structural neutrality
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K043
+  owner: implementation
+  name: Slot tolerance
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K044
+  owner: implementation
+  name: No content-shaped layout
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K045
+  owner: implementation
+  name: Media reserves space
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K046
+  owner: implementation
+  name: No literals in components
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K047
+  owner: implementation
+  name: Formatting is delegated
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K048
+  owner: implementation
+  name: Expansion tolerance
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K049
+  owner: implementation
+  name: Direction independence
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K050
+  owner: implementation
+  name: A component does not know its page
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K051
+  owner: implementation
+  name: A component does not know its parent
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K052
+  owner: implementation
+  name: A component does not know its siblings
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K053
+  owner: implementation
+  name: No arbitrary z-index
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K054
+  owner: implementation
+  name: Arbitrary nesting
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K055
+  owner: implementation
+  name: Nothing hover-only
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K056
+  owner: implementation
+  name: Nothing color-only
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K057
+  owner: implementation
+  name: Keyboard parity
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K058
+  owner: implementation
+  name: Zoom survival
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K059
+  owner: implementation
+  name: Forced-colors survival
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K060
+  owner: implementation
+  name: Tokens are plain values
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K061
+  owner: implementation
+  name: One-way component dependencies
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K062
+  owner: implementation
+  name: No browser storage assumptions in shared components
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K070
+  owner: implementation
+  name: The partial and no rows are the whole problem
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K079
+  owner: implementation
+  name: Tool names are the most volatile content here
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K080
+  owner: implementation
+  name: One token source, many outputs
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K081
+  owner: implementation
+  name: Layout primitives are separate from content components
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K082
+  owner: implementation
+  name: Feature components may import shared; never the reverse
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: K083
+  owner: implementation
+  name: Component documentation states its API and its states
+  type: build rule
+  status: active
+  since: 1.0.0
+- id: R001
+  owner: diagnosis
+  name: The artifact under-determines the decision
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R002
+  owner: diagnosis
+  name: Deliberateness is never observable
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R003
+  owner: diagnosis
+  name: A read is dated
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R010
+  owner: diagnosis
+  name: The five classes
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R011
+  owner: diagnosis
+  name: Measured
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R012
+  owner: diagnosis
+  name: Observed
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R013
+  owner: diagnosis
+  name: Inferred
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R014
+  owner: diagnosis
+  name: Reported
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R015
+  owner: diagnosis
+  name: Closed
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R020
+  owner: diagnosis
+  name: Scope first
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R021
+  owner: diagnosis
+  name: Pass 1 — Automated
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R022
+  owner: diagnosis
+  name: Pass 2 — Structural
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R023
+  owner: diagnosis
+  name: Pass 3 — Inventory
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R024
+  owner: diagnosis
+  name: Pass 4 — Reading
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R025
+  owner: diagnosis
+  name: Pass 5 — Interaction
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R026
+  owner: diagnosis
+  name: Pass 6 — Representation
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R027
+  owner: diagnosis
+  name: Pass 7 — Time
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R028
+  owner: diagnosis
+  name: Pass 8 — Synthesis
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R029
+  owner: diagnosis
+  name: Pass 9 — Congruence
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R040
+  owner: diagnosis
+  name: One row per family
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R041
+  owner: diagnosis
+  name: Blanks are content
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R042
+  owner: diagnosis
+  name: Reads are comparable only within a protocol version
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R060
+  owner: diagnosis
+  name: Projection
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R061
+  owner: diagnosis
+  name: Hindsight coherence
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R062
+  owner: diagnosis
+  name: Homepage bias
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R063
+  owner: diagnosis
+  name: Sample-of-one
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R064
+  owner: diagnosis
+  name: Constraint mistaken for choice
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R065
+  owner: diagnosis
+  name: Recency
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R066
+  owner: diagnosis
+  name: The competitive-analysis trap
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: R067
+  owner: diagnosis
+  name: Tool-shaped findings
+  type: read rule
+  status: active
+  since: 1.0.0
+- id: T001
+  owner: implementation
+  name: Three tiers, one direction
+  type: token
+  status: active
+  since: 1.0.0
+- id: T002
+  owner: implementation
+  name: Naming grammar
+  type: token
+  status: active
+  since: 1.0.0
+- id: T003
+  owner: implementation
+  name: What gets a token
+  type: token
+  status: active
+  since: 1.0.0
+- id: T004
+  owner: implementation
+  name: Type annotation
+  type: token
+  status: active
+  since: 1.0.0
+- id: T010
+  owner: implementation
+  name: Neutral ramp
+  type: token
+  status: active
+  since: 1.0.0
+- id: T011
+  owner: implementation
+  name: Accent ramp
+  type: token
+  status: active
+  since: 1.0.0
+- id: T012
+  owner: implementation
+  name: Status ramps
+  type: token
+  status: active
+  since: 1.0.0
+- id: T013
+  owner: implementation
+  name: Surface tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T014
+  owner: implementation
+  name: Text tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T015
+  owner: implementation
+  name: Border tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T016
+  owner: implementation
+  name: Focus ring token
+  type: token
+  status: active
+  since: 1.0.0
+- id: T017
+  owner: implementation
+  name: Overlay token
+  type: token
+  status: active
+  since: 1.0.0
+- id: T018
+  owner: implementation
+  name: Theme completeness
+  type: token
+  status: active
+  since: 1.0.0
+- id: T019
+  owner: implementation
+  name: No raw color in components
+  type: token
+  status: active
+  since: 1.0.0
+- id: T020
+  owner: implementation
+  name: Space scale
+  type: token
+  status: active
+  since: 1.0.0
+- id: T021
+  owner: implementation
+  name: Density multiplier
+  type: token
+  status: active
+  since: 1.0.0
+- id: T022
+  owner: implementation
+  name: Gap tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T023
+  owner: implementation
+  name: Measure token
+  type: token
+  status: active
+  since: 1.0.0
+- id: T030
+  owner: implementation
+  name: Family tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T031
+  owner: implementation
+  name: Size scale
+  type: token
+  status: active
+  since: 1.0.0
+- id: T032
+  owner: implementation
+  name: Line-height tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T033
+  owner: implementation
+  name: Weight tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T034
+  owner: implementation
+  name: Tracking tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T035
+  owner: implementation
+  name: Fallback metric overrides
+  type: token
+  status: active
+  since: 1.0.0
+- id: T036
+  owner: implementation
+  name: Feature settings
+  type: token
+  status: active
+  since: 1.0.0
+- id: T040
+  owner: implementation
+  name: Radius scale
+  type: token
+  status: active
+  since: 1.0.0
+- id: T041
+  owner: implementation
+  name: Nested radius derivation
+  type: token
+  status: active
+  since: 1.0.0
+- id: T050
+  owner: implementation
+  name: Shadow tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T051
+  owner: implementation
+  name: Elevation is theme-aware
+  type: token
+  status: active
+  since: 1.0.0
+- id: T060
+  owner: implementation
+  name: Duration scale
+  type: token
+  status: active
+  since: 1.0.0
+- id: T061
+  owner: implementation
+  name: Easing set
+  type: token
+  status: active
+  since: 1.0.0
+- id: T062
+  owner: implementation
+  name: Reduced-motion counterpart
+  type: token
+  status: active
+  since: 1.0.0
+- id: T070
+  owner: implementation
+  name: Breakpoint tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T071
+  owner: implementation
+  name: Container width tokens
+  type: token
+  status: active
+  since: 1.0.0
+- id: T072
+  owner: implementation
+  name: Z-index bands
+  type: token
+  status: active
+  since: 1.0.0
+- id: T080
+  owner: implementation
+  name: Reference direction enforced
+  type: token
+  status: active
+  since: 1.0.0
+- id: T081
+  owner: implementation
+  name: No orphans
+  type: token
+  status: active
+  since: 1.0.0
+- id: T082
+  owner: implementation
+  name: No aliasing across categories
+  type: token
+  status: active
+  since: 1.0.0
+- id: T083
+  owner: implementation
+  name: Deprecation before deletion
+  type: token
+  status: active
+  since: 1.0.0
+- id: T084
+  owner: implementation
+  name: Token IDs are stable
+  type: token
+  status: active
+  since: 1.0.0
+- id: V-001
+  owner: vocabulary
+  name: Design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-002
+  owner: vocabulary
+  name: User experience
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-003
+  owner: vocabulary
+  name: User interface
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-004
+  owner: vocabulary
+  name: Interaction design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-005
+  owner: vocabulary
+  name: Information architecture
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-006
+  owner: vocabulary
+  name: Visual design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-007
+  owner: vocabulary
+  name: Content design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-008
+  owner: vocabulary
+  name: Service design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-009
+  owner: vocabulary
+  name: Front-end development
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-010
+  owner: vocabulary
+  name: Design engineering
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-011
+  owner: vocabulary
+  name: Craft
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-012
+  owner: vocabulary
+  name: Affordance
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-013
+  owner: vocabulary
+  name: Signifier
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-020
+  owner: vocabulary
+  name: Design system
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-021
+  owner: vocabulary
+  name: Design language
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-022
+  owner: vocabulary
+  name: Style guide
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-023
+  owner: vocabulary
+  name: Pattern library
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-024
+  owner: vocabulary
+  name: Component library
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-025
+  owner: vocabulary
+  name: Design token
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-026
+  owner: vocabulary
+  name: Primitive token
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-027
+  owner: vocabulary
+  name: Semantic token
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-028
+  owner: vocabulary
+  name: Component token
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-029
+  owner: vocabulary
+  name: Theming
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-030
+  owner: vocabulary
+  name: Variant
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-031
+  owner: vocabulary
+  name: Slot
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-032
+  owner: vocabulary
+  name: Composition
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-033
+  owner: vocabulary
+  name: Atomic design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-034
+  owner: vocabulary
+  name: Density
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-035
+  owner: vocabulary
+  name: Single source of truth
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-036
+  owner: vocabulary
+  name: Drift
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-037
+  owner: vocabulary
+  name: Deprecation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-050
+  owner: vocabulary
+  name: Viewport
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-051
+  owner: vocabulary
+  name: Document flow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-052
+  owner: vocabulary
+  name: Above the fold
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-053
+  owner: vocabulary
+  name: Hero
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-054
+  owner: vocabulary
+  name: Container
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-055
+  owner: vocabulary
+  name: Gutter
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-056
+  owner: vocabulary
+  name: Margin
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-057
+  owner: vocabulary
+  name: Padding
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-058
+  owner: vocabulary
+  name: Inset
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-059
+  owner: vocabulary
+  name: Safe area
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-060
+  owner: vocabulary
+  name: Bleed
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-061
+  owner: vocabulary
+  name: Sticky
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-062
+  owner: vocabulary
+  name: Fixed
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-063
+  owner: vocabulary
+  name: Z-index
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-064
+  owner: vocabulary
+  name: Stacking context
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-065
+  owner: vocabulary
+  name: Portal
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-066
+  owner: vocabulary
+  name: Overflow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-067
+  owner: vocabulary
+  name: Box model
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-068
+  owner: vocabulary
+  name: Flexbox
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-069
+  owner: vocabulary
+  name: Grid
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-070
+  owner: vocabulary
+  name: Track
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-071
+  owner: vocabulary
+  name: Subgrid
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-072
+  owner: vocabulary
+  name: Intrinsic sizing
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-073
+  owner: vocabulary
+  name: Extrinsic sizing
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-074
+  owner: vocabulary
+  name: Aspect ratio
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-075
+  owner: vocabulary
+  name: Gap
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-076
+  owner: vocabulary
+  name: Margin collapse
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-077
+  owner: vocabulary
+  name: Baseline grid
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-078
+  owner: vocabulary
+  name: Modular scale
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-079
+  owner: vocabulary
+  name: Spacing scale
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-080
+  owner: vocabulary
+  name: Whitespace
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-081
+  owner: vocabulary
+  name: Responsive design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-082
+  owner: vocabulary
+  name: Adaptive design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-083
+  owner: vocabulary
+  name: Breakpoint
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-084
+  owner: vocabulary
+  name: Media query
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-085
+  owner: vocabulary
+  name: Container query
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-086
+  owner: vocabulary
+  name: Mobile-first
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-087
+  owner: vocabulary
+  name: Fluid
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-088
+  owner: vocabulary
+  name: Logical property
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-089
+  owner: vocabulary
+  name: Gestalt principles
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-090
+  owner: vocabulary
+  name: Visual weight
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-091
+  owner: vocabulary
+  name: Hierarchy
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-092
+  owner: vocabulary
+  name: Optical center
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-093
+  owner: vocabulary
+  name: Bento layout
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-094
+  owner: vocabulary
+  name: Masonry
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-100
+  owner: vocabulary
+  name: Typeface
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-101
+  owner: vocabulary
+  name: Font
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-102
+  owner: vocabulary
+  name: Font family
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-103
+  owner: vocabulary
+  name: Font stack
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-104
+  owner: vocabulary
+  name: Serif
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-105
+  owner: vocabulary
+  name: Sans-serif
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-106
+  owner: vocabulary
+  name: Slab serif
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-107
+  owner: vocabulary
+  name: Monospace
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-108
+  owner: vocabulary
+  name: Display type
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-109
+  owner: vocabulary
+  name: Text type
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-110
+  owner: vocabulary
+  name: Variable font
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-111
+  owner: vocabulary
+  name: Axis
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-112
+  owner: vocabulary
+  name: Optical size
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-113
+  owner: vocabulary
+  name: Weight
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-114
+  owner: vocabulary
+  name: Italic
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-115
+  owner: vocabulary
+  name: Oblique
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-116
+  owner: vocabulary
+  name: Baseline
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-117
+  owner: vocabulary
+  name: X-height
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-118
+  owner: vocabulary
+  name: Cap height
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-119
+  owner: vocabulary
+  name: Ascender
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-120
+  owner: vocabulary
+  name: Descender
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-121
+  owner: vocabulary
+  name: Counter
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-122
+  owner: vocabulary
+  name: Aperture
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-123
+  owner: vocabulary
+  name: Terminal
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-124
+  owner: vocabulary
+  name: Stem
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-125
+  owner: vocabulary
+  name: Bowl
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-126
+  owner: vocabulary
+  name: Shoulder
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-127
+  owner: vocabulary
+  name: Spine
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-128
+  owner: vocabulary
+  name: Ear
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-129
+  owner: vocabulary
+  name: Apex
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-130
+  owner: vocabulary
+  name: Overshoot
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-131
+  owner: vocabulary
+  name: Em
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-132
+  owner: vocabulary
+  name: Rem
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-133
+  owner: vocabulary
+  name: Type scale
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-134
+  owner: vocabulary
+  name: Leading
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-135
+  owner: vocabulary
+  name: Line-height
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-136
+  owner: vocabulary
+  name: Measure
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-137
+  owner: vocabulary
+  name: Tracking
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-138
+  owner: vocabulary
+  name: Kerning
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-139
+  owner: vocabulary
+  name: Sidebearing
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-140
+  owner: vocabulary
+  name: Ligature
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-141
+  owner: vocabulary
+  name: Small caps
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-142
+  owner: vocabulary
+  name: Lining figures
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-143
+  owner: vocabulary
+  name: Oldstyle figures
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-144
+  owner: vocabulary
+  name: Tabular figures
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-145
+  owner: vocabulary
+  name: Proportional figures
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-146
+  owner: vocabulary
+  name: Stylistic set
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-147
+  owner: vocabulary
+  name: Rag
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-148
+  owner: vocabulary
+  name: River
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-149
+  owner: vocabulary
+  name: Widow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-150
+  owner: vocabulary
+  name: Orphan
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-151
+  owner: vocabulary
+  name: Hanging punctuation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-152
+  owner: vocabulary
+  name: Optical alignment
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-153
+  owner: vocabulary
+  name: Subsetting
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-154
+  owner: vocabulary
+  name: FOUT
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-155
+  owner: vocabulary
+  name: FOIT
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-156
+  owner: vocabulary
+  name: Metric override
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-157
+  owner: vocabulary
+  name: Hinting
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-158
+  owner: vocabulary
+  name: Antialiasing
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-159
+  owner: vocabulary
+  name: Line clamp
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-170
+  owner: vocabulary
+  name: Hue
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-171
+  owner: vocabulary
+  name: Saturation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-172
+  owner: vocabulary
+  name: Chroma
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-173
+  owner: vocabulary
+  name: Lightness
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-174
+  owner: vocabulary
+  name: Luminance
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-175
+  owner: vocabulary
+  name: Tint
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-176
+  owner: vocabulary
+  name: Shade
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-177
+  owner: vocabulary
+  name: sRGB
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-178
+  owner: vocabulary
+  name: Display P3
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-179
+  owner: vocabulary
+  name: HSL
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-180
+  owner: vocabulary
+  name: OKLCH
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-181
+  owner: vocabulary
+  name: OKLab
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-182
+  owner: vocabulary
+  name: Color space
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-183
+  owner: vocabulary
+  name: Gamut
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-184
+  owner: vocabulary
+  name: Gamut mapping
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-185
+  owner: vocabulary
+  name: Color ramp
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-186
+  owner: vocabulary
+  name: Step role
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-187
+  owner: vocabulary
+  name: Palette
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-188
+  owner: vocabulary
+  name: Semantic color
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-189
+  owner: vocabulary
+  name: Contrast ratio
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-190
+  owner: vocabulary
+  name: APCA
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-191
+  owner: vocabulary
+  name: Alpha
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-192
+  owner: vocabulary
+  name: Opacity
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-193
+  owner: vocabulary
+  name: Blend mode
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-194
+  owner: vocabulary
+  name: Isolation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-195
+  owner: vocabulary
+  name: Scrim
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-196
+  owner: vocabulary
+  name: Gradient
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-197
+  owner: vocabulary
+  name: Color stop
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-198
+  owner: vocabulary
+  name: Interpolation space
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-199
+  owner: vocabulary
+  name: Hue interpolation method
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-200
+  owner: vocabulary
+  name: Banding
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-201
+  owner: vocabulary
+  name: Dithering
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-202
+  owner: vocabulary
+  name: Halation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-203
+  owner: vocabulary
+  name: Color vision deficiency
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-220
+  owner: vocabulary
+  name: Border radius
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-221
+  owner: vocabulary
+  name: Superellipse
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-222
+  owner: vocabulary
+  name: Squircle
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-223
+  owner: vocabulary
+  name: Corner smoothing
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-224
+  owner: vocabulary
+  name: Curvature continuity
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-225
+  owner: vocabulary
+  name: Nested radius
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-226
+  owner: vocabulary
+  name: Stroke
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-227
+  owner: vocabulary
+  name: Hairline
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-228
+  owner: vocabulary
+  name: Keyline
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-229
+  owner: vocabulary
+  name: Outline
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-230
+  owner: vocabulary
+  name: Ring
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-231
+  owner: vocabulary
+  name: Drop shadow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-232
+  owner: vocabulary
+  name: Inner shadow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-233
+  owner: vocabulary
+  name: Layered shadow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-234
+  owner: vocabulary
+  name: Key shadow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-235
+  owner: vocabulary
+  name: Ambient shadow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-236
+  owner: vocabulary
+  name: Contact shadow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-237
+  owner: vocabulary
+  name: Elevation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-238
+  owner: vocabulary
+  name: Backdrop blur
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-239
+  owner: vocabulary
+  name: Glassmorphism
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-240
+  owner: vocabulary
+  name: Neumorphism
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-241
+  owner: vocabulary
+  name: Skeuomorphism
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-242
+  owner: vocabulary
+  name: Flat design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-243
+  owner: vocabulary
+  name: Mask
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-244
+  owner: vocabulary
+  name: Clip path
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-245
+  owner: vocabulary
+  name: Noise
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-246
+  owner: vocabulary
+  name: Blue noise
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-247
+  owner: vocabulary
+  name: Perlin noise
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-248
+  owner: vocabulary
+  name: Octave
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-249
+  owner: vocabulary
+  name: Pattern
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-250
+  owner: vocabulary
+  name: Motif
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-251
+  owner: vocabulary
+  name: Tiling
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-252
+  owner: vocabulary
+  name: Seamless tile
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-253
+  owner: vocabulary
+  name: Truchet tile
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-254
+  owner: vocabulary
+  name: Wallpaper group
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-255
+  owner: vocabulary
+  name: Ornament
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-270
+  owner: vocabulary
+  name: Raster
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-271
+  owner: vocabulary
+  name: Vector
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-272
+  owner: vocabulary
+  name: SVG
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-273
+  owner: vocabulary
+  name: Path
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-274
+  owner: vocabulary
+  name: Bézier curve
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-275
+  owner: vocabulary
+  name: Bit depth
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-276
+  owner: vocabulary
+  name: Chroma subsampling
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-277
+  owner: vocabulary
+  name: Color profile
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-278
+  owner: vocabulary
+  name: Device pixel ratio
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-279
+  owner: vocabulary
+  name: Density descriptor
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-280
+  owner: vocabulary
+  name: Width descriptor
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-281
+  owner: vocabulary
+  name: Art direction
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-282
+  owner: vocabulary
+  name: Object-fit
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-283
+  owner: vocabulary
+  name: Focal point
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-284
+  owner: vocabulary
+  name: Lazy loading
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-285
+  owner: vocabulary
+  name: Placeholder
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-286
+  owner: vocabulary
+  name: LQIP
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-287
+  owner: vocabulary
+  name: Icon
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-288
+  owner: vocabulary
+  name: Icon grid
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-289
+  owner: vocabulary
+  name: Live area
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-290
+  owner: vocabulary
+  name: Optical volume
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-291
+  owner: vocabulary
+  name: Pixel snapping
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-292
+  owner: vocabulary
+  name: Alt text
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-293
+  owner: vocabulary
+  name: Decorative image
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-294
+  owner: vocabulary
+  name: Open Graph image
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-310
+  owner: vocabulary
+  name: Button
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-311
+  owner: vocabulary
+  name: Link
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-312
+  owner: vocabulary
+  name: Ghost button
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-313
+  owner: vocabulary
+  name: Icon button
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-314
+  owner: vocabulary
+  name: Floating action button
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-315
+  owner: vocabulary
+  name: Split button
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-316
+  owner: vocabulary
+  name: Input
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-317
+  owner: vocabulary
+  name: Textarea
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-318
+  owner: vocabulary
+  name: Label
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-319
+  owner: vocabulary
+  name: Placeholder text
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-320
+  owner: vocabulary
+  name: Helper text
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-321
+  owner: vocabulary
+  name: Select
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-322
+  owner: vocabulary
+  name: Combobox
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-323
+  owner: vocabulary
+  name: Checkbox
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-324
+  owner: vocabulary
+  name: Radio group
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-325
+  owner: vocabulary
+  name: Switch
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-326
+  owner: vocabulary
+  name: Slider
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-327
+  owner: vocabulary
+  name: Stepper
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-328
+  owner: vocabulary
+  name: Segmented control
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-329
+  owner: vocabulary
+  name: Dropzone
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-330
+  owner: vocabulary
+  name: Fieldset
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-331
+  owner: vocabulary
+  name: Card
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-332
+  owner: vocabulary
+  name: Table
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-333
+  owner: vocabulary
+  name: Data grid
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-334
+  owner: vocabulary
+  name: Tabs
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-335
+  owner: vocabulary
+  name: Accordion
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-336
+  owner: vocabulary
+  name: Disclosure
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-337
+  owner: vocabulary
+  name: Modal
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-338
+  owner: vocabulary
+  name: Non-modal dialog
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-339
+  owner: vocabulary
+  name: Drawer
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-340
+  owner: vocabulary
+  name: Sheet
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-341
+  owner: vocabulary
+  name: Popover
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-342
+  owner: vocabulary
+  name: Tooltip
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-343
+  owner: vocabulary
+  name: Dropdown menu
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-344
+  owner: vocabulary
+  name: Context menu
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-345
+  owner: vocabulary
+  name: Command palette
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-346
+  owner: vocabulary
+  name: Toast
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-347
+  owner: vocabulary
+  name: Banner
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-348
+  owner: vocabulary
+  name: Callout
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-349
+  owner: vocabulary
+  name: Badge
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-350
+  owner: vocabulary
+  name: Chip
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-351
+  owner: vocabulary
+  name: Avatar
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-352
+  owner: vocabulary
+  name: Breadcrumb
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-353
+  owner: vocabulary
+  name: Pagination
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-354
+  owner: vocabulary
+  name: Infinite scroll
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-355
+  owner: vocabulary
+  name: Progress bar
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-356
+  owner: vocabulary
+  name: Spinner
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-357
+  owner: vocabulary
+  name: Skeleton
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-358
+  owner: vocabulary
+  name: Empty state
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-359
+  owner: vocabulary
+  name: Zero state
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-360
+  owner: vocabulary
+  name: Facet
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-361
+  owner: vocabulary
+  name: Carousel
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-362
+  owner: vocabulary
+  name: Lightbox
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-363
+  owner: vocabulary
+  name: Toolbar
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-364
+  owner: vocabulary
+  name: Hamburger menu
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-380
+  owner: vocabulary
+  name: State
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-381
+  owner: vocabulary
+  name: Rest
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-382
+  owner: vocabulary
+  name: Hover
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-383
+  owner: vocabulary
+  name: Focus
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-384
+  owner: vocabulary
+  name: Focus-visible
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-385
+  owner: vocabulary
+  name: Focus ring
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-386
+  owner: vocabulary
+  name: Active
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-387
+  owner: vocabulary
+  name: Selected
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-388
+  owner: vocabulary
+  name: Indeterminate
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-389
+  owner: vocabulary
+  name: Disabled
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-390
+  owner: vocabulary
+  name: Read-only
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-391
+  owner: vocabulary
+  name: Dirty
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-392
+  owner: vocabulary
+  name: Touched
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-393
+  owner: vocabulary
+  name: Feedback
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-394
+  owner: vocabulary
+  name: Acknowledgment
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-395
+  owner: vocabulary
+  name: Latency
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-396
+  owner: vocabulary
+  name: Perceived performance
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-397
+  owner: vocabulary
+  name: Optimistic UI
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-398
+  owner: vocabulary
+  name: Debounce
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-399
+  owner: vocabulary
+  name: Throttle
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-400
+  owner: vocabulary
+  name: Hit area
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-401
+  owner: vocabulary
+  name: Drop target
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-402
+  owner: vocabulary
+  name: Tab order
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-403
+  owner: vocabulary
+  name: Roving tabindex
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-404
+  owner: vocabulary
+  name: Focus trap
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-405
+  owner: vocabulary
+  name: Skip link
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-406
+  owner: vocabulary
+  name: Escape hatch
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-407
+  owner: vocabulary
+  name: Progressive disclosure
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-408
+  owner: vocabulary
+  name: Direct manipulation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-409
+  owner: vocabulary
+  name: Forgiveness
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-420
+  owner: vocabulary
+  name: Transition
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-421
+  owner: vocabulary
+  name: Animation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-422
+  owner: vocabulary
+  name: Keyframe
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-423
+  owner: vocabulary
+  name: Duration
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-424
+  owner: vocabulary
+  name: Easing
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-425
+  owner: vocabulary
+  name: Ease-in
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-426
+  owner: vocabulary
+  name: Ease-out
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-427
+  owner: vocabulary
+  name: Cubic-bézier
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-428
+  owner: vocabulary
+  name: Spring
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-429
+  owner: vocabulary
+  name: Damping ratio
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-430
+  owner: vocabulary
+  name: Overshoot
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-431
+  owner: vocabulary
+  name: Interruptibility
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-432
+  owner: vocabulary
+  name: Stagger
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-433
+  owner: vocabulary
+  name: Choreography
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-434
+  owner: vocabulary
+  name: Shared element transition
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-435
+  owner: vocabulary
+  name: Anticipation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-436
+  owner: vocabulary
+  name: Follow-through
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-437
+  owner: vocabulary
+  name: Transform
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-438
+  owner: vocabulary
+  name: Transform origin
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-439
+  owner: vocabulary
+  name: Compositing
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-440
+  owner: vocabulary
+  name: Layout animation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-441
+  owner: vocabulary
+  name: Jank
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-442
+  owner: vocabulary
+  name: Frame budget
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-443
+  owner: vocabulary
+  name: Scroll-driven animation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-444
+  owner: vocabulary
+  name: Micro-interaction
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-460
+  owner: vocabulary
+  name: Accessibility
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-461
+  owner: vocabulary
+  name: WCAG
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-462
+  owner: vocabulary
+  name: POUR
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-463
+  owner: vocabulary
+  name: Success criterion
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-464
+  owner: vocabulary
+  name: Conformance level
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-465
+  owner: vocabulary
+  name: Semantic HTML
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-466
+  owner: vocabulary
+  name: Landmark
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-467
+  owner: vocabulary
+  name: ARIA
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-468
+  owner: vocabulary
+  name: Role
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-469
+  owner: vocabulary
+  name: Accessible name
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-470
+  owner: vocabulary
+  name: Live region
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-471
+  owner: vocabulary
+  name: Screen reader
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-472
+  owner: vocabulary
+  name: Target size
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-473
+  owner: vocabulary
+  name: Reflow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-474
+  owner: vocabulary
+  name: Forced colors
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-475
+  owner: vocabulary
+  name: Reduced motion
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-476
+  owner: vocabulary
+  name: Keyboard trap
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-477
+  owner: vocabulary
+  name: Cognitive load
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-478
+  owner: vocabulary
+  name: Plain language
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-479
+  owner: vocabulary
+  name: Assistive technology
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-480
+  owner: vocabulary
+  name: Overlay
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-500
+  owner: vocabulary
+  name: Microcopy
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-501
+  owner: vocabulary
+  name: Voice
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-502
+  owner: vocabulary
+  name: Tone
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-503
+  owner: vocabulary
+  name: Register
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-504
+  owner: vocabulary
+  name: Call to action
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-505
+  owner: vocabulary
+  name: Deck
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-506
+  owner: vocabulary
+  name: Information scent
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-507
+  owner: vocabulary
+  name: Content-first design
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-508
+  owner: vocabulary
+  name: Internationalization
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-509
+  owner: vocabulary
+  name: Localization
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-510
+  owner: vocabulary
+  name: Pseudo-localization
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-511
+  owner: vocabulary
+  name: Text expansion
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-512
+  owner: vocabulary
+  name: RTL
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-513
+  owner: vocabulary
+  name: Colophon
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-530
+  owner: vocabulary
+  name: Taxonomy
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-531
+  owner: vocabulary
+  name: Ontology
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-532
+  owner: vocabulary
+  name: Sitemap
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-533
+  owner: vocabulary
+  name: Global navigation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-534
+  owner: vocabulary
+  name: Local navigation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-535
+  owner: vocabulary
+  name: Utility navigation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-536
+  owner: vocabulary
+  name: Faceted navigation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-537
+  owner: vocabulary
+  name: Wayfinding
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-538
+  owner: vocabulary
+  name: Card sorting
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-539
+  owner: vocabulary
+  name: Tree testing
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-540
+  owner: vocabulary
+  name: Mental model
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-541
+  owner: vocabulary
+  name: User flow
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-542
+  owner: vocabulary
+  name: Journey map
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-543
+  owner: vocabulary
+  name: Wireframe
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-544
+  owner: vocabulary
+  name: Mockup
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-545
+  owner: vocabulary
+  name: Prototype
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-546
+  owner: vocabulary
+  name: Fidelity
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-547
+  owner: vocabulary
+  name: Canonical URL
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-560
+  owner: vocabulary
+  name: DOM
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-561
+  owner: vocabulary
+  name: Cascade
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-562
+  owner: vocabulary
+  name: Specificity
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-563
+  owner: vocabulary
+  name: Custom property
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-564
+  owner: vocabulary
+  name: Utility class
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-565
+  owner: vocabulary
+  name: Scoped styles
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-566
+  owner: vocabulary
+  name: Reset
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-567
+  owner: vocabulary
+  name: Progressive enhancement
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-568
+  owner: vocabulary
+  name: Graceful degradation
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-569
+  owner: vocabulary
+  name: Feature query
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-570
+  owner: vocabulary
+  name: Polyfill
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-571
+  owner: vocabulary
+  name: Server-side rendering
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-572
+  owner: vocabulary
+  name: Hydration
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-573
+  owner: vocabulary
+  name: Critical CSS
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-574
+  owner: vocabulary
+  name: Render blocking
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-575
+  owner: vocabulary
+  name: FOUC
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-576
+  owner: vocabulary
+  name: Core Web Vitals
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-577
+  owner: vocabulary
+  name: LCP
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-578
+  owner: vocabulary
+  name: INP
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-579
+  owner: vocabulary
+  name: CLS
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-580
+  owner: vocabulary
+  name: Virtualization
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-581
+  owner: vocabulary
+  name: Bundle size
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-582
+  owner: vocabulary
+  name: Structured data
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-583
+  owner: vocabulary
+  name: Autocomplete token
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-584
+  owner: vocabulary
+  name: Content Security Policy
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-600
+  owner: vocabulary
+  name: Typeface / font
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-601
+  owner: vocabulary
+  name: Leading / line-height
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-602
+  owner: vocabulary
+  name: Kerning / tracking
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-603
+  owner: vocabulary
+  name: Saturation / chroma
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-604
+  owner: vocabulary
+  name: Lightness / luminance
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-605
+  owner: vocabulary
+  name: Alpha / opacity
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-606
+  owner: vocabulary
+  name: Mask / clip path
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-607
+  owner: vocabulary
+  name: Label / placeholder
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-608
+  owner: vocabulary
+  name: Checkbox / switch
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-609
+  owner: vocabulary
+  name: Tooltip / popover
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-610
+  owner: vocabulary
+  name: Disabled / read-only
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-611
+  owner: vocabulary
+  name: Responsive / adaptive
+  type: term
+  status: active
+  since: 1.0.0
+- id: V-612
+  owner: vocabulary
+  name: Focus / focus-visible
+  type: term
+  status: active
+  since: 1.0.0
+- id: X001
+  owner: verification
+  name: The four modes
+  type: check
+  status: active
+  since: 1.0.0
+- id: X002
+  owner: verification
+  name: Passing is not evidence of quality
+  type: check
+  status: active
+  since: 1.0.0
+- id: X010
+  owner: verification
+  name: State matrix coverage
+  type: check
+  status: active
+  since: 1.0.0
+- id: X011
+  owner: verification
+  name: Content stress
+  type: check
+  status: active
+  since: 1.0.0
+- id: X012
+  owner: verification
+  name: Pseudo-localization
+  type: check
+  status: active
+  since: 1.0.0
+- id: X013
+  owner: verification
+  name: Direction
+  type: check
+  status: active
+  since: 1.0.0
+- id: X014
+  owner: verification
+  name: Viewport matrix
+  type: check
+  status: active
+  since: 1.0.0
+- id: X015
+  owner: verification
+  name: Zoom and reflow
+  type: check
+  status: active
+  since: 1.0.0
+- id: X016
+  owner: verification
+  name: Visual regression
+  type: check
+  status: active
+  since: 1.0.0
+- id: X017
+  owner: verification
+  name: Failure surfaces
+  type: check
+  status: active
+  since: 1.0.0
+- id: X018
+  owner: verification
+  name: Cold cache and slow network
+  type: check
+  status: active
+  since: 1.0.0
+- id: X100
+  owner: verification
+  name: The automated set
+  type: check
+  status: active
+  since: 1.0.0
+- id: X101
+  owner: verification
+  name: Contrast assertion over all token pairings
+  type: check
+  status: active
+  since: 1.0.0
+- id: X102
+  owner: verification
+  name: Rem-component lint on type sizes
+  type: check
+  status: active
+  since: 1.0.0
+- id: X103
+  owner: verification
+  name: Input size floor assertion
+  type: check
+  status: active
+  since: 1.0.0
+- id: X104
+  owner: verification
+  name: Reflow render at 320px equivalent
+  type: check
+  status: active
+  since: 1.0.0
+- id: X105
+  owner: verification
+  name: Text-spacing override injection
+  type: check
+  status: active
+  since: 1.0.0
+- id: X106
+  owner: verification
+  name: Computed target-size assertion
+  type: check
+  status: active
+  since: 1.0.0
+- id: X107
+  owner: verification
+  name: Focus-cycle test on every overlay
+  type: check
+  status: active
+  since: 1.0.0
+- id: X108
+  owner: verification
+  name: Outline-removal lint
+  type: check
+  status: active
+  since: 1.0.0
+- id: X109
+  owner: verification
+  name: Unpaired motion-token lint
+  type: check
+  status: active
+  since: 1.0.0
+- id: X110
+  owner: verification
+  name: Missing name / alt lint
+  type: check
+  status: active
+  since: 1.0.0
+- id: X111
+  owner: verification
+  name: Page title and lang lint
+  type: check
+  status: active
+  since: 1.0.0
+- id: X112
+  owner: verification
+  name: Metric-override presence per family
+  type: check
+  status: active
+  since: 1.0.0
+- id: X113
+  owner: verification
+  name: Unsized-media lint
+  type: check
+  status: active
+  since: 1.0.0
+- id: X114
+  owner: verification
+  name: Bundle and asset budget assertion
+  type: check
+  status: active
+  since: 1.0.0
+- id: X115
+  owner: verification
+  name: Field measurement at 75th percentile
+  type: check
+  status: active
+  since: 1.0.0
+- id: X116
+  owner: verification
+  name: Automated accessibility audit
+  type: check
+  status: active
+  since: 1.0.0
+- id: X117
+  owner: verification
+  name: What the automated set does not cover
+  type: check
+  status: active
+  since: 1.0.0
+- id: X120
+  owner: verification
+  name: The manual set
+  type: check
+  status: active
+  since: 1.0.0
+- id: X121
+  owner: verification
+  name: Color-independence review
+  type: check
+  status: active
+  since: 1.0.0
+- id: X122
+  owner: verification
+  name: Keyboard-only traversal
+  type: check
+  status: active
+  since: 1.0.0
+- id: X123
+  owner: verification
+  name: Screen reader pass
+  type: check
+  status: active
+  since: 1.0.0
+- id: X124
+  owner: verification
+  name: Focus-order comparison
+  type: check
+  status: active
+  since: 1.0.0
+- id: X125
+  owner: verification
+  name: Flash and motion review
+  type: check
+  status: active
+  since: 1.0.0
+- id: X126
+  owner: verification
+  name: Dragging alternative audit
+  type: check
+  status: active
+  since: 1.0.0
+- id: X127
+  owner: verification
+  name: Error message review
+  type: check
+  status: active
+  since: 1.0.0
+- id: X128
+  owner: verification
+  name: Redundant entry audit
+  type: check
+  status: active
+  since: 1.0.0
+- id: X129
+  owner: verification
+  name: Authentication review
+  type: check
+  status: active
+  since: 1.0.0
+- id: X130
+  owner: verification
+  name: Consistency audit
+  type: check
+  status: active
+  since: 1.0.0
+- id: X131
+  owner: verification
+  name: The manual set is one page
+  type: check
+  status: active
+  since: 1.0.0
+- id: X140
+  owner: verification
+  name: Legal recheck
+  type: check
+  status: active
+  since: 1.0.0
+- id: X200
+  owner: verification
+  name: Coherence requires a record
+  type: check
+  status: active
+  since: 1.0.0
+- id: X201
+  owner: verification
+  name: Drift metrics
+  type: check
+  status: active
+  since: 1.0.0
+- id: X202
+  owner: verification
+  name: Distinct font sizes
+  type: check
+  status: active
+  since: 1.0.0
+- id: X203
+  owner: verification
+  name: Distinct colors
+  type: check
+  status: active
+  since: 1.0.0
+- id: X204
+  owner: verification
+  name: Distinct spacing values
+  type: check
+  status: active
+  since: 1.0.0
+- id: X205
+  owner: verification
+  name: Distinct radii
+  type: check
+  status: active
+  since: 1.0.0
+- id: X206
+  owner: verification
+  name: Distinct durations
+  type: check
+  status: active
+  since: 1.0.0
+- id: X207
+  owner: verification
+  name: Raw value occurrences
+  type: check
+  status: active
+  since: 1.0.0
+- id: X208
+  owner: verification
+  name: Z-index values off band
+  type: check
+  status: active
+  since: 1.0.0
+- id: X209
+  owner: verification
+  name: Component instance census
+  type: check
+  status: active
+  since: 1.0.0
+- id: X210
+  owner: verification
+  name: Congruence audit
+  type: check
+  status: active
+  since: 1.0.0
+- id: X220
+  owner: verification
+  name: The three questions
+  type: check
+  status: active
+  since: 1.0.0
+- id: X300
+  owner: verification
+  name: Task success
+  type: check
+  status: active
+  since: 1.0.0
+- id: X301
+  owner: verification
+  name: First-impression test
+  type: check
+  status: active
+  since: 1.0.0
+- id: X302
+  owner: verification
+  name: Findability
+  type: check
+  status: active
+  since: 1.0.0
+- id: X303
+  owner: verification
+  name: Comprehension of terms
+  type: check
+  status: active
+  since: 1.0.0
+- id: X304
+  owner: verification
+  name: Assistive technology sessions
+  type: check
+  status: active
+  since: 1.0.0
+- id: X305
+  owner: verification
+  name: Comprehension is not preference
+  type: check
+  status: active
+  since: 1.0.0
+- id: X400
+  owner: verification
+  name: Mechanical validation
+  type: check
+  status: active
+  since: 1.0.0
+- id: X401
+  owner: verification
+  name: Citation correctness is not citation resolution
+  type: check
+  status: active
+  since: 1.0.0
+- id: X402
+  owner: verification
+  name: Ownership audit
+  type: check
+  status: active
+  since: 1.0.0
+- id: X403
+  owner: verification
+  name: Orphan check
+  type: check
+  status: active
+  since: 1.0.0
+- id: X410
+  owner: verification
+  name: Placement
+  type: check
+  status: active
+  since: 1.0.0
+- id: X411
+  owner: verification
+  name: Quarterly checks block nothing and must be reported
+  type: check
+  status: active
+  since: 1.0.0
+- id: X412
+  owner: verification
+  name: Cadence is stated per check, not per program
+  type: check
+  status: active
+  since: 1.0.0

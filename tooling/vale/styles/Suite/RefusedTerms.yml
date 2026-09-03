@@ -1,0 +1,19 @@
+extends: substitution
+message: "Refused term '%s' — say '%s'. See Vocabulary Part III."
+level: warning
+ignorecase: true
+swap:
+  clean: "the specific property (sparse, aligned, low-contrast)"
+  modern: "the actual attribute, or the year of the reference"
+  intuitive: "matches convention X, or measured task success"
+  minimal: "few elements / restrained palette / short copy"
+  bold: "the dimension (weight, size, colour, claim strength)"
+  elevated: "delete the sentence"
+  seamless: "the specific transition"
+  delightful: "the mechanism intended to produce it"
+  "best practice": "the source, evidence, or constraint"
+  accessible: "the conformance level and criteria met"
+  responsive: "responsive, adaptive, or fluid — see V-611"
+  optimized: "the metric and the target"
+  "pixel-perfect": "matches spec within a stated tolerance"
+  "user-friendly": "the task, audience, and success measure"
