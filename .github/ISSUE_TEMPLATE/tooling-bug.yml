@@ -6,6 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
+        AI agent contributor? Read AGENTS.md first.
+
         For a wrong or unclear document entry, use "Propose a change" instead
         — this template is for the checking tools themselves
         (`tooling/validate.py`, `tooling/registry.yaml` generation, Vale).

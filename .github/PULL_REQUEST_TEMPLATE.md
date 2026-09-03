@@ -1,5 +1,6 @@
 <!--
 This template mirrors CONTRIBUTING.md — read that in full first if you haven't.
+AI agent contributor? Read AGENTS.md first.
 A PR is a proposed edit, not a discussion (G030): fill this in as a diff's
 cover letter, not as a starting point for back-and-forth.
 -->
