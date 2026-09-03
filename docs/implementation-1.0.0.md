@@ -1,6 +1,6 @@
 ```yaml
 document: Implementation
-version: 1.0.2
+version: 1.0.3
 tier: 2
 owns:
   - what tokens must exist and what governs them
@@ -10,6 +10,7 @@ owns:
 exports: T001–T084, K001–K083
 depends:
   - Vocabulary ^1
+  - Anatomy ^1
   - Composition ^1
   - Constraints ^1
 reviewed: 2026-09-03
@@ -85,14 +86,14 @@ Every token declares a type: `color`, `dimension`, `duration`, `cubicBezier`, `f
 **T013 · Surface tokens** — One per elevation level, not one per color.
 **T014 · Text tokens** — By prominence, not by color. `text.default`, `text.muted`, `text.inverse`.
 **T015 · Border tokens** — By strength: subtle, default, strong.
-**T016 · Focus ring token** — Satisfies C022 against **both** the element it surrounds and the background behind it. A single ring color cannot do this on all surfaces; either a two-tone ring or a per-surface token is required.
+**T016 · Focus ring token** — Satisfies C022 against **both** the element it surrounds and the background behind it, per A-058. A single ring color cannot do this on all surfaces; either a two-tone ring or a per-surface token is required.
 **T017 · Overlay token** — For scrims and modal backdrops.
 **T018 · Theme completeness** — Every semantic color token resolves in every theme. A missing value is a build failure, not a fallback.
 **T019 · No raw color in components** — Components reference semantic tokens only. Enforced by lint, per K052.
 
 ## Space
 
-**T020 · Space scale** — Hybrid progression: fine increments at the low end where controls need precision, geometric at the high end where layout needs range.
+**T020 · Space scale** — Hybrid progression, per A-036.
 **T021 · Density multiplier** — One variable scaling the entire space scale. This is what makes comfortable and compact the same components rather than two sets. Bounded below by C028: the multiplier may not reduce any interactive target past the floor, which means targets are sized from their own token, not from padding alone.
 **T022 · Gap tokens** — Distinct from inset tokens. Between-things and inside-things change independently.
 **T023 · Measure token** — Line length, expressed in `ch`. Bounded by C004.
@@ -110,19 +111,19 @@ Every token declares a type: `color`, `dimension`, `duration`, `cubicBezier`, `f
 ## Radius and elevation
 
 **T040 · Radius scale** — Ordinal.
-**T041 · Nested radius derivation** — Inner radius derives from outer radius minus the gap. A function or a calc, never two independently authored values.
-**T050 · Shadow tokens** — Composite, multi-layer. A single-layer shadow token guarantees the flat result described in Vocabulary V-233.
-**T051 · Elevation is theme-aware** — Elevation resolves to shadow in light themes and to surface lightness in dark themes. A token set expressing elevation only as shadow cannot produce a working dark theme, and discovering this after the fact means re-authoring every surface.
+**T041 · Nested radius derivation** — Inner radius is computed per A-026's nested-radius derivation, never authored as a second independent value. A function or a calc, not a literal token.
+**T050 · Shadow tokens** — Composite, multi-layer, per A-028's layered-shadow construction. A single-layer shadow token guarantees the flat result described in Vocabulary V-233.
+**T051 · Elevation is theme-aware** — Elevation resolves per A-029's light/dark split, encoded in the token layer so components never branch on theme.
 
 ## Motion
 
-**T060 · Duration scale** — Ordinal, with the distance-scaling relationship encoded rather than left to each usage.
+**T060 · Duration scale** — Ordinal, encoding A-043's distance-scaling relationship rather than leaving it to each usage.
 **T061 · Easing set** — Named by role: entrance, exit, movement, emphasis.
-**T062 · Reduced-motion counterpart** — Every motion token has a paired value for the reduced-motion path. The counterpart is a cross-fade or a shortened duration, never zero across the board, because removing all feedback is its own failure. Satisfies C036.
+**T062 · Reduced-motion counterpart** — Every motion token has a paired value for the reduced-motion path, drawn from A-052's substitution strategies — never zero across the board. Satisfies C036.
 
 ## Layout
 
-**T070 · Breakpoint tokens** — In `em`, so they respond to user font size.
+**T070 · Breakpoint tokens** — In `em`, per A-041.
 **T071 · Container width tokens**
 **T072 · Z-index bands** — Named ranges per layer: base, raised, sticky, overlay, modal, popover, toast. Arbitrary integers in components are forbidden by K053.
 
@@ -341,6 +342,6 @@ Props, slots, tokens consumed, and every state from K002 rendered. A component w
 
 **Density is one multiplier, not a second component set.** T021 makes comfortable and compact the same components. The alternative — parallel sets — doubles the surface for every subsequent change and is the most common cause of a system that works until the second density arrives.
 
-**Elevation is theme-aware at the token layer, not the component layer.** T051 places the light-shadow versus dark-lightness split inside the token so components never branch on theme. A system that expresses elevation only as shadow cannot produce a dark theme without re-authoring every surface, and this is discovered late enough to be expensive every time.
+**Elevation is theme-aware at the token layer, not the component layer.** T051 places A-029's light/dark split inside the token so components never branch on theme, rather than leaving that split to be discovered late, once re-authoring every surface is expensive.
 
 **Part V's manual rows are stated as a liability rather than a footnote.** K070 exists because enforcement tables are usually read as reassurance. Ten unenforceable constraints out of thirty-two is the actual state, and a document that presents the twenty-two automated ones without naming the remainder is misleading about what the system guarantees.
