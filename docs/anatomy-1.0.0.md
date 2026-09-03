@@ -1,13 +1,13 @@
 ```yaml
 document: Anatomy
-version: 1.3.1
+version: 1.4.0
 tier: 1
-scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus
+scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice
 owns:
   - what each thing is made of, expressed as parameters
   - the range or type of each parameter
   - what is derived rather than chosen
-exports: A-001–A-078
+exports: A-001–A-083
 depends:
   - Vocabulary ^1
   - Constraints ^1
@@ -25,6 +25,8 @@ What each thing is made of. Where Vocabulary establishes what a term denotes, th
 **Scope of 1.3.0** — adds a third slice of component anatomy, the menu family: Menu, covering dropdown menu and context menu, and Command palette (A-077–A-078). Toasts and banners, callouts, badges and chips, avatars, breadcrumb and pagination, progress and spinner, skeleton and empty/zero state, facets, carousel, lightbox, toolbar, and hamburger menu remain open; see **Settled decisions**. This version also closes tokens as a settled out-of-scope finding rather than a deferral — see **Settled decisions**.
 
 **Scope of 1.3.1** — no new A-IDs. Closes the other two scoping questions the first Settled decisions entry above left open, the same way 1.3.0 closed tokens: content and information architecture are each resolved to an organizing shape — see **Settled decisions**. Both remain uncovered by any A-ID; what changes is that a future contribution now has a settled shape to draft into rather than an open scoping discussion.
+
+**Scope of 1.4.0** — adds a fourth slice of component anatomy, the first drawn from information architecture rather than from Vocabulary's `H · Components` part: Breadcrumb, Pagination, Facets, Navigation (folding global, local, and utility navigation, plus hamburger menu as a sub-part), and Skip link (A-079–A-083). This is the full candidate set the 1.3.1 information-architecture scoping resolution named; see **Settled decisions**. Toasts and banners, callouts, badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain open in the `H` part, and content elements remain the other settled-but-undrafted slice.
 
 ## What this document does not own
 
@@ -791,6 +793,8 @@ A-067–A-076 below are the second such addition: the input controls, the group 
 
 A-077–A-078 below are the third such addition: the menu family — dropdown menu, context menu, and command palette — the group whose anatomy leans most heavily on A-064 Tooltip and popover's placement machinery while still differing enough in interior structure to earn its own entries. See **Settled decisions** for why this group and this boundary.
 
+A-079–A-083 below are the fourth such addition, and the first drawn from information architecture rather than from this part directly: Breadcrumb, Pagination, Facets, Navigation — folding global navigation, local navigation, and utility navigation, with hamburger menu as a sub-part of it rather than an entry of its own — and Skip link. See **Settled decisions** for why this group and this boundary.
+
 ## A-062 · Button
 
 `container` · `label` · `leading icon` · `trailing icon` · `hit target` · `state matrix`
@@ -980,6 +984,61 @@ Command palette (V-345) is invoked by a global keyboard shortcut rather than anc
 
 ---
 
+## A-079 · Breadcrumb
+
+`container` · `item[]` (each `label` · `href`) · `separator` · `current item` · `truncation behavior`
+
+Breadcrumb (V-352) is a trail showing position within a hierarchy: an ordered list of items running from a root down to the level above the current page, each a link, separated by a `separator` glyph or character, ending in a `current item` that names the page itself and is not a link.
+**Truncation behavior** — collapsing the middle of a long trail behind an ellipsis once depth exceeds the available inline width, the same overflow problem A-066 Tabs names for a tablist that outgrows its row.
+**Breaks when** — the `current item` is rendered as a link pointing at the page already loaded, or the trail's structure is conveyed by visual nesting alone with no underlying list or landmark; C046 requires the current position, not only the links leading to it, to be programmatically determinable.
+
+---
+
+## A-080 · Pagination
+
+`container` · `page control[]` (each `label` · `href or value` · `state`) · `previous control` · `next control` · `current indicator` · `overflow marker`
+
+Pagination (V-353) is navigation between discrete pages of results: a row of `page control`s, of which the current one is selected (V-387) among its siblings, flanked by `previous control` and `next control`, with an `overflow marker` — an ellipsis — standing in for a run of skipped numbers once the total exceeds what the row can show.
+**Boundary state** — `previous control` at the first page and `next control` at the last are disabled (V-389), not merely styled to look inactive.
+**Breaks when** — the current page's state is carried by a color or weight change alone with no non-visual signal; C023 requires a non-color distinction and C046 requires that state to be programmatically determinable regardless of what markup produces the row.
+**Also breaks when** — activating a page control replaces the result list without moving focus into it; a keyboard or screen-reader user who just changed pages is left exactly where they were, with no indication the content beneath them changed.
+
+---
+
+## A-081 · Facets
+
+`facet[]` (each `label` · `member control[]` (each `option label` · `count` · `state`)) · `applied filter[]` (each a chip) · `clear control` · `result count`
+
+A facet (V-360) is a single filterable dimension, usually shown with counts: a labeled group of `member control`s — most often checkboxes (A-068), sometimes a slider (A-072) for a range — each option carrying a `count` of how many results choosing it would leave. Facets composing together into one filtering interface is faceted navigation (V-536); this entry anatomizes the facet, not the pattern several of them compose into.
+**Applied filter** — a chip (V-350) representing one active selection, removable independently of unchecking it inside its own facet, paired with a `clear control` that resets every facet at once.
+**Breaks when** — a facet's `member control` is a custom-styled element that does not expose checked state as programmatically determinable — the same failure A-068 names for checkbox generally; C046 requires it regardless of what markup produces the facet.
+**Also breaks when** — the `result count` updates after a selection with no signal reaching anything other than sighted users watching the number change; a screen-reader user who just toggled a facet has no way to learn how many results remain, or whether the toggle had any effect at all.
+
+---
+
+## A-082 · Navigation
+
+`container` (landmark) · `item[]` (each `label` · `href` · `icon` · `current state`) · `overflow control` (`trigger` · `panel`)
+
+Global navigation (V-533), local navigation (V-534), and utility navigation (V-535) share one anatomy — a landmark (V-466) containing a list of items — and diverge only in scope: global navigation's items span the whole site, local navigation's items are scoped to the current section, and utility navigation's items are account, search, settings, and help functions rather than site or section content.
+**Current state** — the item matching the page being viewed carries a `current state` distinct from its rest appearance, the same wayfinding (V-537) obligation a breadcrumb (A-079) and a tab (A-066) each meet in their own construction.
+**Overflow control** — hamburger menu (V-364) folds into this entry rather than standing as one of its own: a `trigger` and disclosure `panel`, the same construction A-064 Tooltip and popover and A-077 Menu already anatomize, that appears once the item list no longer fits the available inline space and conceals the same items rather than presenting different ones.
+**Breaks when** — the same navigation's set of items, their order, or its accessible name changes between the pages it appears on with no corresponding change in what it should contain; C043 requires repeated navigation to appear in the same relative order and be identified consistently.
+**Also breaks when** — the overflow control opens only on hover, or is built without button semantics; C030 requires the disclosure to be operable through a keyboard interface, not only a pointer.
+
+---
+
+## A-083 · Skip link
+
+`link` · `target` · `visibility trigger`
+
+Skip link (V-405) is a link allowing keyboard users to bypass repeated navigation: the first focusable element on the page, ordinarily hidden until it receives focus, whose `target` is a landmark (V-466) — conventionally the main content region — reached by activating it.
+**Visibility trigger** — focus. An off-screen or zero-size technique that hides the link at rest and reveals it on `:focus`, not `display: none`, which would remove it from the accessibility tree and from focus itself along with it.
+**Breaks when** — the `target` is not itself focusable (a `<main>` or a plain `<div>` with no `tabindex="-1"`), so activating the link scrolls the viewport without moving focus; C038 requires the resulting sequence to still make sense, and a skip link that changes what's on screen without changing where focus continues from breaks exactly that sequence — the same gap A-078 names for a command palette that opens without moving focus into its query input.
+**Also breaks when** — the link stays visually hidden even once focused; C032 requires keyboard focus to carry a visible indicator, and that applies to the skip link itself the same as any other focusable element.
+
+---
+
 ---
 
 # EXPORT INDEX
@@ -1064,6 +1123,11 @@ Command palette (V-345) is invoked by a global keyboard shortcut rather than anc
 | A-076 | Fieldset |
 | A-077 | Menu |
 | A-078 | Command palette |
+| A-079 | Breadcrumb |
+| A-080 | Pagination |
+| A-081 | Facets |
+| A-082 | Navigation |
+| A-083 | Skip link |
 
 ---
 
@@ -1094,3 +1158,9 @@ Command palette (V-345) is invoked by a global keyboard shortcut rather than anc
 **Content is settled as atomic content elements, not content types.** The scoping discussion the first Settled decisions entry above deferred (issue #10) resolves in favor of the same "primitives before composition" order this document already used for components: a future contribution gets A-IDs for content *elements* — Headline, Deck, Eyebrow, Byline, Body, Pull-quote, Stat/callout, Caption, CTA text, List, and Metadata block are the candidate set — each carrying a parameter set, a length range, and a required/optional status, the same shape as A-061 Form field or A-062 Button. This is chosen over content *types* (Article, Product listing, Case study, and the like): Section H's first slice could be scoped tightly because Vocabulary's `H · Components` part already named roughly forty-five components before any of them had anatomy; no equivalent closed list of content types exists anywhere in the suite, so there is nothing bounded to scope a types-first slice against. Types are not ruled out — they are a natural second slice once an element vocabulary exists to compose them from, the same relationship Section H's components have to the primitives in Sections A–G, just not first. **A known dependency, flagged for whoever writes that future slice rather than resolved here:** several of these candidate names have no Vocabulary ID yet — headline, body, byline, eyebrow, and caption do not appear in Vocabulary's `L · Content and language` part (V-500–V-513) or anywhere else, unlike deck (V-505) and call to action (V-504), which already exist. Anatomy may cite Vocabulary but not coin a term of its own, so the content-elements contribution will need a small companion Vocabulary addition alongside it. This entry adds no A-ID; it closes the scoping question the same way the tokens finding earlier in this section closed its own, leaving the content slice itself as separately scoped future work.
 
 **Information architecture is settled to the component-entry shape only, narrower than the scoping research's hybrid recommendation.** The scoping discussion the first Settled decisions entry above deferred (issue #11) resolves in favor of Option A alone: IA anatomy will use the same component-entry template already proven three times (A-062–A-066, A-067–A-076, A-077–A-078). Breadcrumb (V-352), pagination (V-353), facets (V-360, the component; V-536 names the faceted-navigation pattern it belongs to), the nav-variant components — global navigation (V-533), local navigation (V-534), utility navigation (V-535) — and skip link (V-405) are the candidates that fit that template; hamburger menu (V-364) is a likely sub-part of a nav entry rather than its own, on the same "shares a parameter set, diverges only in what's present or fixed" test A-062 already applied to icon button, ghost button, floating action button, and split button. The "site-as-graph" relational shape the research also proposed as part of a hybrid — page nodes, link edges, depth, and path between them — is rejected for this document, not folded in alongside the component entries: a graph of pages and links is not "what a thing is made of, in parameters" (`suite-architecture.md` §2); it is closer to what Composition's F11–F14 already own as choices with ranges (F11 Topology's site shape and page count, F12 Navigation's model and cross-linking density, F13 Path's linearity and locus of control, F14 Addressing's URL legibility and canonical discipline), or to what Diagnosis does when reading a site's actual structure back. Mixing a second internal organizing shape into this document for one section would make Anatomy inconsistent with itself everywhere else it doesn't use that shape. Two further exclusions, made explicit rather than left silent: taxonomy (V-530) and ontology (V-531) are classification-scheme facts — what something is called or classified as — which is Vocabulary-shaped, not Anatomy-shaped, and stay out of this document; and the research-method and deliverable terms in Vocabulary's `M` part — card sorting (V-538), tree testing (V-539), mental model (V-540), journey map (V-542), wireframe (V-543), mockup (V-544), prototype (V-545), and fidelity (V-546) — are practitioner process artifacts, not something a website itself is made of, and are entirely out of scope for Anatomy. This entry adds no A-ID; it closes the scoping question the same way the content entry above closes its own, leaving the IA slice itself as separately scoped future work.
+
+**Fourth slice: information architecture, five entries covering the full candidate set the IA scoping resolution above named.** A-079 Breadcrumb and A-080 Pagination stay separate entries rather than folding into one, on the same test A-068, A-069, and A-070 already set for checkbox, radio group, and switch: a breadcrumb's parts are a hierarchy trail ending in a non-link current item, a pagination's are a row of sibling page controls flanked by previous/next and an overflow marker — different constructions that share a passing resemblance ("a row of links marking position") without sharing a parameter set, not the same construction wearing two labels. A-081 Facets stays its own entry for the same reason, composed from A-068 Checkbox and A-072 Slider rather than duplicating either. A-082 Navigation folds global navigation (V-533), local navigation (V-534), and utility navigation (V-535) into one entry, on the same "shares a parameter set, diverges only in what's present or fixed" test A-071 and A-077 already established for select/combobox and the menu family: all three are a landmark containing a list of items, differing only in scope. Hamburger menu (V-364) folds into that same entry as its `overflow control` rather than getting an entry of its own, exactly as the scoping resolution above anticipated: it conceals the same items the surrounding navigation entry already anatomizes, adding a trigger-and-disclosure-panel construction this document has already published at A-064 and A-077, not a new one. A-083 Skip link stays separate: a single link with no siblings and no group, whose entire function is changing where focus lands next — closer in shape to a focus-management primitive than to any of the other four entries in this slice.
+
+This is the whole named candidate set from the IA scoping resolution: breadcrumb, pagination, facets, the nav-variant trio, hamburger menu, and skip link. Nothing from that named set is deferred out of this pass — it was bounded tightly enough at scoping time that finishing it in one slice, the way the third slice finished the whole menu family in one pass, was more consistent than splitting it further with no boundary to split along. The site-as-graph shape, taxonomy, ontology, and the research-method and deliverable terms that same resolution rejected for this document stay rejected; nothing here reopens them.
+
+**Still open after this slice.** Toasts and banners, callouts, badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain uncovered in Vocabulary's `H` part. Content elements (Headline, Deck, Eyebrow, Byline, Body, Pull-quote, Stat/callout, Caption, CTA text, List, and Metadata block) remain the other settled-but-undrafted slice, per the entry above this one. Each is additive follow-up work under further new A-IDs, on the same terms this document has already set four times.
