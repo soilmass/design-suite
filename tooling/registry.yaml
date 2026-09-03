@@ -364,6 +364,36 @@
   type: anatomy entry
   status: active
   since: 1.0.0
+- id: A-062
+  owner: anatomy
+  name: Button
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-063
+  owner: anatomy
+  name: Card
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-064
+  owner: anatomy
+  name: Tooltip and popover
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-065
+  owner: anatomy
+  name: Dialog
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-066
+  owner: anatomy
+  name: Tabs
+  type: anatomy entry
+  status: active
+  since: 1.0.0
 - id: C001
   owner: constraints
   name: Acknowledgment window

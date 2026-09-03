@@ -1,13 +1,13 @@
 ```yaml
 document: Anatomy
-version: 1.0.0
+version: 1.1.0
 tier: 1
-scope: rendering primitives (color, typography, shape, space, motion, imagery, state)
+scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy
 owns:
   - what each thing is made of, expressed as parameters
   - the range or type of each parameter
   - what is derived rather than chosen
-exports: A-001–A-061
+exports: A-001–A-066
 depends:
   - Vocabulary ^1
   - Constraints ^1
@@ -18,7 +18,7 @@ reviewed: 2026-09-03
 
 What each thing is made of. Where Vocabulary establishes what a term denotes, this document takes the thing apart: the parameters it consists of, what values those accept, what it composes into, and what can be derived rather than chosen.
 
-**Scope of 1.0.0** — rendering primitives only. Components, tokens, information architecture, and content are not yet covered; they enter as additive minor versions with new A-IDs.
+**Scope of 1.1.0** — rendering primitives, plus a first slice of component anatomy: Button, Card, Tooltip/Popover, Dialog, and Tabs (A-062–A-066). The rest of components, tokens, information architecture, and content are not yet covered; they enter as additive minor versions with new A-IDs.
 
 ## What this document does not own
 
@@ -777,6 +777,67 @@ The usual correct combination: validate on blur, then re-validate on every chang
 
 ---
 
+# H. Components
+
+A first slice: five components whose parts are least reducible to the primitives already covered, chosen because most other components in Vocabulary's `H · Components` part compose from them or from a variant of them. The remaining entries in that part are a later, separately scoped addition — see **Settled decisions** below.
+
+## A-062 · Button
+
+`container` · `label` · `leading icon` · `trailing icon` · `hit target` · `state matrix`
+
+A button (V-310) is a container holding a label and optional icons, sized independently of its hit target and rendered across the state matrix.
+**Sub-parts** — icon button (V-313) omits the label, leaving the icon to carry the name; ghost button (V-312) omits fill and border at rest, resolving them only on hover or focus; floating action button (V-314) is a button whose position is fixed rather than in flow; split button (V-315) is two adjoining containers sharing one visual boundary, each with its own hit target.
+**Breaks when** — an icon-only container ships with no accessible name independent of the icon's visible form; the name, role, and value must each be determinable per C046 regardless of what is painted.
+
+---
+
+## A-063 · Card
+
+`surface` · `media slot` · `header` · `body` · `actions` · `padding`
+
+A card (V-331) is a bounded surface collecting content about one subject: an optional media slot, a header, a body of running text, and an optional row of actions, each inset by padding from the surface edge.
+**Note** — the surface itself is a fill, a corner treatment, and either a border or a shadow; those parameters are not restated here.
+**Breaks when** — the whole card is one interactive element while also containing a nested actionable control. Nested interactive elements have no single well-formed name/role pairing under C046, and the larger hit target intercepts input meant for the smaller one.
+
+---
+
+## A-064 · Tooltip and popover
+
+`trigger` · `content` · `arrow` · `placement` · `offset` · `collision behavior` · `open delay` · `close delay` · `dismissal`
+
+Tooltip (V-342) and popover (V-341) share one anatomy and diverge only in whether `content` may hold interactive descendants — see the compound entry at V-609.
+**Placement** — an anchor side (top, right, bottom, left) plus an alignment (start, center, end); `collision behavior` substitutes an alternate side or shifts the position when the preferred placement has no room.
+**Offset** — the gap between anchor and content edge, independent of `arrow` length, which is its own small triangle or notch pointing back at the trigger.
+**Delay** — `open delay` and `close delay` are each a duration; an asymmetric pair (short to open, longer to close) lets a pointer cross a small gap to the content without it dismissing.
+**Breaks when** — content reachable by pointer hover has no equivalent reachable by keyboard focus; C030 requires the function to be operable by keyboard, not merely visible to a mouse.
+
+---
+
+## A-065 · Dialog
+
+`scrim` · `surface` · `header` · `body` · `footer` · `dismissal affordance` · `focus trap` · `initial focus` · `return focus`
+
+Covers modal (V-337) and non-modal (V-338) dialogs, and drawer (V-339) and sheet (V-340) as edge-anchored variants of the same parts.
+**Scrim** — V-195, present for a modal dialog and absent for a non-modal one, whose page beneath stays operable.
+**Focus trap** — V-404, required only where a scrim is present. A trap without an exit violates C031; every trap needs a stated escape hatch (V-406), conventionally the Escape key in addition to the dismissal affordance, not instead of it.
+**Initial and return focus** — initial focus moves onto the dialog on open; return focus restores to the element that triggered it on close. Either one missing breaks the meaningful focus order required by C038.
+**Breaks when** — the scrim dismisses the dialog on click but Escape does not, or the reverse; the two are expected as redundant paths to the same result, not alternatives that only sometimes work.
+
+---
+
+## A-066 · Tabs
+
+`tablist` · `tab` · `indicator` · `panel` · `orientation` · `overflow behavior`
+
+`tab` sub-parts — `label` · `icon` · `badge` · `state`
+
+Tabs (V-334) switch between sibling panels in one context. The tablist is a single stop in the page's focus order; individual tabs are reached inside it by arrow key, a roving tabindex (V-403) rather than one tab stop each, which is what keeps the tab order in C038 meaningful as tab count grows.
+**Indicator** — its position and length track the active tab. Animating it by transform rather than by recomputing `left`/`width` keeps the movement off the layout path.
+**Overflow behavior** — scroll, wrap, or collapse into an overflow menu once tabs exceed the available inline size.
+**Breaks when** — the indicator's position is read from layout geometry every frame instead of transformed directly; the animation then contends with layout on the main thread.
+
+---
+
 ---
 
 # EXPORT INDEX
@@ -844,3 +905,20 @@ The usual correct combination: validate on blur, then re-validate on every chang
 | A-059 | Hit target |
 | A-060 | Feedback loop |
 | A-061 | Form field |
+| A-062 | Button |
+| A-063 | Card |
+| A-064 | Tooltip and popover |
+| A-065 | Dialog |
+| A-066 | Tabs |
+
+---
+
+## Settled decisions
+
+**Components was the chosen slice of the four named in README's "What is not covered," over tokens, information architecture, and content.** Vocabulary's `H · Components` part (V-310–V-364) already names roughly forty-five components with no anatomy anywhere in the suite, which made this the gap with the most existing scaffolding and the clearest boundary to work inside. Tokens sit close enough to Implementation's `T`/`K` namespace — the build artifact a choice becomes — that drafting their anatomy risked duplicating ownership rather than filling a gap; information architecture and content are not rendering primitives in the sense the rest of this document is, and each looks like it wants its own organizing shape rather than a bolt-on section here. Both are left for a scoping discussion before either gets A-IDs, not attempted in this pass.
+
+**Five entries, not forty-five.** A-062–A-066 cover Button, Card, Tooltip/Popover, Dialog, and Tabs: the components most others in Vocabulary's `H` part either compose from directly (a card holding buttons, a dropdown menu sharing tooltip/popover placement anatomy) or differ from structurally (a dialog's scrim and focus trap, a tabs set's roving tabindex). This is a first slice, not the volume — the remaining names in V-310–V-364 (inputs and their variants, menus, toasts and banners, badges and chips, avatars, and the rest) are additive follow-up work under new A-IDs, each its own bounded contribution rather than one PR closing the whole part.
+
+**Variant terms did not each get their own A-ID.** Icon button, ghost button, floating action button, and split button (V-312–V-315) are noted as sub-parts of A-062 rather than given separate entries, because none of them changes the parameter set — only which parameters are present, absent, or fixed. This mirrors how A-012 Gradient covers linear, radial, and conic without separate IDs, reserving a new entry for Mesh gradient (A-013) only because its parameters genuinely differ. The same reasoning folds non-modal dialog, drawer, and sheet (V-338–V-340) into A-065 rather than three further entries.
+
+**Which choices exist among these parts, and how a choice becomes a built component, stayed out.** Several drafts of these entries drifted toward saying which affordance to prefer or how a state trap is coded; both were cut. Composition owns the range of choice, Implementation owns the build, and an entry that started prescribing either was rewritten back down to the parts and their ranges — this document's own boundary, not a new one invented for components.
