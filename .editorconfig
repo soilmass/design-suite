@@ -1,0 +1,36 @@
+# EditorConfig: https://editorconfig.org
+# Conventions verified against the existing repo (tooling/validate.py, tooling/vale/, docs/*.md)
+# rather than assumed: LF endings, UTF-8, final newline, no trailing whitespace, no tabs anywhere
+# in the repo today. Language-specific sections follow Google's published style guides
+# (google.github.io/styleguide) where one exists for that file type:
+#   - Python: pyguide.html §3.4 (4-space indent, no tabs) and §3.2 (80-char line limit)
+#   - Markdown: docguide/style.html "Character line limit" (80-char limit, with the guide's own
+#     exceptions for links/tables/headings/code blocks — not expressible in EditorConfig, so
+#     max_line_length here is advisory only, per how most editors treat the property)
+# Google publishes no YAML style guide. `[*.{yaml,yml}]` keeps the existing 2-space convention on
+# purpose: it's what every other Google guide that covers a block-structured format (Shell,
+# JavaScript, Java, C++, HTML/CSS) uses, so it's the closest fit rather than an invented default.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 80
+
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+indent_style = space
+indent_size = 4
+max_line_length = 80
+# trim_trailing_whitespace inherited from [*]: no docs/*.md, README.md, CONTRIBUTING.md, or
+# ROADMAP.md file in this repo relies on a trailing-double-space hard line break (checked with
+# `grep -rlP ' +$'` across all of them — zero matches), so trimming is safe here.

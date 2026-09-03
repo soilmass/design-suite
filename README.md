@@ -76,3 +76,9 @@ Stated so it is not discovered later.
 `audit/tooling-audit-2.0.0.md` records where the suite duplicates existing standards, where it names tools, and where it is genuinely alone. Its honest conclusion: the contribution is assembly and completeness, not mechanism. Every individual pattern has a prior, and they are catalogued there.
 
 Each document ends with a **settled decisions** section recording judgement calls and why. Those exist to survive the person who made them — read them before reversing anything that looks arbitrary.
+
+---
+
+## License
+
+MIT — see `LICENSE`.
