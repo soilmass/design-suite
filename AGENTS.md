@@ -153,15 +153,17 @@ human's — is genuinely on record.
 ## Known gotchas
 
 **GitHub's issue-closing keyword parser does plain substring matching — it does not understand
-negation.** Writing `not claiming "Closes #17"` in a PR body or commit message will still
-auto-close #17, because the parser matches the literal substring regardless of the English
-sentence around it. Reference issue numbers in plain prose only; close issues explicitly via `gh
-issue close` when you mean to, never by writing out the phrase you're trying to avoid.
+negation.** The actual keyword list, case-insensitive: `close`, `closes`, `closed`, `fix`, `fixes`,
+`fixed`, `resolve`, `resolves`, `resolved`, each followed by `#<number>`. Writing `not claiming
+"Closes #17"` in a PR body or commit message will still auto-close #17, because the parser matches
+the literal substring regardless of the English sentence around it — it does not parse the
+sentence at all. Reference issue numbers in plain prose only, with none of those words immediately
+before the `#`; close issues explicitly via `gh issue close` when you mean to, never by writing out
+the phrase you're trying to avoid.
 
-**Self-approval is blocked on a single-account repository.** If every commit comes from the same
-GitHub account (the normal case here), that account cannot formally approve its own pull request.
-This is not a bug to work around — it's why review evidence here is a comment with checkable
-content, not a green checkmark.
+**Self-approval is blocked on a single-account repository** (see "Get reviewed" above for why that
+makes a review comment, not a formal approval, the actual evidence mechanism here) — don't spend
+time trying `gh pr review --approve` on your own PR, it will fail.
 
 **A citation that resolves is not a citation that's correct.** `validate.py` confirms an ID
 exists; it has no way to confirm the sentence citing it means what the ID actually means. This is
