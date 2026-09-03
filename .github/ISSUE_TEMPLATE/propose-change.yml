@@ -1,0 +1,55 @@
+name: Propose a change to the suite
+description: Flag a fact you think is wrong, missing, or homeless — before it's a PR.
+labels:
+  - proposal
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read this first: **a PR is a proposed edit, not a discussion** (`G030`,
+        CONTRIBUTING.md "How to open a pull request"). If you already know the
+        change, the reason, and — if it's breaking — the migration, skip this
+        issue and open a PR directly using the pull request template.
+
+        Use this issue only when you're not ready for that: you're unsure
+        which document should own the fact, or you want to flag something
+        before writing the diff.
+  - type: textarea
+    id: fact
+    attributes:
+      label: What's wrong, missing, or unclear
+      description: State the fact, not a full proposal. One or two sentences.
+    validations:
+      required: true
+  - type: input
+    id: candidates
+    attributes:
+      label: Candidate owner document(s)
+      description: >-
+        Per suite-architecture.md §2 (ownership) — name the document you think
+        owns this. If more than one document could defensibly own it, name
+        both; that ambiguity is the reason this is an issue and not yet a PR.
+      placeholder: "e.g. Composition, or Composition vs. Constraints"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Best guess at kind of change (G020)
+      description: Additive, corrective, or breaking — doesn't have to be certain.
+      options:
+        - Additive
+        - Corrective
+        - Breaking
+        - Not sure
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before submitting
+      options:
+        - label: >-
+            I read suite-architecture.md §2 and CONTRIBUTING.md's ownership
+            guidance and still couldn't place this myself.
+          required: true
