@@ -1,6 +1,6 @@
 ```yaml
 document: Implementation
-version: 1.0.3
+version: 1.0.4
 tier: 2
 owns:
   - what tokens must exist and what governs them
@@ -155,7 +155,7 @@ Rings are styled on `:focus-visible`, never on `:focus` alone. Satisfies C032 an
 
 ## K004 · Focus containment for overlays
 
-Any component rendering over content traps focus while open, returns focus to its trigger on close, and closes on Escape. Satisfies C031 and C033.
+Any component rendering over content traps focus while open, returns focus to its trigger on close, and closes on Escape. Satisfies C031.
 
 ## K005 · Target size is a component property
 
@@ -167,7 +167,7 @@ Every component renders correctly with: a 3-character string and a 90-character 
 
 ## K007 · No fixed heights on text containers
 
-Text expands under translation per C027 and under user spacing overrides. A container with a fixed height clips.
+Text expands under user spacing overrides per C027, and under translation per K048. A container with a fixed height clips regardless of which one caused the expansion.
 
 ## K008 · API surface
 
@@ -194,7 +194,7 @@ A component supporting internal state supports external control of the same stat
 
 `margin-inline-start`, not `margin-left`. This is what makes RTL nearly free rather than a second layout.
 
-<!-- vale Suite.RefusedTerms = NO --><!-- "accessible name" is WCAG's own defined term (V-469, C042), not the refused binary-adjective usage -->
+<!-- vale Suite.RefusedTerms = NO --><!-- "accessible name" is WCAG's own defined term (V-469, C046), not the refused binary-adjective usage -->
 ## K013 · One accessible name per control
 
 Provided by content, a label, or an explicit attribute — never by more than one at once, and never absent on an icon-only control.
@@ -206,7 +206,7 @@ Every animated component reads the preference and takes the T062 counterpart. Sa
 
 ## K015 · Loading is a state, not a wrapper
 
-Components express loading internally rather than being replaced by a spinner. Replacement discards layout and causes the shift C105 describes.
+Components express loading internally rather than being replaced by a spinner. Replacing a component with a spinner discards its layout, so the surrounding content shifts when the real content takes its place.
 
 ## K016 · Errors state cause and next action
 
@@ -252,7 +252,7 @@ An error surface names what happened and what to do. Satisfies C040. "Something 
 **K055 · Nothing hover-only** — Every hover-revealed affordance has a focus and touch equivalent.
 **K056 · Nothing color-only** — Every state distinguished by color is also distinguished by shape, text, icon, or position. Satisfies C023.
 **K057 · Keyboard parity** — Every pointer operation has a keyboard path, including drag, which requires a single-pointer alternative under C037.
-**K058 · Zoom survival** — Usable at 400%, verified at a 320px equivalent width per C026.
+**K058 · Zoom survival** — Usable and operable at the reflow width C026 requires.
 **K059 · Forced-colors survival** — Components remain operable when author colors are replaced, which means borders and focus indicators may not be conveyed by background alone.
 
 ## Technical independence
@@ -287,7 +287,7 @@ An error surface names what happened and what to do. Satisfies C040. "Something 
 | C035 Pause, stop, hide | Component | Review | No |
 | C036 Reduced motion | Token, T062 · Component, K014 | Lint for unpaired motion tokens | Yes |
 | C037 Dragging alternative | Component, K057 | Review | No |
-| C038 Focus order | Component, K009 | Partial; DOM-vs-visual comparison | Partial |
+| C038 Focus order | Component, K010 | Partial; DOM-vs-visual comparison | Partial |
 | C039 Labels | Component, K013 | Lint | Yes |
 | C040 Error identification | Component, K016 | Review | No |
 | C041 Redundant entry | Flow level | Review | No |
