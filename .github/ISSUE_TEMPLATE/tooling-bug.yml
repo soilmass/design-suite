@@ -1,0 +1,42 @@
+name: Tooling / validator bug
+description: validate.py, registry.yaml generation, or the Vale config did something wrong.
+labels:
+  - tooling
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a wrong or unclear document entry, use "Propose a change" instead
+        — this template is for the checking tools themselves
+        (`tooling/validate.py`, `tooling/registry.yaml` generation, Vale).
+  - type: textarea
+    id: command
+    attributes:
+      label: Command run
+      render: shell
+      placeholder: |
+        cd tooling
+        python3 validate.py
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual output
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected output
+      description: What should have happened instead, and why.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Python / Vale version
+      placeholder: "python3 --version / vale --version"
+    validations:
+      required: false

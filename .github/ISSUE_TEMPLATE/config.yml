@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ready to propose a change?
+    url: https://github.com/soilmass/design-suite/blob/main/CONTRIBUTING.md
+    about: If you already have the change, the reason, and (if breaking) the migration, open a PR directly.
