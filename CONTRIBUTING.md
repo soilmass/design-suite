@@ -52,10 +52,11 @@ to the wrong identifier is syntactically fine and semantically broken, and nothi
 catches that. For an external PR, the maintainer is that second reader; you don't need to
 arrange one yourself.
 
-This project currently runs Governance's "small team" tier (`G082`): named review and recorded
-rejections, but not yet the full proposal clock or named successors from the "organization" tier
-(`G033`, `G013`) — those get added if and when the contributor base grows past what a maintainer
-can review by hand. `ROADMAP.md` tracks that transition.
+This project currently runs Governance's "small team" tier (`G082`): named review, evidence of
+that review left checkable against the change itself, and recorded rejections, but not yet the
+full proposal clock or named successors from the "organization" tier (`G033`, `G013`) — those get
+added when review starts falling behind change, per `G082`'s own tier-transition signal, not when
+a headcount crosses some number. `ROADMAP.md` tracks that transition.
 
 ## Concurrent agent contribution
 
