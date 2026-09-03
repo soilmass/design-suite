@@ -167,7 +167,7 @@ def main(argv):
     else:
         print("PASS -- no malformed ADRs, no unresolved citations")
     print("=" * 64)
-    return 0
+    return 1 if problems else 0
 
 
 if __name__ == '__main__':
