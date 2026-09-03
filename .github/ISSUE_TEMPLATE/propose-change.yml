@@ -6,6 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
+        AI agent contributor? Read AGENTS.md first.
+
         Read this first: **a PR is a proposed edit, not a discussion** (`G030`,
         CONTRIBUTING.md "How to open a pull request"). If you already know the
         change, the reason, and — if it's breaking — the migration, skip this
