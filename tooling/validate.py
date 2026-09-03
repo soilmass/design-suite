@@ -22,7 +22,10 @@ DOCS = {'vocabulary':'vocabulary-1.0.0.md',
 
 def front_matter(t):
     m = re.match(r'```yaml\n(.*?)\n```', t, re.S)
-    return yaml.safe_load(re.sub(r'\s+#.*','',m.group(1))) if m else None
+    if not m: return None
+    try: fm = yaml.safe_load(re.sub(r'\s+#.*','',m.group(1)))
+    except yaml.YAMLError: return None
+    return fm if isinstance(fm, dict) else None
 
 def defined(name, t):
     if name=='composition':
@@ -67,6 +70,7 @@ print("\n[1] Front matter and declared exports")
 for name, d in docs.items():
     fm = d['fm']
     if not fm: problems.append(f"{name}: no front matter"); continue
+    if 'version' not in fm: problems.append(f"{name}: front matter missing 'version'")
     declared_tier = fm.get('tier')
     if TIER[name] is None:
         if not str(declared_tier).startswith('none'):
@@ -80,20 +84,21 @@ for name, d in docs.items():
     dec = str(fm.get('exports',''))
     decl = {m[0]: m for m in [re.findall(r'([A-Z]-?\d+)', p) for p in dec.split(',')] if m}
     ok = True
-    for ns, v in sorted(byns.items()):
+    for ns in sorted(set(byns) | {m[0][0] for m in decl.values()}):
+        v = byns.get(ns)
         d_ns = next((m for m in decl.values() if m[0][0]==ns), None)
-        if not d_ns or d_ns[0]!=min(v) or d_ns[-1]!=max(v): ok = False
-    print(f"  {name:14} v{fm['version']:8} tier {fm['tier']}  declared {dec:30} actual {actual:24} {'ok' if ok else 'MISMATCH'}")
+        if not v or not d_ns or d_ns[0]!=min(v) or d_ns[-1]!=max(v): ok = False
+    print(f"  {name:14} v{fm.get('version','MISSING'):8} tier {declared_tier}  declared {dec:30} actual {actual:24} {'ok' if ok else 'MISMATCH'}")
     if not ok: problems.append(f"{name}: declares {dec}, actual {actual}")
 
 # 2 dependency direction
 print("\n[2] Dependency direction (downward only)")
 for name, d in docs.items():
-    for dep in (d['fm'].get('depends') or []):
+    for dep in ((d['fm'] or {}).get('depends') or []):
         dn = dep.split()[0].lower()
         dt, mt = TIER.get(dn), TIER[name]
         exists = dn in DOCS
-        verdict = 'ok' if (dt is not None and dt < mt) else 'ILLEGAL'
+        verdict = 'ok' if (dt is not None and mt is not None and dt < mt) else 'ILLEGAL'
         if verdict=='ILLEGAL': problems.append(f"{name} -> {dn}: not downward")
         print(f"  {name:13} -> {dn:13} tier {dt} < {mt}  {verdict}{'' if exists else '   [TARGET NOT BUILT]'}")
 
@@ -113,7 +118,7 @@ reg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),'registry.yam
 old_reg = yaml.safe_load(open(reg_path)) if os.path.exists(reg_path) else None
 old_since = {r['id']: r['since'] for r in (old_reg or [])}
 reg = [dict(id=i, owner=o, name=n, type=k, status='active',
-            since=old_since.get(i, docs[o]['fm']['version']))
+            since=old_since.get(i, (docs[o]['fm'] or {}).get('version', 'unknown')))
        for i,(o,n,k) in sorted(allids.items())]
 yaml.safe_dump(reg, open(reg_path,'w'), sort_keys=False, allow_unicode=True, width=200)
 print(f"\n[4] Registry written: {len(reg)} entries -> registry.yaml")
@@ -122,7 +127,7 @@ for k,v in sorted(Counter(x['type'] for x in reg).items()): print(f"  {k:12} {v}
 
 print("\n[4b] Orthogonality — documents declaring cites_no_ids must cite none")
 for name, d in docs.items():
-    if d['fm'].get('cites_no_ids'):
+    if (d['fm'] or {}).get('cites_no_ids'):
         foreign = sorted({c for c in re.findall(r'\b(V-\d{3}|[FCDAXR]\d{2,3}(?:\.\d)?)\b', d['text'])})
         print(f"  {name:15} declares cites_no_ids  found: {foreign or 'none'}  {'ok' if not foreign else 'VIOLATION'}")
         if foreign: problems.append(f"{name}: declares cites_no_ids but cites {foreign}")

@@ -56,7 +56,10 @@ FAMILY_LIKE = re.compile(r'^(F\d{2})(?:\.\d+)?$')
 
 def front_matter(t):
     m = re.match(r'```yaml\n(.*?)\n```', t, re.S)
-    return yaml.safe_load(re.sub(r'\s+#.*', '', m.group(1))) if m else None
+    if not m: return None
+    try: fm = yaml.safe_load(re.sub(r'\s+#.*', '', m.group(1)))
+    except yaml.YAMLError: return None
+    return fm if isinstance(fm, dict) else None
 
 
 def load_families(registry_path):
@@ -79,6 +82,9 @@ def load_adrs(adr_dir):
         fams = fm.get('families')
         if not fams:
             malformed.append((rel, 'front matter has no families: list'))
+            continue
+        if not isinstance(fams, list):
+            malformed.append((rel, 'families: is not a list'))
             continue
         status = str(fm.get('status', 'accepted')).strip().lower()
         adrs.append(dict(path=rel, families=fams, status=status))
