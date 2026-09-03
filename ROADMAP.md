@@ -32,25 +32,27 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   `tests/decision_completeness/fixtures/` for the ADR format and worked examples.
 - **Anatomy volume 2.** Partially done. Components, tokens, information architecture, and content
   — the volumes `README.md` already flags as needed beyond the current rendering-primitives-only
-  scope. A first slice of components has landed: `docs/anatomy-1.0.0.md` (now 1.1.0) adds
-  `A-062`–`A-066` for Button, Card, Tooltip/Popover, Dialog, and Tabs — five of the roughly forty-
-  five components Vocabulary's `H · Components` part already names, chosen, per that document's
-  own **Settled decisions** section, as "the components most others in Vocabulary's `H` part
-  either compose from directly ... or differ from structurally," and explicitly "a first slice,
-  not the volume." Tokens, information architecture, and content are still untouched — the same
-  section explains why components went first and the other three were deferred rather than
-  attempted together: "Tokens sit close enough to Implementation's `T`/`K` namespace ... that
-  drafting their anatomy risked duplicating ownership rather than filling a gap; information
-  architecture and content are not rendering primitives in the sense the rest of this document
-  is, and each looks like it wants its own organizing shape rather than a bolt-on section here.
-  Both are left for a scoping discussion before either gets A-IDs." That scoping discussion has
-  since happened for tokens, and closed negative: `docs/anatomy-1.0.0.md`'s own **Settled
-  decisions** section now records tokens as settled out of scope, not deferred — Implementation's
-  `T`-namespace and the DTCG spec it cites already own the whole of a token's structure, so tokens
-  is no longer tracked as an open gap here. Information architecture and content remain open on
-  the same terms as before; only tokens is resolved. The remaining ~40 component terms, plus
-  information architecture and content, remain natural first projects for an outside contributor,
-  each its own bounded, separately scoped contribution rather than one PR closing the whole gap.
+  scope. Three component slices have landed: `docs/anatomy-1.0.0.md` is now 1.3.0, exports
+  `A-001`–`A-078`. The first slice added `A-062`–`A-066` for Button, Card, Tooltip/Popover,
+  Dialog, and Tabs; the second added `A-067`–`A-076` for the input controls — Text input,
+  Checkbox, Radio group, Switch, Select and combobox, Slider, Stepper, Segmented control,
+  Dropzone, and Fieldset; the third added `A-077`–`A-078` for the menu family — Menu (covering
+  dropdown menu and context menu) and Command palette. Counted against the current export index,
+  the three slices together cite 28 of the 55 names in Vocabulary's `H · Components` part
+  (`V-310`–`V-364`) — a little over half. Tokens are no longer an open gap: the scoping
+  discussion the first slice deferred it to has since happened and closed negative (issue #13,
+  closed) — `docs/anatomy-1.0.0.md`'s own **Settled decisions** section now records tokens as
+  settled out of scope, not deferred, because every parameter, range, and derived fact a token
+  could need already resolves to an existing A-ID (a color-ramp step to `A-014`, spacing to
+  `A-036`, a radius to `A-026`, and so on) or to Implementation's `T`-namespace, which owns the
+  token wrapper itself. Information architecture and content remain open on the same terms as
+  before, each with its own unresolved scoping issue — content is issue #10, information
+  architecture is issue #11, both still open. The remaining ~27 names in Vocabulary's `H` part
+  (toasts and banners, callouts, badges and chips, avatars, breadcrumb and pagination, progress
+  and spinner, skeleton and empty/zero state, facets, carousel, lightbox, toolbar, hamburger
+  menu, and others), plus information architecture and content, remain natural first projects for
+  an outside contributor, each its own bounded, separately scoped contribution rather than one PR
+  closing the whole gap. Phase 2 is not complete while those three remain open.
 
 Everything else in the gap register (language-plane consistency measurement, representation-plane
 verification, citation-intent checking, legal-change monitoring) stays explicitly out of scope —
