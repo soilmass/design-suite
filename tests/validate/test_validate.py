@@ -156,3 +156,198 @@ def test_validate_never_sets_a_nonzero_exit_code(run_validate):
     assert broken.returncode == 0
     assert "PASS — no problems" in clean.stdout
     assert "PROBLEM(S)" in broken.stdout
+
+
+# ---------------------------------------------------------------------------
+# Adversarial cases -- front matter that is syntactically valid YAML but
+# semantically malformed in ways the fixtures above never exercise. Every
+# case in this section was run against validate.py *before* being pinned
+# down here; several of them crashed the (unfixed) script outright instead
+# of reporting a clean PROBLEM -- those are noted as bug fixes below, with
+# validate.py itself patched alongside the new fixture/test. The rest verify
+# existing-and-correct behavior that simply had no regression coverage yet.
+# ---------------------------------------------------------------------------
+
+def test_missing_version_key_reported_cleanly_not_a_crash(run_validate):
+    """Bug fix: front matter syntactically valid but missing the required
+    `version:` key entirely used to crash validate.py with an unhandled
+    KeyError in the [1] print statement (`fm['version']`), before any
+    problem was ever printed. Confirmed against the unfixed script (real
+    KeyError traceback, no PROBLEM(S) summary at all); fixed by having
+    front_matter's caller use `fm.get('version', ...)` and explicitly flag
+    the missing key as a problem."""
+    r = run_validate("missing_version_key")
+    assert r.returncode == 0
+    assert "Traceback" not in r.stdout and "Traceback" not in r.stderr
+    assert "PROBLEM(S)" in r.stdout
+    assert "vocabulary: front matter missing 'version'" in r.stdout
+
+
+def test_missing_tier_key_reported_cleanly_not_a_crash(run_validate):
+    """Bug fix: same crash class as the version case above, but for the
+    required `tier:` key (`fm['tier']` in the same print statement).
+    Confirmed crashing with KeyError against the unfixed script; fixed the
+    same way, and this case was already correctly detected as a tier
+    mismatch (`declared_tier` computed via `.get()`) once the print
+    statement itself stopped crashing."""
+    r = run_validate("missing_tier_key")
+    assert r.returncode == 0
+    assert "Traceback" not in r.stdout and "Traceback" not in r.stderr
+    assert "PROBLEM(S)" in r.stdout
+    assert "vocabulary: tier None != 0" in r.stdout
+
+
+def test_front_matter_yaml_that_parses_to_a_list_not_a_dict(run_validate):
+    """Bug fix: the fenced ```yaml block is syntactically valid YAML but
+    parses to a list, not a mapping. Confirmed crashing with
+    `AttributeError: 'list' object has no attribute 'get'` on the unfixed
+    script's very first `fm.get('tier')` call. Fixed by having
+    front_matter() itself reject non-dict results, folding this into the
+    existing 'no front matter' problem path."""
+    r = run_validate("front_matter_not_a_dict")
+    assert r.returncode == 0
+    assert "Traceback" not in r.stdout and "Traceback" not in r.stderr
+    assert "PROBLEM(S)" in r.stdout
+    assert "vocabulary: no front matter" in r.stdout
+
+
+def test_front_matter_invalid_yaml_syntax(run_validate):
+    """Bug fix: the fenced ```yaml block is not parseable YAML at all (an
+    unterminated quoted scalar). Confirmed crashing with an uncaught
+    yaml.scanner.ScannerError before a single line of validator output was
+    printed. Fixed by wrapping the yaml.safe_load call in front_matter() in
+    try/except yaml.YAMLError, folding this into the same 'no front matter'
+    path as the case above."""
+    r = run_validate("front_matter_invalid_yaml")
+    assert r.returncode == 0
+    assert "Traceback" not in r.stdout and "Traceback" not in r.stderr
+    assert "ScannerError" not in r.stdout and "ScannerError" not in r.stderr
+    assert "PROBLEM(S)" in r.stdout
+    assert "vocabulary: no front matter" in r.stdout
+
+
+def test_no_front_matter_block_at_all(run_validate):
+    """Bug fix: a document with no fenced ```yaml block at all -- not a
+    malformed one, just absent. front_matter() already returned None for
+    this case pre-fix, and check [1] already handled it gracefully
+    ('no front matter'), but check [2]'s `d['fm'].get('depends')` had no
+    equivalent guard and crashed with `AttributeError: 'NoneType' object has
+    no attribute 'get'` as soon as it reached that document. Confirmed
+    crashing against the unfixed script. Fixed by guarding with
+    `(d['fm'] or {}).get(...)`, matching the same fix applied to the
+    registry-build step and the [4b] orthogonality check, which had the
+    identical latent bug for the same reason."""
+    r = run_validate("no_front_matter_block_at_all")
+    assert r.returncode == 0
+    assert "Traceback" not in r.stdout and "Traceback" not in r.stderr
+    assert "PROBLEM(S)" in r.stdout
+    assert "vocabulary: no front matter" in r.stdout
+
+
+def test_governance_declaring_illegal_depends_reported_not_crashed(run_validate):
+    """Bug fix: governance (tier None) is given a `depends:` entry, which is
+    illegal (governance cites no identifiers and sits outside the tier
+    system). Confirmed crashing the unfixed script with
+    `TypeError: '<' not supported between instances of 'int' and
+    'NoneType'` in the verdict computation (`dt < mt` where `mt` -- governance's
+    own tier -- is None), meaning the one case this check most needs to
+    catch (governance breaking its own orthogonality-adjacent rule) crashed
+    instead of being flagged. Fixed by short-circuiting to ILLEGAL whenever
+    either side's tier is None."""
+    r = run_validate("governance_with_illegal_depends")
+    assert r.returncode == 0
+    assert "Traceback" not in r.stdout and "Traceback" not in r.stderr
+    assert "PROBLEM(S)" in r.stdout
+    assert "ILLEGAL" in r.stdout
+    assert "governance -> constraints: not downward" in r.stdout
+
+
+def test_exports_declared_but_body_defines_nothing_is_a_mismatch(run_validate):
+    """Bug fix: verification declares `exports: X001` but its body defines
+    zero X-ids. The [1] MISMATCH loop (`for ns, v in sorted(byns.items())`)
+    only ever iterated namespaces actually found in the body -- a namespace
+    that is declared but never defined at all was never visited, so `ok`
+    silently stayed True and the row printed 'ok'. Confirmed against the
+    unfixed script: it printed 'declared X001 ... actual  ok' with zero
+    problems reported. Fixed by iterating the union of declared and actual
+    namespaces, not just the actual ones."""
+    r = run_validate("exports_declared_but_zero_ids")
+    assert r.returncode == 0
+    assert "PROBLEM(S)" in r.stdout
+    assert "MISMATCH" in r.stdout
+    assert "verification: declares X001, actual" in r.stdout
+
+
+def test_duplicate_id_check_is_exercised(run_validate):
+    """Existing-and-correct behavior, previously untested: the DUPLICATE ID
+    check (`if i in allids: problems.append(...)`) has no fixture anywhere
+    in this suite before now. Composition defines F01 twice in its own
+    body. No code change -- this only adds coverage for a check that was
+    already working."""
+    r = run_validate("duplicate_id")
+    assert r.returncode == 0
+    assert "PROBLEM(S)" in r.stdout
+    assert "DUPLICATE ID F01 in composition and composition" in r.stdout
+
+
+def test_depends_on_a_document_name_not_in_docs_at_all(run_validate):
+    """Existing-and-correct behavior, previously untested: `depends:` names
+    a document ('Nonexistent') that isn't in the TIER/DOCS dicts at all --
+    not just a not-yet-built one, a nonexistent one (e.g. a typo). Confirms
+    this is still cleanly flagged ILLEGAL and tagged [TARGET NOT BUILT], not
+    silently skipped. No code change."""
+    r = run_validate("depends_on_nonexistent_doc")
+    assert r.returncode == 0
+    assert "PROBLEM(S)" in r.stdout
+    assert "ILLEGAL" in r.stdout
+    assert "[TARGET NOT BUILT]" in r.stdout
+    assert "anatomy -> nonexistent: not downward" in r.stdout
+
+
+def test_tier_declared_as_wrong_type_not_just_wrong_value(run_validate):
+    """Existing-and-correct behavior, previously untested: `tier:` is
+    present but is a quoted string ("zero") rather than the expected int.
+    The only existing tier-related fixture (dependency_direction_violation)
+    exercises a *correct*-type tier used illegally in `depends:`; nothing
+    exercised a tier of the wrong Python type in a document's own front
+    matter. Confirms `declared_tier != TIER[name]` still catches this. No
+    code change."""
+    r = run_validate("tier_wrong_type")
+    assert r.returncode == 0
+    assert "PROBLEM(S)" in r.stdout
+    assert "vocabulary: tier zero != 0" in r.stdout
+
+
+def test_empty_exports_declared_while_body_defines_something(run_validate):
+    """Existing-and-correct behavior, previously untested: the mirror image
+    of the exports_declared_but_zero_ids bug fix above -- `exports:` is
+    present but empty (parses to YAML null) while the body *does* define
+    V-001. Unlike the bug case, this direction was already caught correctly
+    (V-001 is in `byns`, so the MISMATCH loop actually visits it). No code
+    change; documents the boundary precisely."""
+    r = run_validate("empty_exports_declared")
+    assert r.returncode == 0
+    assert "PROBLEM(S)" in r.stdout
+    assert "MISMATCH" in r.stdout
+    assert "vocabulary: declares None, actual V-001" in r.stdout
+
+
+def test_id_heading_with_extra_whitespace_is_not_recognized_as_defined(run_validate):
+    """Known sharp edge, not fixed: composition's F01 heading has an extra
+    space before the ` · ` separator ('### F01  · Widget mandate'). The
+    defined() regex requires the exact single-space separator, so this ID is
+    silently *not* extracted as defined -- every other document that
+    legitimately cites F01 (decision, implementation, diagnosis) then
+    reports a false 'dangling F01', and composition's own exports check
+    reports a MISMATCH for an ID that a human reading the document would
+    clearly see as defined. Documented here as strict-by-design behavior
+    (loosening the definition regexes trades an easy-to-see false positive
+    for a much harder-to-see false negative, and the suite's whole contract
+    -- suite-architecture.md -- is exact ID formatting) rather than changed."""
+    r = run_validate("composition_heading_double_space_before_middot")
+    assert r.returncode == 0
+    assert "PROBLEM(S)" in r.stdout
+    assert "composition: declares F01, actual" in r.stdout
+    assert "decision: dangling F01" in r.stdout
+    assert "implementation: dangling F01" in r.stdout
+    assert "diagnosis: dangling F01" in r.stdout
