@@ -369,91 +369,91 @@
   name: Button
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.1.0
 - id: A-063
   owner: anatomy
   name: Card
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.1.0
 - id: A-064
   owner: anatomy
   name: Tooltip and popover
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.1.0
 - id: A-065
   owner: anatomy
   name: Dialog
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.1.0
 - id: A-066
   owner: anatomy
   name: Tabs
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.1.0
 - id: A-067
   owner: anatomy
   name: Text input
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-068
   owner: anatomy
   name: Checkbox
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-069
   owner: anatomy
   name: Radio group
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-070
   owner: anatomy
   name: Switch
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-071
   owner: anatomy
   name: Select and combobox
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-072
   owner: anatomy
   name: Slider
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-073
   owner: anatomy
   name: Stepper
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-074
   owner: anatomy
   name: Segmented control
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-075
   owner: anatomy
   name: Dropzone
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: A-076
   owner: anatomy
   name: Fieldset
   type: anatomy entry
   status: active
-  since: 1.0.0
+  since: 1.2.0
 - id: C001
   owner: constraints
   name: Acknowledgment window
