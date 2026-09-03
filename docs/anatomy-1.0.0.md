@@ -1,13 +1,13 @@
 ```yaml
 document: Anatomy
-version: 1.4.0
+version: 1.5.0
 tier: 1
-scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice
+scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice, plus content elements
 owns:
   - what each thing is made of, expressed as parameters
   - the range or type of each parameter
   - what is derived rather than chosen
-exports: A-001–A-083
+exports: A-001–A-094
 depends:
   - Vocabulary ^1
   - Constraints ^1
@@ -27,6 +27,8 @@ What each thing is made of. Where Vocabulary establishes what a term denotes, th
 **Scope of 1.3.1** — no new A-IDs. Closes the other two scoping questions the first Settled decisions entry above left open, the same way 1.3.0 closed tokens: content and information architecture are each resolved to an organizing shape — see **Settled decisions**. Both remain uncovered by any A-ID; what changes is that a future contribution now has a settled shape to draft into rather than an open scoping discussion.
 
 **Scope of 1.4.0** — adds a fourth slice of component anatomy, the first drawn from information architecture rather than from Vocabulary's `H · Components` part: Breadcrumb, Pagination, Facets, Navigation (folding global, local, and utility navigation, plus hamburger menu as a sub-part), and Skip link (A-079–A-083). This is the full candidate set the 1.3.1 information-architecture scoping resolution named; see **Settled decisions**. Toasts and banners, callouts, badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain open in the `H` part, and content elements remain the other settled-but-undrafted slice.
+
+**Scope of 1.5.0** — adds a fifth slice, the first drawn from Vocabulary's `L · Content and language` part rather than from `H · Components`: content elements — Headline, Deck, Eyebrow, Byline, Body, Pull-quote, Stat/callout, Caption, CTA text, List, and Metadata block (A-084–A-094). This is the full candidate set the 1.3.1 content scoping resolution named; see **Settled decisions**. Closing this slice required a small companion Vocabulary addition — eight of the eleven candidates had no term at all, and a ninth ("stat") had only a partial match — recorded as V-613–V-621 in Vocabulary's own changelog, not restated here beyond the citations the entries below make. Toasts and banners, callouts, badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain the only open names, all in the `H` part; content is now fully drafted.
 
 ## What this document does not own
 
@@ -1039,6 +1041,118 @@ Skip link (V-405) is a link allowing keyboard users to bypass repeated navigatio
 
 ---
 
+# I. Content
+
+A-084–A-094 below are the content-elements slice the scoping resolution recorded in **Settled decisions** names as the suite's other open resolution alongside information architecture: Headline, Deck, Eyebrow, Byline, Body, Pull-quote, Stat/callout, Caption, CTA text, List, and Metadata block — the full named candidate set from that resolution, each anatomized as an atomic content element rather than as a content type, per that resolution's own decision. See **Settled decisions** for the one fold within this slice and the small companion Vocabulary addition (V-613–V-621) it required.
+
+## A-084 · Headline
+
+`text` · `length range` · `required/optional` · `heading level`
+
+Headline (V-613) is the primary title of a piece of content: a text string held to a length range appropriate to where it renders, ordinarily required, and mapped to a specific heading level rather than left to whichever element a stylesheet happens to size largest.
+**Length range** — a floor and a ceiling, not a single number: below the floor a headline carries too little to orient a reader, above the ceiling it wraps past the number of lines its slot was built to hold.
+**Breaks when** — the length range is violated with no defined outcome for the overflow; the headline either breaks its container's layout or gets truncated mid-word with nothing indicating anything was cut.
+**Also breaks when** — the heading level is chosen for the visual size it produces rather than for its place in the page's outline; a heading hierarchy that skips levels or repeats to suit a design breaks the outline a screen-reader user is navigating by, independent of how the text looks.
+
+---
+
+## A-085 · Deck
+
+`text` · `length range` · `required/optional`
+
+Deck (V-505) is the supporting line beneath a Headline (A-084): a shorter text string, held to its own length range independent of the headline's, and optional wherever the headline alone orients the reader.
+**Breaks when** — a deck renders with no headline above it; V-505 defines the term relationally, so a deck standing alone has nothing to support and reads as an orphaned subhead the content model never anticipated.
+
+---
+
+## A-086 · Eyebrow
+
+`text` · `length range` · `required/optional`
+
+Eyebrow (V-614) is a short label set above a Headline (A-084) naming its category or context: a text string kept shorter than the headline it precedes, ordinarily optional.
+**Breaks when** — the eyebrow text is the only thing distinguishing two adjacent pieces of content that otherwise share a headline pattern, most often in a card list filtered to one category; a reader skimming by headline alone has no way to tell the cards apart, and neither does a screen-reader user whose list of headings does not include the eyebrow at all.
+
+---
+
+## A-087 · Byline
+
+`text` · `length range` · `required/optional`
+
+Byline (V-615) is a line naming the author of a piece of content: a text string, its length bounded in practice by a name's own length rather than by a fixed range, and optional wherever authorship is not attributed to an individual.
+**Breaks when** — a byline names a role or a placeholder ("Staff Writer", "TBD") rather than an actual author with no stated reason; the element exists to answer "who wrote this," and an unresolved placeholder left in production answers a different question than the one it promises.
+
+---
+
+## A-088 · Body
+
+`text` · `paragraph structure` · `length range` · `required/optional`
+
+Body (V-616) is the main block of running text within a piece of content: prose composed of the text block (A-021) already anatomized here for typographic parameters, structured into paragraphs rather than shipped as one run, and held to a length range — a floor below which the content underserves what its headline promised, a ceiling above which the slot it renders in was not built to hold.
+**Breaks when** — body text is truncated at a fixed character count with no visible indication anything was cut and no way to reach the rest; a preview built this way tells a screen-reader user the content ends where the truncation happens to land, not where the author ended it.
+**Also breaks when** — the measure (V-136) the body renders at falls outside C004's 45–75 character range; body copy is exactly the sustained-reading case that constraint governs, and a body block inheriting an unrelated container's width has no guarantee of landing inside it.
+
+---
+
+## A-089 · Pull-quote
+
+`text` · `source excerpt` · `length range` · `required/optional`
+
+Pull-quote (V-617) is a short excerpt from Body (A-088), set apart and enlarged to draw a skimming reader back in: text sourced from the surrounding body rather than authored independently, held to a length range tighter than the body it is drawn from, and always optional.
+**Breaks when** — the pull-quote text does not appear verbatim anywhere in the surrounding body; a reader who scans the pull-quote and then reads the body expects to find it there, and a pull-quote that paraphrases, or was never reconciled after an edit, reads as two different claims stitched together.
+**Also breaks when** — the pull-quote is marked up as an unrelated second copy of the same text with no relationship declared to the body it repeats; assistive technology reading the page in sequence announces the same sentence twice with nothing indicating one is a repetition of the other.
+
+---
+
+## A-090 · Stat/callout
+
+`value` · `label` · `text` · `length range` · `required/optional`
+
+Stat (V-618) and callout (V-348) share one construction — a short block set apart from the surrounding body to draw attention to it — and diverge only in content: a stat's primary content is a `value`, a number or metric, paired with a short `label` naming what it measures; a callout's primary content is `text`, a sentence or two of supplementary information with no numeric value at its center.
+**Breaks when** — a stat's `value` renders with no `label`, or a `label` with no `value`; a number alone ("40%") answers a different question than the same number with its unit and referent attached, and a reader arriving without the sentence that originally explained it has no way to recover the missing half.
+**Also breaks when** — several stats appear together with inconsistent `value` formatting — one as "40%", a sibling as "0.4", a third as "40 percent" — reporting what should be directly comparable figures in forms that don't actually compare.
+
+---
+
+## A-091 · Caption
+
+`text` · `length range` · `required/optional` · `associated media`
+
+Caption (V-619) is text identifying or describing a piece of accompanying media — an image, chart, or embed — set adjacent to it rather than inside it, and distinct from that media's own alt text (V-292), which serves assistive technology in the media's absence rather than a sighted reader in its presence.
+**Breaks when** — a caption is written as though it were alt text, or an image ships a caption with no alt text on the assumption the caption covers it; C024 requires the text alternative regardless, and the two serve different readers under different conditions — a caption disappears along with the image it captions if the image fails to load, alt text does not.
+**Also breaks when** — a chart's caption states the takeaway but the data the chart encodes is not available in any text form; a caption that narrates a visual without the visual's own text alternative leaves a screen-reader user the narration but not the evidence behind it.
+
+---
+
+## A-092 · CTA text
+
+`text` · `length range` · `required/optional`
+
+CTA text (V-504) is the text carried by whatever control — ordinarily a Button (A-062) or a Link (V-311) — performs a call to action: a short, conventionally verb-led string, held to a length range tight enough to fit the control's own width without wrapping in typical placements.
+**Breaks when** — the CTA text is generic ("Click here", "Learn more") and repeated identically across several controls on the same page, each leading to a different destination; a person tabbing through controls or scanning a list of links by their text alone has no way to tell them apart until they activate one.
+**Also breaks when** — the length range is exceeded and the text wraps inside a control sized for one line; a two-line label breaks the fixed-height hit-target assumption A-062 and A-074 both make about their controls.
+
+---
+
+## A-093 · List
+
+`item[]` (each `text`) · `list type` · `item count range` · `required/optional`
+
+List (V-620) is a set of related items presented as a sequence: an `item[]` of short text entries, roughly parallel in grammatical form to each other, of a `list type` — ordered where sequence or rank carries meaning, unordered where it does not — bounded by an `item count range` the same way other content elements in this section are bounded by a length range.
+**Breaks when** — a list is marked up as a run of paragraphs or line breaks rather than a semantic list structure; C046 requires the resulting group's role to be programmatically determinable, and a screen reader announcing a visually bulleted paragraph gives no indication of how many items it contains or where the list ends.
+**Also breaks when** — the `item count range`'s ceiling is exceeded with no defined behavior for the overflow — no truncation, no "show more," no pagination — the same undefined-overflow failure A-084 Headline names for a title, here at list scale; a list long enough to exceed a reader's ability to hold its items in mind needs the same external structure C006 requires for a choice set or navigation breadth of comparable size.
+
+---
+
+## A-094 · Metadata block
+
+`item[]` (each `label` · `value`) · `required/optional`
+
+Metadata block (V-621) is a grouped set of secondary facts about a piece of content — publish date, category, reading time, author affiliation — presented together rather than scattered through the surrounding layout: an `item[]` of `label`/`value` pairs, each individually optional even where the block itself is required.
+**Breaks when** — the block's items are grouped only by visual proximity, with no programmatic grouping tying them together; C046 requires a group's role to be determinable the same way it requires an individual control's, and a metadata block with no shared group semantics reads to assistive technology as unrelated scattered text rather than one set of facts about the content.
+**Also breaks when** — a `value` is presented with no `label` and its meaning is not self-evident out of context — a bare date with no indication of whether it is a publish or an update date, a bare number with no indication of what it counts — the same value/label pairing failure A-090 names for a stat, here at the scale of a whole block rather than one figure.
+
+---
+
 ---
 
 # EXPORT INDEX
@@ -1128,6 +1242,17 @@ Skip link (V-405) is a link allowing keyboard users to bypass repeated navigatio
 | A-081 | Facets |
 | A-082 | Navigation |
 | A-083 | Skip link |
+| A-084 | Headline |
+| A-085 | Deck |
+| A-086 | Eyebrow |
+| A-087 | Byline |
+| A-088 | Body |
+| A-089 | Pull-quote |
+| A-090 | Stat/callout |
+| A-091 | Caption |
+| A-092 | CTA text |
+| A-093 | List |
+| A-094 | Metadata block |
 
 ---
 
@@ -1164,3 +1289,9 @@ Skip link (V-405) is a link allowing keyboard users to bypass repeated navigatio
 This is the whole named candidate set from the IA scoping resolution: breadcrumb, pagination, facets, the nav-variant trio, hamburger menu, and skip link. Nothing from that named set is deferred out of this pass — it was bounded tightly enough at scoping time that finishing it in one slice, the way the third slice finished the whole menu family in one pass, was more consistent than splitting it further with no boundary to split along. The site-as-graph shape, taxonomy, ontology, and the research-method and deliverable terms that same resolution rejected for this document stay rejected; nothing here reopens them.
 
 **Still open after this slice.** Toasts and banners, callouts, badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain uncovered in Vocabulary's `H` part. Content elements (Headline, Deck, Eyebrow, Byline, Body, Pull-quote, Stat/callout, Caption, CTA text, List, and Metadata block) remain the other settled-but-undrafted slice, per the entry above this one. Each is additive follow-up work under further new A-IDs, on the same terms this document has already set four times.
+
+**Fifth slice: content, eleven entries covering the full candidate set the content scoping resolution above named.** A-084–A-094 add Headline, Deck, Eyebrow, Byline, Body, Pull-quote, Stat/callout, Caption, CTA text, List, and Metadata block — the complete named candidate set, anatomized as atomic content elements per that resolution's own decision, not as content types. The resolution flagged a dependency rather than resolving it: eight of the eleven candidates — Headline, Eyebrow, Byline, Body, Pull-quote, Caption, List, and Metadata block — had no Vocabulary ID; Deck (V-505) and Call to action (V-504) already did; Callout (V-348) covers the "callout" half of the eleventh candidate but not its "stat" half, which named a genuinely distinct concept — a highlighted number or metric, not an inline box of supplementary text — and so was not folded into Callout's existing meaning rather than given its own term. Closing that dependency added nine new Vocabulary entries, V-613–V-621, appended to the end of Part L (Content and language) — physically after V-513 Colophon, numbered from V-613 because Vocabulary's IDs are flat and V-612 was the last one assigned regardless of part, not from the unused 514–529 range Part L's own numbering block would otherwise suggest — cited here by the entries above rather than restated.
+
+Only one fold happened in this slice: Stat and Callout share one construction — a short block set apart from body text — and diverge only in whether the content at its center is a `value` or `text`, the same "shares a parameter set, diverges only in what's present or fixed" test A-071, A-077, and A-082 already applied; that test was checked and rejected for every other pair in the candidate set. Headline and Deck stay separate despite Deck's definition naming Headline directly, because a headline is required where a deck is not and each carries its own length range; the same reasoning keeps Eyebrow and Byline separate from Headline. Body and Pull-quote stay separate because a pull-quote's text is drawn from, not independent of, the body it excerpts — a sourcing relationship no other pair in this slice has. CTA text (A-092) stays scoped to the text parameter alone, not the whole control, because the control itself already has an entry — A-062 Button, or V-311 Link where the CTA is a link rather than a button — and duplicating either here would restate rather than cite.
+
+**Still open after this slice.** Toasts and banners, callouts, badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain uncovered in Vocabulary's `H` part — the same nine names the fourth slice's own note above left open, unchanged by this slice, which drew from Vocabulary's `L` part instead. **Callout (V-348) as a standalone `H`-part component is not among them by omission:** A-090 Stat/callout above cites V-348 for the content-element sense of a callout — a short block of supplementary text embedded in running content — not for the general case a future `H`-part entry would still need to cover on its own terms: a callout with a severity or intent (info, warning, success, danger), an icon, and an accent color keyed to that severity is a richer construction than anything anatomized here, and stays open under the `H`-part list above rather than being treated as closed by implication. Content is otherwise fully drafted — every candidate the content scoping resolution named now has an A-ID. Only the `H`-part remainder above stays open for Anatomy volume 2, on the same terms this document has already set five times.
