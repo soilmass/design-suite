@@ -1,6 +1,6 @@
 ```yaml
 document: Decision
-version: 1.0.2
+version: 1.0.3
 tier: 2
 owns:
   - the order in which choices are set
@@ -135,7 +135,7 @@ The exception: if F47 personalization is set high in Round 11, F41.1 rendering i
 
 ## D012 · Round 10 — Conduct
 
-F63–F67. Bounded by C001–C003, C039–C042, C066–C070.
+F63–F67. Bounded by C001–C003, C066–C070.
 
 ## D013 · Round 11 — Time
 
@@ -168,7 +168,7 @@ Set these carefully; they carry disproportionate impression.
 **F31 Typography** — the largest single contributor to perceived character.
 **F05.1 Pricing disclosure** — the loudest single content decision on most commercial sites.
 **F64 Failure handling** — failure surfaces are read as a statement about competence, and they are cheap to design and almost never designed.
-**F63 Responsiveness** — bounded by C001; the 100ms window is the difference between an interface that feels alive and one that does not.
+**F63 Responsiveness** — bounded by C001; staying inside that window is the difference between an interface that feels alive and one that does not.
 **F22 Person** — determines whether anyone appears to be speaking.
 **F17 Emphasis** — the difference between a page with a point and a page with contents.
 
@@ -206,7 +206,7 @@ Every increment of density multiplies the adjacencies requiring optical attentio
 
 ## D051 · Density ↔ Target size
 `F15 ↔ C028`
-Packing controls tighter conflicts with the 24×24 floor and the platform conventions at C082. The floor wins. Density above a certain point is therefore not available, and discovering this late means rebuilding the component, not adjusting the padding.
+Packing controls tighter conflicts with the floor and the platform conventions at C082. The floor wins. Density above a certain point is therefore not available, and discovering this late means rebuilding the component, not adjusting the padding.
 
 ## D052 · Motion ↔ Speed
 `F39 ↔ C120`
@@ -245,7 +245,7 @@ Everything asserted before the fold competes with everything else asserted befor
 Logos, testimonials, and metrics consume the space that made the page feel confident. Past a threshold, proof reads as protesting.
 
 ## D061 · Single-page ↔ Representation
-`F11.1 ↔ F50`
+`F11.1 ↔ F50, F51`
 One page is one search result, one title, one meta description, and one link preview. Consolidating structure consolidates your entire surface in search to a single entry.
 
 ## D062 · Custom controls ↔ Access cost
