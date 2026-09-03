@@ -466,6 +466,36 @@
   type: anatomy entry
   status: active
   since: 1.3.0
+- id: A-079
+  owner: anatomy
+  name: Breadcrumb
+  type: anatomy entry
+  status: active
+  since: 1.4.0
+- id: A-080
+  owner: anatomy
+  name: Pagination
+  type: anatomy entry
+  status: active
+  since: 1.4.0
+- id: A-081
+  owner: anatomy
+  name: Facets
+  type: anatomy entry
+  status: active
+  since: 1.4.0
+- id: A-082
+  owner: anatomy
+  name: Navigation
+  type: anatomy entry
+  status: active
+  since: 1.4.0
+- id: A-083
+  owner: anatomy
+  name: Skip link
+  type: anatomy entry
+  status: active
+  since: 1.4.0
 - id: C001
   owner: constraints
   name: Acknowledgment window
