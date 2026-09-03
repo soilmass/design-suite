@@ -109,9 +109,13 @@ for name, d in docs.items():
     for c in dang: problems.append(f"{name}: dangling {c}")
 
 # 4 registry
-reg = [dict(id=i, owner=o, name=n, type=k, status='active', since='1.0.0')
+reg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),'registry.yaml')
+old_reg = yaml.safe_load(open(reg_path)) if os.path.exists(reg_path) else None
+old_since = {r['id']: r['since'] for r in (old_reg or [])}
+reg = [dict(id=i, owner=o, name=n, type=k, status='active',
+            since=old_since.get(i, docs[o]['fm']['version']))
        for i,(o,n,k) in sorted(allids.items())]
-yaml.safe_dump(reg, open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'registry.yaml'),'w'), sort_keys=False, allow_unicode=True, width=200)
+yaml.safe_dump(reg, open(reg_path,'w'), sort_keys=False, allow_unicode=True, width=200)
 print(f"\n[4] Registry written: {len(reg)} entries -> registry.yaml")
 from collections import Counter
 for k,v in sorted(Counter(x['type'] for x in reg).items()): print(f"  {k:12} {v}")
