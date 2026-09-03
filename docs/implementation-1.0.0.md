@@ -1,6 +1,6 @@
 ```yaml
 document: Implementation
-version: 1.0.1
+version: 1.0.2
 tier: 2
 owns:
   - what tokens must exist and what governs them
@@ -193,9 +193,11 @@ A component supporting internal state supports external control of the same stat
 
 `margin-inline-start`, not `margin-left`. This is what makes RTL nearly free rather than a second layout.
 
+<!-- vale Suite.RefusedTerms = NO --><!-- "accessible name" is WCAG's own defined term (V-469, C042), not the refused binary-adjective usage -->
 ## K013 · One accessible name per control
 
 Provided by content, a label, or an explicit attribute — never by more than one at once, and never absent on an icon-only control.
+<!-- vale Suite.RefusedTerms = YES -->
 
 ## K014 · Motion respects the reduced path
 
@@ -264,6 +266,7 @@ An error surface names what happened and what to do. Satisfies C040. "Something 
 
 *Where each constraint is actually caught. The column that matters is the last one: anything not mechanically checkable needs a named human step, or it will not happen.*
 
+<!-- vale Suite.RefusedTerms = NO --><!-- this table repeats each constraint's name verbatim, including C042 "Accessible auth" (WCAG's own criterion name); scoped to the whole table rather than one row to keep the table contiguous -->
 | Constraint | Enforced at | Mechanism | Mechanical? |
 |---|---|---|---|
 | C020 Text contrast | Token layer | Ramp generation asserts pairings | Yes |
@@ -298,6 +301,7 @@ An error surface names what happened and what to do. Satisfies C040. "Something 
 | C105 Unsized media | Component, K045 | Lint for missing dimensions | Yes |
 | C120 Web Vitals | CI | Lab and field measurement | Yes |
 | C121–C124 Budgets | CI | Build-size assertion | Yes |
+<!-- vale Suite.RefusedTerms = YES -->
 
 ## K070 · The partial and no rows are the whole problem
 
