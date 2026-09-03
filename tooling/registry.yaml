@@ -394,6 +394,66 @@
   type: anatomy entry
   status: active
   since: 1.0.0
+- id: A-067
+  owner: anatomy
+  name: Text input
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-068
+  owner: anatomy
+  name: Checkbox
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-069
+  owner: anatomy
+  name: Radio group
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-070
+  owner: anatomy
+  name: Switch
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-071
+  owner: anatomy
+  name: Select and combobox
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-072
+  owner: anatomy
+  name: Slider
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-073
+  owner: anatomy
+  name: Stepper
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-074
+  owner: anatomy
+  name: Segmented control
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-075
+  owner: anatomy
+  name: Dropzone
+  type: anatomy entry
+  status: active
+  since: 1.0.0
+- id: A-076
+  owner: anatomy
+  name: Fieldset
+  type: anatomy entry
+  status: active
+  since: 1.0.0
 - id: C001
   owner: constraints
   name: Acknowledgment window

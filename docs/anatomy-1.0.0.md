@@ -1,13 +1,13 @@
 ```yaml
 document: Anatomy
-version: 1.1.0
+version: 1.2.0
 tier: 1
-scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy
+scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls
 owns:
   - what each thing is made of, expressed as parameters
   - the range or type of each parameter
   - what is derived rather than chosen
-exports: A-001–A-066
+exports: A-001–A-076
 depends:
   - Vocabulary ^1
   - Constraints ^1
@@ -19,6 +19,8 @@ reviewed: 2026-09-03
 What each thing is made of. Where Vocabulary establishes what a term denotes, this document takes the thing apart: the parameters it consists of, what values those accept, what it composes into, and what can be derived rather than chosen.
 
 **Scope of 1.1.0** — rendering primitives, plus a first slice of component anatomy: Button, Card, Tooltip/Popover, Dialog, and Tabs (A-062–A-066). The rest of components, tokens, information architecture, and content are not yet covered; they enter as additive minor versions with new A-IDs.
+
+**Scope of 1.2.0** — adds a second slice of component anatomy, input controls: Text input, Checkbox, Radio group, Switch, Select and combobox, Slider, Stepper, Segmented control, Dropzone, and Fieldset (A-067–A-076). Menus, toasts and banners, badges and chips, avatars, and the rest of Vocabulary's `H · Components` part remain open; see **Settled decisions**.
 
 ## What this document does not own
 
@@ -781,6 +783,8 @@ The usual correct combination: validate on blur, then re-validate on every chang
 
 A first slice: five components whose parts are least reducible to the primitives already covered, chosen because most other components in Vocabulary's `H · Components` part compose from them or from a variant of them. The remaining entries in that part are a later, separately scoped addition — see **Settled decisions** below.
 
+A-067–A-076 below are the second such addition: the input controls, the group most of the remaining `H` names sit beside rather than compose from. See **Settled decisions** for why this group and this boundary.
+
 ## A-062 · Button
 
 `container` · `label` · `leading icon` · `trailing icon` · `hit target` · `state matrix`
@@ -835,6 +839,111 @@ Tabs (V-334) switch between sibling panels in one context. The tablist is a sing
 **Indicator** — its position and length track the active tab. Animating it by transform rather than by recomputing `left`/`width` keeps the movement off the layout path.
 **Overflow behavior** — scroll, wrap, or collapse into an overflow menu once tabs exceed the available inline size.
 **Breaks when** — the indicator's position is read from layout geometry every frame instead of transformed directly; the animation then contends with layout on the main thread.
+
+---
+
+## A-067 · Text input
+
+`container` · `value` · `caret` · `selection` · `placeholder` · `resize handle` · `state matrix`
+
+Input (V-316) is a single-line text field holding one value; textarea (V-317) is the same construction spanning multiple lines, the only genuine addition being a `resize handle` and the wrapping behavior a single line does not need.
+**Sub-parts** — textarea's resize handle: `none` · `vertical` · `horizontal` · `both`, set via the CSS `resize` property. The value area itself is otherwise the text block already covered earlier in this document.
+**Note** — `label`, `placeholder`, and `helper text` are already anatomized as parts of the surrounding wrapper at A-061 Form field; this entry covers only the editable value surface, not that furniture.
+**Breaks when** — computed font size falls below 16px on iOS Safari; C080 makes that an effective floor for input text, not a preference, because the browser zooms the viewport on focus below it.
+**Also breaks when** — `autocomplete` is left unset or given an invented token; C086 requires the browser-specified vocabulary, not an author-chosen string, for autofill to work at all.
+
+---
+
+## A-068 · Checkbox
+
+`indicator` · `label` · `hit target` · `state matrix`
+
+Checkbox (V-323) is an independent binary choice: a small indicator toggled directly by activating it, paired with a label.
+**Indicator states** — unchecked (empty) · checked (a mark, conventionally a check glyph) · indeterminate (V-388, a mixed glyph, conventionally a dash), the third reachable only by script, never set through direct interaction with the control itself.
+**Distinguished from switch** — V-608 separates the two on timing, not shape: an activated switch's state applies right away, a checkbox's usually stands until the form containing it is submitted. The two should not stand in for each other as if that difference did not matter.
+**Breaks when** — checked/unchecked is signaled by a hue change alone with no shape change; C023 requires a non-color distinction, and C022 requires the indicator to clear 3:1 contrast against its background at every state, not only at rest.
+
+---
+
+## A-069 · Radio group
+
+`group container` · `radio[]` (each with `indicator` · `label`) · `state matrix`
+
+Radio group (V-324) is a mutually exclusive choice among visible options: a group container holding two or more individually indicated options, of which exactly one is selected (V-387) at a time.
+**Navigation** — the group is a single stop in the page's tab order; individual radios inside it are reached by arrow key, a roving tabindex (V-403) rather than one tab stop per option.
+**Indicator** — a circle rendering two states, unselected (empty) and selected (a filled dot); no indeterminate state exists at the option level.
+**Breaks when** — the options have no programmatic grouping tying them together as one control; C046 requires the group's role and each option's state to be determinable, which a set of unrelated radio inputs with no shared group semantics cannot provide.
+
+---
+
+## A-070 · Switch
+
+`track` · `thumb` · `label` · `hit target` · `state matrix`
+
+Switch (V-325) is a control taking effect immediately on toggle: a track holding a thumb at one of two end positions, paired with a label.
+**States** — off (thumb at the track's start) and on (thumb at the track's end); no indeterminate state.
+**Distinguished from checkbox** — V-608 separates the two on timing: a switch's toggle takes effect immediately, a checkbox's typically waits for a surrounding form to be submitted. The visual similarity between the two affordances does not make the timing interchangeable.
+**Breaks when** — the on/off track colors are distinguished by hue alone; C011 makes any red-green-only pairing invisible to a meaningful share of any general audience, and C023 requires the thumb's position, not color, to carry the state regardless of which hues are chosen.
+
+---
+
+## A-071 · Select and combobox
+
+`trigger` · `panel` · `option[]` · `placement` · `offset` · `collision behavior`
+
+Select (V-321) and combobox (V-322) share one anatomy — a trigger opening a panel of options, positioned and collided the same way as a popover anchored to its trigger — and diverge only in what the trigger accepts: a select's is a fixed value display, a combobox's is a text input that filters the option list as it is typed into.
+**Option** — `label` · `value` · `selected state` (V-387) · `disabled state` (V-389).
+**Breaks when** — a custom-built trigger and panel do not expose role, name, and current value the way a native form control does for free; C046 requires all three be programmatically determinable regardless of what markup produces them.
+**Also breaks when** — a combobox's typed value matches nothing in the option list with no stated outcome for what happens next — revert, allow free entry, or reject — left implicit rather than chosen.
+
+---
+
+## A-072 · Slider
+
+`track` · `thumb` · `value` · `min` · `max` · `step` · `orientation` · `hit target`
+
+Slider (V-326) is a control selecting a value along a range: a track spanning `min` to `max`, a thumb positioned along it at the current `value`, moving in increments of `step`.
+**Orientation** — horizontal or vertical; on the vertical axis, increase runs bottom-to-top by convention.
+**Range slider** — a variant carrying two thumbs and two values, each independently draggable, with a rule for whether they may cross.
+**Breaks when** — dragging the thumb is the only means of setting a value; C037 requires a single-pointer alternative to any function using a dragging movement, met here by arrow-key stepping or a paired numeric input, not by the drag gesture alone.
+
+---
+
+## A-073 · Stepper
+
+`decrement control` · `value` · `increment control` · `min` · `max` · `step` · `hit target`
+
+Stepper (V-327) is a control incrementing and decrementing a value: two controls flanking the current `value`, each moving it by one `step` per activation, bounded by `min` and `max`.
+**Breaks when** — a bound is reached and the control at that end gives no signal; a disabled (V-389) affordance with no visible or announced reason reads as broken rather than as a floor or ceiling being respected.
+
+---
+
+## A-074 · Segmented control
+
+`track` · `segment[]` (each with `label` · `icon` · `state`) · `indicator` · `hit target`
+
+Segmented control (V-328) is a compact row of mutually exclusive options: a track holding two or more segments, of which one is selected (V-387) at a time, with an indicator marking the current selection.
+**Note** — the indicator tracks the selected segment the same way a tab indicator tracks the active tab; a segmented control differs in that it sets a value rather than switching which panel is visible.
+**Breaks when** — segment count exceeds what the available inline width holds at a legible label size, with no defined overflow behavior of its own — unlike a tablist, which may scroll, wrap, or collapse into a menu, a segmented control that overflows has nowhere established to put the excess.
+
+---
+
+## A-075 · Dropzone
+
+`region` · `accepted types` · `drag states` · `fallback control` · `hit target`
+
+Dropzone (V-329) is a region accepting files by drag or click: a boundary indicating where a dragged file may be released, cycling through drag states as a file crosses it, paired with a `fallback control` for adding a file without a mouse.
+**Drag states** — idle · drag-over (a file is above the region) · drag-reject (a file above the region does not match `accepted types`) · drop (an accepted file was released).
+**Breaks when** — drag-and-drop is the only means of adding a file; C037 requires a single-pointer alternative to any function using a dragging movement, met here by the `fallback control` — ordinarily a standard file input — always present rather than revealed only once a drag is detected.
+
+---
+
+## A-076 · Fieldset
+
+`legend` · `member controls[]` · `border or grouping treatment`
+
+Fieldset (V-330) is a grouping of related controls with a group-level label: a `legend` naming the set, applying to the `member controls` it wraps, rendered with or without a visible boundary.
+**Breaks when** — a set of related controls — a radio group, a set of checkboxes, an address split across street, city, and postal fields — has no group-level label; C039 requires input needing user data to carry a label or instruction, and for a set of controls it is the group itself that needs one, not only each member individually.
 
 ---
 
@@ -910,6 +1019,16 @@ Tabs (V-334) switch between sibling panels in one context. The tablist is a sing
 | A-064 | Tooltip and popover |
 | A-065 | Dialog |
 | A-066 | Tabs |
+| A-067 | Text input |
+| A-068 | Checkbox |
+| A-069 | Radio group |
+| A-070 | Switch |
+| A-071 | Select and combobox |
+| A-072 | Slider |
+| A-073 | Stepper |
+| A-074 | Segmented control |
+| A-075 | Dropzone |
+| A-076 | Fieldset |
 
 ---
 
@@ -922,3 +1041,11 @@ Tabs (V-334) switch between sibling panels in one context. The tablist is a sing
 **Variant terms did not each get their own A-ID.** Icon button, ghost button, floating action button, and split button (V-312–V-315) are noted as sub-parts of A-062 rather than given separate entries, because none of them changes the parameter set — only which parameters are present, absent, or fixed. This mirrors how A-012 Gradient covers linear, radial, and conic without separate IDs, reserving a new entry for Mesh gradient (A-013) only because its parameters genuinely differ. The same reasoning folds non-modal dialog, drawer, and sheet (V-338–V-340) into A-065 rather than three further entries.
 
 **Which choices exist among these parts, and how a choice becomes a built component, stayed out.** Several drafts of these entries drifted toward saying which affordance to prefer or how a state trap is coded; both were cut. Composition owns the range of choice, Implementation owns the build, and an entry that started prescribing either was rewritten back down to the parts and their ranges — this document's own boundary, not a new one invented for components.
+
+**Second slice: input controls, ten entries covering twelve of Vocabulary's `H` names.** A-067–A-076 add Text input (folding V-316 Input and V-317 Textarea), Checkbox, Radio group, Switch, Select and combobox (folding V-321 and V-322), Slider, Stepper, Segmented control, Dropzone, and Fieldset. This group was chosen over menus, toasts and banners, badges and chips, and avatars — the other groups the first slice's settled decisions named as remaining — because inputs are what most other components in Vocabulary's `H` part are built to sit *beside* rather than compose from, and because a website's accessibility and legal exposure concentrates disproportionately in form controls, making this the highest-leverage remaining gap rather than only the most obvious one.
+
+**Label, placeholder, and helper text (V-318–V-320) were deliberately left out of this slice**, not overlooked. A-061 Form field, already in this document before this contribution, lists `label`, `placeholder`, `helper text`, and `error message` as parameters of its wrapper; reopening those three names here would either duplicate A-061 or contradict it. The gap this leaves — A-061's parameter list names them in English without citing V-318, V-319, or V-320 by ID — is real but sits inside an existing entry this contribution does not touch. Noted here so it is not rediscovered as new.
+
+**Checkbox, radio group, and switch stayed three entries, not one.** The precedent A-064 Tooltip/Popover and A-065's dialog family set folds variants that share an identical parameter set and diverge only in which parameters are present, absent, or fixed. These three don't clear that bar: a checkbox's indicator is a box with an optional mark, a switch's is a track and a thumb, and a radio's is a set of options with group-level navigation absent from either — three different constructions wearing a similar "toggle" reputation, which is exactly the confusion V-608 exists to correct. Select and combobox, by contrast, do clear that bar — the same trigger/panel/option construction, diverging only in whether the trigger accepts typed text — and were folded into one entry, A-071, on the same reasoning A-064 already established.
+
+**Still open after this slice.** Menus (dropdown, context, command palette), toasts and banners, callouts, badges and chips, avatars, breadcrumb and pagination, progress and spinner, skeleton and empty/zero state, facets, carousel, lightbox, toolbar, and hamburger menu remain uncovered in Vocabulary's `H` part. Each is additive follow-up work under further new A-IDs, on the same terms this document has already set twice.
