@@ -76,7 +76,7 @@ applies to whether you fix-and-PR or report-and-let-a-human-decide.
   tool because a gap looks buildable — check whether the audit already rated it not worth building
   first.
 - `docs/anatomy-1.0.0.md` is single-writer, permanently, no matter how many component names or
-  sub-areas remain open — see "Known gotchas" below for why.
+  sub-areas remain open — see "Do the work" below for why.
 - A decision that will shape many future contributors' work — a new document's organizing shape, a
   scoping call comparable to the information-architecture or content resolutions already recorded
   in Anatomy's Settled Decisions — gets opened as a `proposal` issue for a human to decide, not

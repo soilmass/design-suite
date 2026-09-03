@@ -86,7 +86,8 @@ vale --config=tooling/vale/.vale.ini docs/
 
 Prose lint against the refused-terms list in `tooling/vale/styles/Suite/RefusedTerms.yml`.
 
-Both currently run on the honor system; CI enforcement of both is tracked in `ROADMAP.md` Phase 1.
+Both run in CI on every pull request and push to `main` (`.github/workflows/validate.yml`, per
+`ROADMAP.md` Phase 1) — run them locally first so a problem is yours to fix before CI reports it.
 
 ## If your proposal is declined
 
