@@ -30,10 +30,23 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   Composition families are decided versus still on default. Converts Composition from a reference
   into a checklist that knows its own state; see `README.md`'s command list for usage and
   `tests/decision_completeness/fixtures/` for the ADR format and worked examples.
-- **Anatomy volume 2.** Components, tokens, information architecture, and content — the volumes
-  `README.md` already flags as needed beyond the current rendering-primitives-only scope. Larger
-  than the decision-completeness build and a natural first project for an outside contributor
-  once Phase 1 exists.
+- **Anatomy volume 2.** Partially done. Components, tokens, information architecture, and content
+  — the volumes `README.md` already flags as needed beyond the current rendering-primitives-only
+  scope. A first slice of components has landed: `docs/anatomy-1.0.0.md` (now 1.1.0) adds
+  `A-062`–`A-066` for Button, Card, Tooltip/Popover, Dialog, and Tabs — five of the roughly forty-
+  five components Vocabulary's `H · Components` part already names, chosen, per that document's
+  own **Settled decisions** section, as "the components most others in Vocabulary's `H` part
+  either compose from directly ... or differ from structurally," and explicitly "a first slice,
+  not the volume." Tokens, information architecture, and content are still untouched — the same
+  section explains why components went first and the other three were deferred rather than
+  attempted together: "Tokens sit close enough to Implementation's `T`/`K` namespace ... that
+  drafting their anatomy risked duplicating ownership rather than filling a gap; information
+  architecture and content are not rendering primitives in the sense the rest of this document
+  is, and each looks like it wants its own organizing shape rather than a bolt-on section here.
+  Both are left for a scoping discussion before either gets A-IDs." The remaining ~40 component
+  terms, plus tokens and information architecture and content, remain natural first projects for
+  an outside contributor, each its own bounded, separately scoped contribution rather than one PR
+  closing the whole gap.
 
 Everything else in the gap register (language-plane consistency measurement, representation-plane
 verification, citation-intent checking, legal-change monitoring) stays explicitly out of scope —
