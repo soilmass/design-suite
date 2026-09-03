@@ -1,6 +1,6 @@
 ```yaml
 document: Decision
-version: 1.0.1
+version: 1.0.2
 tier: 2
 owns:
   - the order in which choices are set
@@ -360,7 +360,7 @@ The setting that costs least to reverse and fails least badly — not the best s
 | F33 Spacing base | 4px, hybrid progression | Dense at the low end where UI needs precision, geometric at the high end where layout needs range |
 | F34.1 Radius | One small value | Consistency beats expressiveness at this leverage |
 | F35.1 Depth | Bordered, not shadowed | Survives dark mode without an elevation model |
-| F39.1 Motion | Minimal | Additive later; removing motion people have learned is disruptive |
+| F39.1 Motion | Near-still | Additive later; removing motion people have learned is disruptive |
 
 ## D155 · Substrate and conduct
 | Family | Default | Why |

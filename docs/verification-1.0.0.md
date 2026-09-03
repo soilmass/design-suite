@@ -1,6 +1,6 @@
 ```yaml
 document: Verification
-version: 1.0.2
+version: 1.0.3
 tier: 3
 owns:
   - how to confirm something works
@@ -377,4 +377,6 @@ Nothing in the quarterly row can fail a build, which is exactly why each needs a
 
 **Comprehension is annual and reported, not gated.** Gating a release on a research round is a promise nobody keeps, and a check that gets waived under deadline is worse than one that was never a gate. Annual and reported is honest about what it is.
 
+<!-- vale Suite.RefusedTerms = NO --><!-- "clean bill" is the idiom "clean bill of health" (a verdict of full clearance), not the refused adjective describing an artifact's appearance -->
 **Part VII exists because verification documents are read as guarantees.** Five things this document cannot establish are stated plainly, including the one most likely to be misread — that automated accessibility results are a minority of accessibility defects, not a clean bill.
+<!-- vale Suite.RefusedTerms = YES -->

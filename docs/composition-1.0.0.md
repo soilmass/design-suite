@@ -1,6 +1,6 @@
 ```yaml
 document: Composition
-version: 1.0.1
+version: 1.0.2
 tier: 1
 owns:
   - what choices a website presents
@@ -124,7 +124,9 @@ Absence of a coupling line means the family is independent.
 
 ### F08 · Contact surfaces
 **F08.1** Contact — absent ←→ direct and human
+<!-- vale Suite.RefusedTerms = NO --><!-- "responsive" here is support answering requests, not the layout term V-611 disambiguates; kept as the dial's short endpoint label, consistent with the rest of F08 -->
 **F08.2** Support — absent ←→ staffed and responsive
+<!-- vale Suite.RefusedTerms = YES -->
 **F08.3** Community — absent ←→ active and linked
 **F08.4** Newsletter — absent ←→ prominent
 **F08.5** Social presence — absent ←→ many channels
@@ -224,7 +226,9 @@ Absence of a coupling line means the family is independent.
 *Coupling* — tight with F36.
 
 ### F20 · Adaptation
+<!-- vale Suite.RefusedTerms = NO --><!-- "Responsive" here is F20.1's exported family name, naming the same distinction Vocabulary V-611 disambiguates; not the refused vague usage, and not ours to rename -->
 **F20.1** Responsive strategy — reflow / rearrange / remove content
+<!-- vale Suite.RefusedTerms = YES -->
 **F20.2** Breakpoint count
 **F20.3** Sizing basis — viewport ←→ container
 **F20.4** Input priority — touch-first / pointer-first / keyboard-first

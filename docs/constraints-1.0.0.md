@@ -1,6 +1,6 @@
 ```yaml
 document: Constraints
-version: 1.0.0
+version: 1.0.1
 tier: 0
 owns:
   - what is not negotiable
@@ -109,8 +109,10 @@ Contrast cannot be evaluated for a foreground color alone. It requires both surf
 
 ## Contrast
 
+<!-- vale Suite.RefusedTerms = NO --><!-- "bold" here is the CSS font-weight keyword in a size threshold, not the refused claim-strength adjective -->
 **C020 · Text contrast minimum** — WCAG 1.4.3, AA
 4.5:1 for body text. 3:1 for large text, defined as 24px and above, or 18.66px and above when bold.
+<!-- vale Suite.RefusedTerms = YES -->
 
 **C021 · Text contrast enhanced** — WCAG 1.4.6, AAA
 7:1 for body text, 4.5:1 for large text.
@@ -181,8 +183,10 @@ Errors are identified in text and, where known, a correction is suggested.
 **C041 · Redundant entry** — WCAG 2.2, 3.3.7, A
 Information previously entered is auto-populated or available for selection, rather than re-requested.
 
+<!-- vale Suite.RefusedTerms = NO --><!-- "Accessible authentication" is WCAG's own success-criterion name (3.3.8), quoted verbatim -->
 **C042 · Accessible authentication** — WCAG 2.2, 3.3.8, AA
 No cognitive function test — remembering, transcribing, solving puzzles — is required for any step of authentication without an alternative.
+<!-- vale Suite.RefusedTerms = YES -->
 
 **C043 · Consistent navigation and identification** — WCAG 3.2.3, 3.2.4, AA
 Repeated navigation appears in the same relative order, and components with the same function are identified consistently.
@@ -321,6 +325,7 @@ Count and weight of scripts you do not control. The only budget category whose c
 
 # EXPORT INDEX
 
+<!-- vale Suite.RefusedTerms = NO --><!-- this table repeats each entry's exported Name verbatim, including C042 "Accessible authentication" (WCAG's own criterion name); scoped to the whole table rather than one row to keep the table contiguous -->
 | ID | Name | Kind | Volatility |
 |---|---|---|---|
 | C001 | Acknowledgment window | Perceptual | Invariant |
@@ -391,6 +396,7 @@ Count and weight of scripts you do not control. The only budget category whose c
 | C122 | JavaScript budget | Elective | Local |
 | C123 | Font budget | Elective | Local |
 | C124 | Third-party budget | Elective | Local |
+<!-- vale Suite.RefusedTerms = YES -->
 
 ---
 
