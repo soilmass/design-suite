@@ -1,0 +1,43 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Suite validation + prose lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install validator dependencies
+        run: pip install pyyaml
+
+      - name: Run suite validator
+        run: |
+          cd tooling
+          python3 validate.py
+
+      - name: Install Vale (pinned)
+        env:
+          VALE_VERSION: '3.20.0'
+        run: |
+          ASSET="vale_${VALE_VERSION}_Linux_64-bit.tar.gz"
+          curl -sSL -o "$ASSET" "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/${ASSET}"
+          curl -sSL -o checksums.txt "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_checksums.txt"
+          grep "$ASSET" checksums.txt | sha256sum -c -
+          tar -xzf "$ASSET" vale
+          sudo mv vale /usr/local/bin/vale
+          vale --version
+
+      - name: Run prose lint (refused-terms list)
+        run: vale --config=tooling/vale/.vale.ini docs/

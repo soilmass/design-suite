@@ -14,9 +14,9 @@ The suite is currently a single-owner, untracked project. Before anyone outside 
 - **`CONTRIBUTING.md`.** Operationalizes Governance's "small team" tier (`G082`) plus the
   proposal shape from `G030`/`G031` — a PR states the change, the reason, and the migration if
   it's breaking. See `CONTRIBUTING.md` itself for the full rules.
-- **CI enforcement.** `tooling/validate.py` and the Vale prose lint currently run by hand, on
-  the honor system. They need to run on every PR — `G002`'s small-change test shouldn't depend
-  on a contributor remembering a local command.
+- **CI enforcement.** Done — `.github/workflows/validate.yml` runs `tooling/validate.py` and the
+  Vale prose lint on every pull request and on push to `main`, so `G002`'s small-change test no
+  longer depends on a contributor remembering a local command.
 
 This phase is a gate, not a nice-to-have: without it, external PRs have nowhere to land and no
 mechanical check to catch structural errors before a human has to.
