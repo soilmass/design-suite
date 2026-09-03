@@ -1,6 +1,6 @@
 ```yaml
 document: Diagnosis
-version: 1.0.1
+version: 1.0.2
 tier: 3
 owns:
   - how to read an existing site into the family set
@@ -138,7 +138,7 @@ Which surfaces exist and how deep each goes. Fastest pass, and per Composition t
 The language plane. Read continuous prose, not fragments. Person, register, sentence construction, claim structure, naming, terminology, headlines, mechanics. This pass cannot be shortened and cannot be automated past readability scoring.
 
 ## R025 · Pass 5 — Interaction
-States, forms, errors, failure surfaces, responsiveness. **Deliberately break things** — submit an empty form, request a missing page, disconnect the network, resize to 320px, navigate by keyboard only. This pass produces the highest finding-per-minute of any in the protocol, because it visits the surfaces least likely to have been designed.
+States, forms, errors, failure surfaces, responsiveness. **Deliberately break things** — submit an empty form, request a missing page, disconnect the network, resize to 320px (C026), navigate by keyboard only. This pass produces the highest finding-per-minute of any in the protocol, because it visits the surfaces least likely to have been designed.
 
 ## R026 · Pass 6 — Representation
 How the site appears where it is not: search result, link preview, structured data, third-party listings, and what a summarizer says about it. Frequently divergent from the site itself, and the divergence is the finding.
@@ -152,7 +152,7 @@ Fill the family sheet. Every entry carries its observability class and its evide
 ## R029 · Pass 9 — Congruence
 Apply the congruence tests from Decision, with one modification: with no decision record available, you are testing the artifact's agreement *with itself* rather than with a stated intent. That is what those tests do anyway, which is why they transfer to external sites unchanged.
 
-The three questions carry most of the value here — how big does this claim to be, how much does it appear to mean it, how much care went in — and disagreement between the answers is the finding.
+The three questions carry most of the value here (D111) — how big does this claim to be, how much does it appear to mean it, how much care went in — and disagreement between the answers is the finding.
 
 ---
 
@@ -257,4 +257,4 @@ The measured families produce numbers, so reads over-report them and under-repor
 
 **Diagnosis produces a reading, not a verdict.** No recommendations, no scoring, no grades. The moment a read includes what they should have done, it has applied Decision to an organization whose mandate and constraints are Closed — which R066 identifies as the most common way a read gets misused.
 
-**The interaction pass instructs the reader to break things.** R025 is the highest-yield pass in the protocol precisely because failure surfaces, empty states, and 320px widths are the parts of a site least likely to have been designed, and they are invisible to anyone browsing normally.
+**The interaction pass instructs the reader to break things.** R025 is the highest-yield pass in the protocol precisely because failure surfaces, empty states, and 320px widths (C026) are the parts of a site least likely to have been designed, and they are invisible to anyone browsing normally.
