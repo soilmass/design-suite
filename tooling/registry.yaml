@@ -454,6 +454,18 @@
   type: anatomy entry
   status: active
   since: 1.2.0
+- id: A-077
+  owner: anatomy
+  name: Menu
+  type: anatomy entry
+  status: active
+  since: 1.3.0
+- id: A-078
+  owner: anatomy
+  name: Command palette
+  type: anatomy entry
+  status: active
+  since: 1.3.0
 - id: C001
   owner: constraints
   name: Acknowledgment window
