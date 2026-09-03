@@ -1,12 +1,12 @@
 ```yaml
 document: Vocabulary
-version: 1.0.3
+version: 1.1.0
 tier: 0
 owns:
   - what each term denotes
   - which terms are distinct from which
   - which terms may not be used
-exports: V-001–V-612
+exports: V-001–V-621
 depends: []
 reviewed: 2026-09-03
 ```
@@ -459,6 +459,16 @@ Other documents cite a V-ID only where a term is genuinely contested or confusab
 **V-511 · Text expansion** — Growth in string length under translation.
 **V-512 · RTL** — A right-to-left writing direction.
 **V-513 · Colophon** — A statement of how and by whom something was made.
+
+**V-613 · Headline** — The primary title of a piece of content.
+**V-614 · Eyebrow** — A short label set above a headline, naming its category or context.
+**V-615 · Byline** — A line naming the author of a piece of content.
+**V-616 · Body** — The main block of running text within a piece of content.
+**V-617 · Pull-quote** — A short excerpt from body text, set apart and enlarged.
+**V-618 · Stat** — A single number or metric presented as a standalone highlighted figure.
+**V-619 · Caption** — Text identifying or describing a piece of accompanying media.
+**V-620 · List** — A set of related items presented as a sequence, ordered or unordered.
+**V-621 · Metadata block** — A grouped set of secondary facts about a piece of content.
 
 ## M · Information architecture
 

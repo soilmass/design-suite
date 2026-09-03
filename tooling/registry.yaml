@@ -496,6 +496,72 @@
   type: anatomy entry
   status: active
   since: 1.4.0
+- id: A-084
+  owner: anatomy
+  name: Headline
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-085
+  owner: anatomy
+  name: Deck
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-086
+  owner: anatomy
+  name: Eyebrow
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-087
+  owner: anatomy
+  name: Byline
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-088
+  owner: anatomy
+  name: Body
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-089
+  owner: anatomy
+  name: Pull-quote
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-090
+  owner: anatomy
+  name: Stat/callout
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-091
+  owner: anatomy
+  name: Caption
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-092
+  owner: anatomy
+  name: CTA text
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-093
+  owner: anatomy
+  name: List
+  type: anatomy entry
+  status: active
+  since: 1.5.0
+- id: A-094
+  owner: anatomy
+  name: Metadata block
+  type: anatomy entry
+  status: active
+  since: 1.5.0
 - id: C001
   owner: constraints
   name: Acknowledgment window
@@ -6904,6 +6970,60 @@
   type: term
   status: active
   since: 1.0.0
+- id: V-613
+  owner: vocabulary
+  name: Headline
+  type: term
+  status: active
+  since: 1.1.0
+- id: V-614
+  owner: vocabulary
+  name: Eyebrow
+  type: term
+  status: active
+  since: 1.1.0
+- id: V-615
+  owner: vocabulary
+  name: Byline
+  type: term
+  status: active
+  since: 1.1.0
+- id: V-616
+  owner: vocabulary
+  name: Body
+  type: term
+  status: active
+  since: 1.1.0
+- id: V-617
+  owner: vocabulary
+  name: Pull-quote
+  type: term
+  status: active
+  since: 1.1.0
+- id: V-618
+  owner: vocabulary
+  name: Stat
+  type: term
+  status: active
+  since: 1.1.0
+- id: V-619
+  owner: vocabulary
+  name: Caption
+  type: term
+  status: active
+  since: 1.1.0
+- id: V-620
+  owner: vocabulary
+  name: List
+  type: term
+  status: active
+  since: 1.1.0
+- id: V-621
+  owner: vocabulary
+  name: Metadata block
+  type: term
+  status: active
+  since: 1.1.0
 - id: X001
   owner: verification
   name: The four modes
