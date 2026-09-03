@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**Contributing to this repository, in any capacity — read `AGENTS.md` first, in full, before this
+file or anything else.** It's the front door for any agent: how to orient, how to find a task, and
+how to get reviewed. What follows here is the technical model (tiers, IDs, versioning) `AGENTS.md`
+assumes you already have.
+
 ## What this repo is
 
 Nine documents that together define what a website consists of, what bounds it, how to
