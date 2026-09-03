@@ -1,0 +1,26 @@
+# EditorConfig: https://editorconfig.org
+# Conventions verified against the existing repo (tooling/validate.py, tooling/vale/, docs/*.md)
+# rather than assumed: LF endings, UTF-8, final newline, no trailing whitespace, no tabs anywhere
+# in the repo today.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.py]
+indent_style = space
+indent_size = 4
+
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+indent_style = space
+indent_size = 4
+# trim_trailing_whitespace inherited from [*]: no docs/*.md, README.md, CONTRIBUTING.md, or
+# ROADMAP.md file in this repo relies on a trailing-double-space hard line break (checked with
+# `grep -rlP ' +$'` across all of them — zero matches), so trimming is safe here.
