@@ -1,13 +1,13 @@
 ```yaml
 document: Anatomy
-version: 1.7.0
+version: 1.8.0
 tier: 1
-scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice, plus content elements, plus message surfaces, plus badges and chips
+scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice, plus content elements, plus message surfaces, plus badges and chips, plus avatars, progress and spinner, skeleton, empty/zero state, carousel, lightbox, and toolbar
 owns:
   - what each thing is made of, expressed as parameters
   - the range or type of each parameter
   - what is derived rather than chosen
-exports: A-001–A-098
+exports: A-001–A-105
 depends:
   - Vocabulary ^1
   - Constraints ^1
@@ -33,6 +33,8 @@ What each thing is made of. Where Vocabulary establishes what a term denotes, th
 **Scope of 1.6.0** — adds a sixth slice, message surfaces: Toast and banner (A-095, folding V-346 and V-347 into one entry) and Callout (A-096, the `H`-part, severity-keyed sense of the term the 1.5.0 Settled decisions flagged as still open, distinct from A-090 Stat/callout's content-element sense of the same V-348). This is the fold-or-separate decision that note left for a future contribution to make. A re-verification against Vocabulary's `H` part, done while scoping this slice, found six names — Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll — cited nowhere in this document and named in none of its prior "still open" notes; they join badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar as the seventeen names now tracked as open in the `H` part, correcting `ROADMAP.md`'s prior "~23" estimate to a verified count. See **Settled decisions** for both.
 
 **Scope of 1.7.0** — adds a seventh slice, badges and chips: Badge (A-097) and Chip (A-098), both already partially characterized by A-096's own "Not folded with Badge or Chip" paragraph. Avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain open in the `H` part, alongside Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll — the six names issue #48 surfaced, each still awaiting a human scoping call before it can be drafted. Fifteen names remain open in total. See **Settled decisions**.
+
+**Scope of 1.8.0** — adds an eighth slice, the six names Phase 2 flagged as ready to draft without a human scoping call: Avatar (A-099), Progress and spinner (A-100, folding V-355 and V-356 into one entry), Skeleton (A-101), Empty and zero state (A-102, folding V-358 and V-359 into one entry), Carousel (A-103), Lightbox (A-104), and Toolbar (A-105) — seven entries covering nine of Vocabulary's `H` names. All nine already had Vocabulary IDs before this slice; none required a companion Vocabulary addition. Only Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll — the six names issue #48 surfaced, each still awaiting a human scoping call — remain open in the `H` part. See **Settled decisions**.
 
 ## What this document does not own
 
@@ -1209,6 +1211,83 @@ Chip (V-350) is a compact element representing a single attribute, filter, or se
 
 ---
 
+# L. Status, identity, and media
+
+A-099–A-105 below are the eighth addition to Vocabulary's `H · Components` part, given their own section for the same reason Sections J and K were: arrival order, not a claim that an avatar, a progress indicator, a skeleton, an empty state, a carousel, a lightbox, or a toolbar belongs to some category Button, Card, or Callout does not. See **Settled decisions** for why this group and this boundary.
+
+## A-099 · Avatar
+
+`image source` · `initials fallback` · `icon fallback` · `size` · `shape` · `status indicator` · `group`
+
+Avatar (V-351) is a small image or initials representing a person or entity: an `image source` where one exists, falling back to `initials fallback` — typically one or two letters derived from a name — and, where no name is available either, a generic `icon fallback` (A-056), each rendered at one of a fixed set of `size`s and a consistent `shape`, ordinarily a circle. `group` composes several avatars into an overlapping stack representing more people than are shown individually, the same "+N" overflow convention A-097 Badge's `max value` already establishes for a count too large to render in full.
+**Status indicator** — a dot anchored to a corner of the avatar signaling presence (online, away, offline, busy); this is A-097 Badge's dot-only form — no `value`, presence alone — with the avatar as `host element`, not a separate construction.
+**Breaks when** — the `image source` fails to load with no fallback rendering in its place, or the fallback that does render carries no accessible name identifying who or what the avatar represents; C024 requires a text alternative for non-text content, and a broken-image icon, or a silent set of initials with no accompanying name, answers a different question than whose avatar is being shown.
+**Also breaks when** — the status indicator's state (online, away, offline, busy) is carried by hue alone with no shape or text distinguishing it; C023 requires a non-color means of conveying that same information, the same obligation A-097 already states for a dot-only badge's fill-color change.
+
+---
+
+## A-100 · Progress and spinner
+
+`track` · `indicator` · `determinacy` · `value` · `max` · `label` · `size`
+
+Progress bar (V-355) and spinner (V-356) share one construction — a `track` carrying an `indicator` that communicates ongoing work — and diverge only in `determinacy`: a determinate indicator's `indicator` fills in proportion to a `value` against a `max`, while an indeterminate indicator — a spinner, or a progress bar with no known `value` — loops or animates without one. A-060 Feedback loop already treats these as one continuum rather than two unrelated things: "Determinate where possible; indeterminate spinners past that point read as failure regardless of what is happening" — this entry gives that continuum its parameters.
+**Breaks when** — an indeterminate `indicator` continues past roughly 4–5 seconds with nothing else changing; C003 sets that threshold directly — past it, an indeterminate indicator is read as failure regardless of what is actually happening, the specific case A-060 already names for progress in general.
+**Also breaks when** — `value` and `max` are rendered only as a fill width, with no programmatically determinable value behind it; C046 requires an interface component's states and values to be reported, not only painted, and a progress bar built from unlabeled `div`s exposes neither its determinacy nor its current value to anything but sighted users watching the fill move.
+
+---
+
+## A-101 · Skeleton
+
+`shape[]` · `animation` · `replacement content`
+
+Skeleton (V-357) is a set of placeholder `shape[]` matching the layout of content still loading: a region shaped and positioned the way the eventual content will be, carrying an `animation` — typically a shimmer or pulse — signaling that loading is in progress, and replaced in place by `replacement content` once it arrives. Distinguished from A-100 Progress and spinner: a skeleton previews the *layout* of content not yet known to have loaded successfully; a progress bar or spinner signals only that work is occurring, with no claim about what the result will look like.
+**Breaks when** — a skeleton has no defined transition to either its `replacement content` or an error state; C003 already establishes that an indeterminate signal read past roughly 4–5 seconds is read as failure regardless of what is happening, and a skeleton with no exit path is exactly that signal held indefinitely.
+**Also breaks when** — the placeholder `shape[]` remain exposed to assistive technology as though they carried content, or the `replacement content` arrives with no programmatic indication that a loading state was ever present; C046 requires a component's state to be reported, and a loading state communicated only through shapes a screen reader cannot distinguish from meaningless empty regions does not meet it.
+
+---
+
+## A-102 · Empty and zero state
+
+`illustration` · `message text` · `action` · `moment`
+
+Empty state (V-358) is the view rendered when no content exists yet: an `illustration`, a short `message text` explaining why nothing is showing, and an optional `action` prompting the next step. Zero state (V-359) is not a separate construction — Vocabulary defines it as a subtype of empty state, scoped to a person's first encounter with the view — it is the same three parts at one specific `moment`: the very first time a person reaches the view, before anything could yet exist, rather than a later moment where content once existed and was filtered, searched, or cleared down to nothing.
+**Moment changes the message and action, not the construction** — a zero-state `message text` and `action` orient a person toward creating something for the first time ("Add your first project"); an empty state reached later, say through A-081 Facets' filtering, orients a person toward undoing whatever emptied the view — A-081's own `clear control` — rather than toward creating something new. The parts are identical; only which moment produced the emptiness, and which action follows from it, differs — the same "shares a parameter set, diverges only in what's present, absent, or fixed" test A-095 applied to toast and banner, here applied to a parameter's value rather than its presence.
+**Breaks when** — the `illustration` carries meaning the `message text` does not also state in words — which kind of content is missing, or why; C024 requires a text alternative for non-text content, and an illustration whose meaning exists only in the image excludes anyone not viewing it.
+**Also breaks when** — the `action` is the only way to proceed but is rendered as styled text or a `div` rather than a focusable control; C030 requires all functionality to be operable through a keyboard interface, and an action reachable only by a pointer fails it regardless of how prominent it looks.
+
+---
+
+## A-103 · Carousel
+
+`item[]` · `viewport` · `navigation control` · `pagination indicator` · `autoplay` · `pause control`
+
+Carousel (V-361) is a horizontally paged sequence of items: an `item[]` shown one or a few at a time within a fixed `viewport`, advanced by a `navigation control` (previous/next) and, where more than a few items exist, a `pagination indicator` marking position within the sequence — the same active-position tracking A-066 Tabs' `indicator` already performs, applied here to items rather than panels. `autoplay`, where present, advances the carousel on a timer independent of any person's input.
+**Breaks when** — `autoplay` runs with no `pause control` reachable before, or independent of, the first automatic advance; C035 requires exactly this of any auto-updating content lasting more than five seconds, and an autoplaying carousel advancing every few seconds is squarely that case.
+**Also breaks when** — the only way to move between items is a drag or swipe gesture, with no `navigation control` reachable by a single pointer action or by keyboard; C037 requires a single-pointer alternative for any function that uses a dragging movement, and C030 requires the same function to be operable through a keyboard interface regardless of whether a pointer is present at all.
+
+---
+
+## A-104 · Lightbox
+
+`trigger` · `media` · `navigation control` · `zoom control` · `caption`
+
+Lightbox (V-362) is a full-screen overlay for viewing media: enlarged `media` opened from a `trigger` thumbnail, with a `navigation control` to move to the next or previous item where the trigger belongs to a set, an optional `zoom control`, and an optional `caption` (A-091). It reuses A-065 Dialog's `scrim`, `focus trap`, `initial focus`, `return focus`, and `dismissal affordance` in full — a lightbox is a full-screen overlay in exactly A-065's sense, not a distinct overlay construction — and none of those five parameters is restated here.
+**Breaks when** — the lightbox opens with no `initial focus` moving onto it and no `focus trap` confining focus while it is open; A-065 already requires both of a scrim-bearing overlay, per C038's meaningful focus order and C031's prohibition on a trap with no escape, and a lightbox that skips either leaves keyboard focus either stranded behind the overlay or free to wander onto page content the scrim is meant to block.
+**Also breaks when** — the enlarged `media` has no alt text (V-292) of its own, on the assumption that a `caption`, where present, covers it; A-091 Caption already makes exactly this distinction — C024 requires the text alternative regardless of whether a caption exists, and a caption disappears along with the media if it fails to load while alt text does not, the same gap A-091 names for an image generally, here in the specific case of a lightbox's enlarged view.
+
+---
+
+## A-105 · Toolbar
+
+`container` · `item[]` · `orientation` · `overflow behavior`
+
+Toolbar (V-363) is a grouped row of controls acting on the current context: a `container` holding an `item[]` of heterogeneous controls — buttons, toggles, selects — laid out along an `orientation`, horizontal or vertical. Like a tablist (A-066) or a radio group (A-069), the container is a single stop in the page's focus order; individual items inside it are reached by arrow key, a roving tabindex (V-403), rather than one tab stop per control, regardless of how many different control types the toolbar mixes together.
+**Overflow behavior** — scroll, wrap, or collapse into an overflow menu once items exceed the available inline size, the same three options A-066 Tabs already names for a tablist that overflows.
+**Breaks when** — the toolbar's items have no programmatic grouping identifying them as one toolbar, or an individual item's own selected or pressed state is not exposed as a state; C046 requires both a group's role and each control's state to be determinable, the same obligation A-069 Radio group already states for its own set of options.
+**Also breaks when** — the `overflow behavior`'s collapsed menu opens only on hover, or is built without button semantics; C030 requires it to be operable through a keyboard interface, the same obligation A-082 Navigation's own overflow control already states, not only reachable by a pointer.
+
+---
+
 # EXPORT INDEX
 
 | ID | Entry |
@@ -1311,6 +1390,13 @@ Chip (V-350) is a compact element representing a single attribute, filter, or se
 | A-096 | Callout |
 | A-097 | Badge |
 | A-098 | Chip |
+| A-099 | Avatar |
+| A-100 | Progress and spinner |
+| A-101 | Skeleton |
+| A-102 | Empty and zero state |
+| A-103 | Carousel |
+| A-104 | Lightbox |
+| A-105 | Toolbar |
 
 ---
 
@@ -1363,3 +1449,13 @@ Only one fold happened in this slice: Stat and Callout share one construction �
 **Seventh slice: badges and chips, two entries covering two of Vocabulary's `H` names.** A-097 Badge and A-098 Chip were chosen over the ten other names still open after the sixth slice (avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, toolbar) and the six issue #48 surfaced (Link, Table, Data grid, Accordion, Disclosure, Infinite scroll) for two reasons together, not either alone: both were already partially characterized by the sixth slice's own "Not folded with Badge or Chip" paragraph in A-096 — which had to describe both terms accurately enough to justify not folding Callout into either — leaving less new ground to cover than any other remaining name; and, unlike the six issue #48 names, neither carries an open scoping call. Table/Data grid and Accordion/Disclosure each raise a genuine fold-or-separate question (both pairs already carry a Vocabulary "→ distinguish" cross-reference, the same signal that preceded folds elsewhere in this document), and Link and Infinite scroll each raise a where-does-this-land question; issue #48 itself reserves all six for a human scoping call on the same grounds `AGENTS.md` gives for tokens, content, and information architecture before them, and this slice does not make that call. A-097 and A-098 stay two entries rather than one: A-096 already tested Badge and Chip against Callout and against each other and found "none of the three... clears the fold test against either of the others" — a determination this slice builds anatomy from rather than re-litigates. Chip's `state` parameter is not new ground either; A-081 Facets' `applied filter` already used a chip this way, and A-098 cites that continuity instead of restating it.
 
 **Still open after this slice.** Avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain uncovered in Vocabulary's `H` part, unchanged by this slice apart from the removal of badges and chips. Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll remain open too, each still carrying its own scoping call per issue #48, not decided here. Content elements are unaffected by this slice and remain fully drafted, per the fifth and sixth slices' own notes. Fifteen names remain open in the `H` part in total; each is additive follow-up work under further new A-IDs, on the same terms this document has already set seven times.
+
+**Eighth slice: avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar — seven entries covering nine of Vocabulary's `H` names.** These are the six names `ROADMAP.md` Phase 2 names as ready to draft without a human scoping call, distinct from the six issue #48 reserves for one (Link, Table, Data grid, Accordion, Disclosure, Infinite scroll, none of which this slice touches). All nine Vocabulary IDs this slice cites — Avatar (V-351), Progress bar (V-355), Spinner (V-356), Skeleton (V-357), Empty state (V-358), Zero state (V-359), Carousel (V-361), Lightbox (V-362), Toolbar (V-363) — already existed before this slice; none required a companion Vocabulary addition of the kind the fifth slice needed for content elements. A-099 Avatar is one entry for one name; A-103 Carousel, A-104 Lightbox, and A-105 Toolbar are each one entry for one name; two fold decisions account for the rest.
+
+**A-100 Progress and spinner folds Progress bar (V-355) and Spinner (V-356).** Vocabulary marks the pair "→ distinguish," the same signal the seventh slice's own note observed "preceded folds elsewhere in this document" for Table/Data grid and Accordion/Disclosure — and, further back, is exactly the signal Toast/Banner (V-346/V-347) and Tooltip/Popover (V-342/V-341) carried before A-095 and A-064 folded each pair. The fold test applied here is the one A-095 established: do the two share a parameter set, diverging only in what's present, absent, or fixed? They do — a `track` carrying an `indicator`, `label`, and `size` common to both — and this document had already treated them as one continuum before this slice existed to give it parameters: A-060 Feedback loop's own text reads "Determinate where possible; indeterminate spinners past that point read as failure regardless of what is happening," naming determinate progress and indeterminate spinners as two settings of the same thing, not two things. A-100's `determinacy` parameter is what that continuum needed and didn't yet have. This is a stronger case for folding than Toast/Banner was, not a weaker one — Toast and Banner are siblings under a common ancestor; Progress bar and Spinner are, on this document's own prior wording, already the same construction observed at two points along one axis.
+
+**A-102 Empty and zero state folds Empty state (V-358) and Zero state (V-359).** This is a different, and easier, kind of fold than any of the above: Vocabulary does not merely flag the pair "→ distinguish," it defines one directly in terms of the other — its Zero state entry frames zero state as empty state's first-encounter subtype, a subtype relationship Vocabulary states outright, not a resemblance this slice had to establish itself. Where the toast/banner and progress/spinner folds required showing two nominally distinct siblings share a parameter set, this fold starts from that stated relationship. A-102 accordingly does not introduce a `V-359`-only parameter anywhere the `V-358` construction lacks one; the only thing that changes between the two is the value of a `moment` parameter (first-run versus later) and, downstream of that, what the `message text` and `action` say — the same "parameter's value, not its presence" distinction A-095 itself draws between a toast's fixed placement and a banner's inline one. The alternative considered and rejected was treating Zero state as a *sub-part* of Empty state the way icon button, ghost button, floating action button, and split button are sub-parts of A-062 Button, rather than giving it a place in the entry's own title. That precedent was set for variant terms that do not independently carry the weight of a two-word phrase in ordinary usage the way "zero state" does, and `ROADMAP.md`'s own Phase 2 entry already names the pair as "empty/zero state," one unit a reader would look up by either half; a title of "Empty state" alone, with zero state buried in prose, would cite V-359 without a reader being able to find it from the export index the way every other Vocabulary ID this document cites can be found.
+
+**Skeleton (A-101) stays its own entry rather than folding with A-100 Progress and spinner**, despite both occupying the same "loading" moment in a page's lifecycle: a skeleton previews the *shape* of content not yet confirmed to exist in a given form — a set of `shape[]` matching a specific layout — while a progress bar or spinner communicates only that work is occurring, with no claim about what the result will look like. That is a difference in construction, not only in which of a shared parameter set is present, absent, or fixed, the same distinction A-096 Callout drew against A-095 Toast and banner to justify staying separate rather than folding.
+
+**Still open after this slice.** Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll are the only names remaining open in the `H` part, each still carrying its own scoping call per issue #48, not decided here. Content elements, information architecture, and tokens are unaffected by this slice and remain settled per the earlier entries in this section. Six names remain open in the `H` part in total, correcting the fifteen the seventh slice's own note above left open by the nine this slice closes; each is additive follow-up work under further new A-IDs pending the issue #48 scoping call, on the same terms this document has already set eight times.

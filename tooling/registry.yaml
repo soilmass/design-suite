@@ -586,6 +586,48 @@
   type: anatomy entry
   status: active
   since: 1.7.0
+- id: A-099
+  owner: anatomy
+  name: Avatar
+  type: anatomy entry
+  status: active
+  since: 1.8.0
+- id: A-100
+  owner: anatomy
+  name: Progress and spinner
+  type: anatomy entry
+  status: active
+  since: 1.8.0
+- id: A-101
+  owner: anatomy
+  name: Skeleton
+  type: anatomy entry
+  status: active
+  since: 1.8.0
+- id: A-102
+  owner: anatomy
+  name: Empty and zero state
+  type: anatomy entry
+  status: active
+  since: 1.8.0
+- id: A-103
+  owner: anatomy
+  name: Carousel
+  type: anatomy entry
+  status: active
+  since: 1.8.0
+- id: A-104
+  owner: anatomy
+  name: Lightbox
+  type: anatomy entry
+  status: active
+  since: 1.8.0
+- id: A-105
+  owner: anatomy
+  name: Toolbar
+  type: anatomy entry
+  status: active
+  since: 1.8.0
 - id: C001
   owner: constraints
   name: Acknowledgment window
