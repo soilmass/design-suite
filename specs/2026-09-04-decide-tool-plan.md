@@ -747,6 +747,7 @@ git commit -m "feat(decide): load and validate the project brief"
 - Produces: `render_adr(adr_id: str, title: str, families: list[str], context: str, decision: str, consequences: str, date: str) -> str` — the full file content as a string, front matter first.
 - Produces: `next_adr_id(adr_dir: str) -> str` — scans `adr_dir` (same recursive `.md` scan `decision_completeness.py`'s `load_adrs` does) for the highest existing `ADR-####` id and returns the next one, zero-padded to 4 digits (`"ADR-0001"` if the directory is empty or has none).
 - Produces: `slugify(text: str) -> str` — lowercase, non-alphanumeric runs collapsed to a single `-`, for building filenames.
+- Produces: `already_decided_families(adr_dir: str, target_families: list[str]) -> set[str]` — every id in `target_families` that has at least one `accepted`-status ADR citing it in `adr_dir` (recursive scan, reusing `decision_completeness.load_adrs`). Returns the empty set if `adr_dir` doesn't exist. This lives here, not duplicated in Task 6 and Task 7, because both need the identical "what's already decided" check and this module already scans ADR files for `next_adr_id` — one ADR-scanning concern, one home for it.
 
 - [ ] **Step 1: Write the failing tests**
 
@@ -811,6 +812,36 @@ def test_next_adr_id_ignores_malformed(tmp_path):
     )
     (tmp_path / "0002-bad.md").write_text("not an ADR at all", encoding="utf-8")
     assert next_adr_id(str(tmp_path)) == "ADR-0006"
+
+
+def test_already_decided_families_empty_dir_that_does_not_exist(tmp_path):
+    from tooling.decide.adr import already_decided_families
+    missing = str(tmp_path / "does_not_exist")
+    assert already_decided_families(missing, ["F01", "F02"]) == set()
+
+
+def test_already_decided_families_only_accepted_status_counts(tmp_path):
+    from tooling.decide.adr import already_decided_families
+    (tmp_path / "0001-accepted.md").write_text(
+        '```yaml\nid: ADR-0001\ntitle: x\nstatus: accepted\nfamilies: [F01]\n```\n# x\n',
+        encoding="utf-8",
+    )
+    (tmp_path / "0002-proposed.md").write_text(
+        '```yaml\nid: ADR-0002\ntitle: y\nstatus: proposed\nfamilies: [F02]\n```\n# y\n',
+        encoding="utf-8",
+    )
+    result = already_decided_families(str(tmp_path), ["F01", "F02", "F15"])
+    assert result == {"F01"}
+
+
+def test_already_decided_families_ignores_non_target_families(tmp_path):
+    from tooling.decide.adr import already_decided_families
+    (tmp_path / "0001-other.md").write_text(
+        '```yaml\nid: ADR-0001\ntitle: x\nstatus: accepted\nfamilies: [F99]\n```\n# x\n',
+        encoding="utf-8",
+    )
+    result = already_decided_families(str(tmp_path), ["F01", "F02"])
+    assert result == set()
 ```
 
 - [ ] **Step 2: Run to verify they fail**
@@ -827,8 +858,12 @@ first bytes of the file, then a Markdown body with Context/Decision/Consequences
 import glob
 import os
 import re
+import sys
 
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from decision_completeness import load_adrs
 
 ADR_ID_RE = re.compile(r"ADR-(\d+)")
 
@@ -878,12 +913,31 @@ def next_adr_id(adr_dir):
         if id_m:
             highest = max(highest, int(id_m.group(1)))
     return f"ADR-{highest + 1:04d}"
+
+
+def already_decided_families(adr_dir, target_families):
+    """Every id in target_families with at least one accepted-status ADR citing
+    it in adr_dir. Shared by tooling/decide's context and apply subcommands --
+    both need to know what's already decided before doing anything else."""
+    if not os.path.isdir(adr_dir):
+        return set()
+    adrs, _malformed = load_adrs(adr_dir)
+    target_set = set(target_families)
+    decided = set()
+    for adr in adrs:
+        if adr["status"] != "accepted":
+            continue
+        for cited in adr["families"]:
+            cited = str(cited).strip().upper()
+            if cited in target_set:
+                decided.add(cited)
+    return decided
 ```
 
 - [ ] **Step 4: Run to verify they pass**
 
 Run: `cd /home/edox1/Public/design-suite && python3 -m pytest tests/decide/test_adr.py -v`
-Expected: PASS (5 tests).
+Expected: PASS (8 tests).
 
 - [ ] **Step 5: Commit**
 
@@ -902,7 +956,7 @@ git commit -m "feat(decide): render ADRs matching decision_completeness.py's for
 - Create: `tests/decide/fixtures/existing_adrs_f01_decided/0001-mandate.md`
 
 **Interfaces:**
-- Consumes: `build_family_knowledge` (Task 3), `load_brief` (Task 4), `load_adrs` from `tooling/decision_completeness` (existing, imported not reimplemented — per this plan's Global Constraints).
+- Consumes: `build_family_knowledge`, `TARGET_FAMILIES` (Task 3), `load_brief` (Task 4), `already_decided_families` (Task 5).
 - Produces: `run_context(target_repo: str, suite_composition_path: str, suite_constraints_path: str, suite_decision_path: str) -> dict` — the full context document as a plain dict (caller decides whether to print it as YAML or write it to a file; keeping this function's return value a dict, not a YAML string, keeps it directly testable without string-parsing). Shape:
   ```python
   {
@@ -1017,28 +1071,10 @@ Expected: FAIL — `ModuleNotFoundError`.
 every undecided target family's knowledge, the project's brief, and which target
 families are already decided (so an agent doesn't re-derive what's already settled)."""
 import os
-import sys
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from decision_completeness import load_adrs
-
+from .adr import already_decided_families
 from .brief import load_brief, BriefError
 from .knowledge import build_family_knowledge, TARGET_FAMILIES
-
-
-def _already_decided(adr_dir):
-    if not os.path.isdir(adr_dir):
-        return set()
-    adrs, _malformed = load_adrs(adr_dir)
-    decided = set()
-    for adr in adrs:
-        if adr["status"] != "accepted":
-            continue
-        for cited in adr["families"]:
-            cited = str(cited).strip().upper()
-            if cited in TARGET_FAMILIES:
-                decided.add(cited)
-    return decided
 
 
 def run_context(target_repo, suite_composition_path, suite_constraints_path, suite_decision_path):
@@ -1047,7 +1083,7 @@ def run_context(target_repo, suite_composition_path, suite_constraints_path, sui
     )
 
     adr_dir = os.path.join(target_repo, "adr")
-    decided = _already_decided(adr_dir)
+    decided = already_decided_families(adr_dir, TARGET_FAMILIES)
 
     brief_path = os.path.join(target_repo, ".design-suite", "brief.yaml")
     if os.path.isfile(brief_path):
@@ -1091,7 +1127,7 @@ git commit -m "feat(decide): assemble the context document for the context subco
 - Create: `tests/decide/fixtures/decisions/unknown_family.yaml`
 
 **Interfaces:**
-- Consumes: `TARGET_FAMILIES`, `build_family_knowledge` (Task 3), `next_adr_id`, `render_adr`, `slugify` (Task 5), `load_adrs` and `main` from `tooling.decision_completeness` (existing).
+- Consumes: `TARGET_FAMILIES`, `extract_family_ids` (Task 3), `build_family_knowledge` (Task 3), `next_adr_id`, `render_adr`, `slugify`, `already_decided_families` (Task 5), `main` from `tooling.decision_completeness` (existing).
 - Produces: `run_apply(target_repo: str, decisions_path: str, suite_composition_path: str, suite_constraints_path: str, suite_decision_path: str) -> dict` — writes ADR files into `<target_repo>/adr/` for every decision that passes validation, and returns a summary dict:
   ```python
   {
@@ -1292,7 +1328,7 @@ import yaml
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import decision_completeness
 
-from .adr import next_adr_id, render_adr, slugify
+from .adr import next_adr_id, render_adr, slugify, already_decided_families
 from .knowledge import build_family_knowledge, TARGET_FAMILIES
 
 
@@ -1324,21 +1360,6 @@ def _load_decisions(path):
     return decisions
 
 
-def _already_decided(adr_dir):
-    if not os.path.isdir(adr_dir):
-        return set()
-    adrs, _malformed = decision_completeness.load_adrs(adr_dir)
-    decided = set()
-    for adr in adrs:
-        if adr["status"] != "accepted":
-            continue
-        for cited in adr["families"]:
-            cited = str(cited).strip().upper()
-            if cited in TARGET_FAMILIES:
-                decided.add(cited)
-    return decided
-
-
 def _coupled_target_families(coupling_text):
     """Which other TARGET_FAMILIES ids does this family's own Coupling prose
     mention? Used to propagate a low-confidence flag to a tightly coupled
@@ -1357,7 +1378,7 @@ def run_apply(target_repo, decisions_path, suite_composition_path, suite_constra
         suite_composition_path, suite_constraints_path, suite_decision_path
     )
     adr_dir = os.path.join(target_repo, "adr")
-    decided = _already_decided(adr_dir)
+    decided = already_decided_families(adr_dir, TARGET_FAMILIES)
 
     written = []
     skipped_already_decided = []
