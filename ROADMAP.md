@@ -90,11 +90,16 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   Carousel, Lightbox, and Toolbar — chosen because, unlike the six issue #48 names, none of the six
   carried an open scoping call, and all nine Vocabulary IDs the slice cites already existed with no
   companion Vocabulary addition needed. Only the six issue #48 names — Link, Table, Data grid,
-  Accordion, Disclosure, and Infinite scroll — remain open, each still awaiting the human scoping
-  call issue #48 reserves for it, correcting this entry's prior "15 names remain" to the current
-  count of six. Each is additive follow-up work, a natural first project for an outside
-  contributor, each its own bounded, separately scoped contribution rather than one PR closing the
-  whole gap. Phase 2 is not complete while those remain unbuilt.
+  Accordion, Disclosure, and Infinite scroll — remain open, correcting this entry's prior "15 names
+  remain" to the current count of six. The scoping call issue #48 reserved for these six — the
+  issue itself closed once its bookkeeping finding was fixed, without that call actually being made
+  — is resolved in `docs/anatomy-1.0.0.md`'s own **Settled decisions**, not here: Link stands alone;
+  Data grid extends Table rather than folding with or separating from it; Accordion composes from
+  Disclosure rather than raising a fold question at all; Infinite scroll stands alone, reusing
+  Progress and spinner's construction for its own loading indicator. Ready to draft as a ninth
+  slice. Each is additive follow-up work, a natural first project for an outside contributor, each
+  its own bounded, separately scoped contribution rather than one PR closing the whole gap. Phase 2
+  is not complete while those remain unbuilt.
 
 Everything else in the gap register (language-plane consistency measurement, representation-plane
 verification, citation-intent checking, legal-change monitoring) stays explicitly out of scope —
