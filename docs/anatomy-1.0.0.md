@@ -1,13 +1,13 @@
 ```yaml
 document: Anatomy
-version: 1.6.1
+version: 1.7.0
 tier: 1
-scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice, plus content elements, plus message surfaces
+scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice, plus content elements, plus message surfaces, plus badges and chips
 owns:
   - what each thing is made of, expressed as parameters
   - the range or type of each parameter
   - what is derived rather than chosen
-exports: A-001–A-096
+exports: A-001–A-098
 depends:
   - Vocabulary ^1
   - Constraints ^1
@@ -31,6 +31,8 @@ What each thing is made of. Where Vocabulary establishes what a term denotes, th
 **Scope of 1.5.0** — adds a fifth slice, the first drawn from Vocabulary's `L · Content and language` part rather than from `H · Components`: content elements — Headline, Deck, Eyebrow, Byline, Body, Pull-quote, Stat/callout, Caption, CTA text, List, and Metadata block (A-084–A-094). This is the full candidate set the 1.3.1 content scoping resolution named; see **Settled decisions**. Closing this slice required a small companion Vocabulary addition — eight of the eleven candidates had no term at all, and a ninth ("stat") had only a partial match — recorded as V-613–V-621 in Vocabulary's own changelog, not restated here beyond the citations the entries below make. Toasts and banners, callouts, badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain the only open names, all in the `H` part; content is now fully drafted.
 
 **Scope of 1.6.0** — adds a sixth slice, message surfaces: Toast and banner (A-095, folding V-346 and V-347 into one entry) and Callout (A-096, the `H`-part, severity-keyed sense of the term the 1.5.0 Settled decisions flagged as still open, distinct from A-090 Stat/callout's content-element sense of the same V-348). This is the fold-or-separate decision that note left for a future contribution to make. A re-verification against Vocabulary's `H` part, done while scoping this slice, found six names — Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll — cited nowhere in this document and named in none of its prior "still open" notes; they join badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar as the seventeen names now tracked as open in the `H` part, correcting `ROADMAP.md`'s prior "~23" estimate to a verified count. See **Settled decisions** for both.
+
+**Scope of 1.7.0** — adds a seventh slice, badges and chips: Badge (A-097) and Chip (A-098), both already partially characterized by A-096's own "Not folded with Badge or Chip" paragraph. Avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain open in the `H` part, alongside Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll — the six names issue #48 surfaced, each still awaiting a human scoping call before it can be drafted. Fifteen names remain open in total. See **Settled decisions**.
 
 ## What this document does not own
 
@@ -1181,6 +1183,32 @@ Callout (V-348) — the `H`-part, general-purpose sense of the term the 1.5.0 Se
 
 ---
 
+# K. Badges and chips
+
+A-097–A-098 below are the seventh addition to Vocabulary's `H · Components` part, given their own section for the same reason Section J was: arrival order, not a claim that a badge or a chip belongs to some category Button, Card, or Callout does not. See **Settled decisions** for why this group and this boundary.
+
+## A-097 · Badge
+
+`host element` · `value` · `max value` · `position` · `intent/color` · `shape`
+
+Badge (V-349) is a small marker attached to another element rather than standing apart from one: either a `value` — a short count, capped by a `max value` above which it renders a truncated form such as "9+" — or brief text, or no value at all, in which case it renders as a dot signaling presence alone. `position` anchors it to a corner of the `host element`; `shape` is typically a circle at rest, widening to a pill once its `value` needs more than one character. The `badge` sub-part A-066 Tabs already lists among a tab's sub-parts is this entry, not a distinct construction — a tab's badge is this entry's construction with the tab itself as `host element`.
+**Breaks when** — the badge's `value` is not folded into its host's accessible name; C046 requires an interface component's name to be programmatically determinable and its states and values to be reported, and a badge rendered as a separate, unlabeled sibling node leaves its count or text out of both — absent from the host's name and unreported as one of its values.
+**Also breaks when** — a dot-only badge (no `value`) carries its entire meaning in a fill-color change from the host's rest state, with no accompanying text; C023 requires a non-color means of conveying that same information, which a colored dot alone does not provide.
+
+---
+
+## A-098 · Chip
+
+`label` · `leading element` · `remove control` · `state` · `hit target`
+
+Chip (V-350) is a compact element representing a single attribute, filter, or selection: a `label` naming what it represents, an optional `leading element` — an icon (A-056) or a small image or initials representing a person or entity, an avatar (V-351) — and, where the chip is removable, a `remove control` carrying its own `hit target`, distinct from the hit target of the chip body itself.
+**Sub-parts** — as A-081 Facets' `applied filter` already establishes, a chip may double as a toggle carrying a `state` — selected (V-387) or not — rather than only standing as a static tag; where it does, that state is the same value a checkbox (A-068) or segmented control (A-074) carries, not a separate vocabulary of its own.
+**Distinguished from Badge (A-097)** — a chip's `label` is required; a badge's `value` may be absent entirely, leaving only a dot. A chip stands free, often removable and often interactive; a badge is fixed to a `host element` it does not stand apart from and, on its own, has neither a `remove control` nor an independent hit target. A-096 already found that neither shares a parameter set with the other, or with Callout; these two entries build the anatomy that finding anticipated rather than revisiting it.
+**Breaks when** — a removable chip's `remove control` shares a hit target with the chip's own body, so activating one activates the other; C028's 24×24 minimum assumes the two are independently reachable and operable, not layered over the same region with no way to target one without the other.
+**Also breaks when** — the `remove control`'s accessible name is the bare word "Remove," repeated identically across every chip in a group; a person tabbing through a filter row by name alone cannot tell one chip's remove control from the next without activating it first.
+
+---
+
 # EXPORT INDEX
 
 | ID | Entry |
@@ -1281,6 +1309,8 @@ Callout (V-348) — the `H`-part, general-purpose sense of the term the 1.5.0 Se
 | A-094 | Metadata block |
 | A-095 | Toast and banner |
 | A-096 | Callout |
+| A-097 | Badge |
+| A-098 | Chip |
 
 ---
 
@@ -1329,3 +1359,7 @@ Only one fold happened in this slice: Stat and Callout share one construction �
 **A re-verification against Vocabulary's full `H` part, done while scoping this slice, found the "still open" bookkeeping above was itself incomplete.** This document's citations of V-310–V-364 (55 names) account for 35 of them before this slice — the 32 `ROADMAP.md`'s Phase 2 entry already counts across the first four slices, plus Label, Placeholder text, and Helper text (V-318–V-320), folded into the pre-existing A-061 Form field rather than counted in that 32 — leaving 20 open, not the 14 named across the "still open" paragraphs above. The other six were cited nowhere in this document and named in none of those paragraphs: Link (V-311), Table (V-332), Data grid (V-333), Accordion (V-335), Disclosure (V-336), and Infinite scroll (V-354). Link is not entirely absent — A-092 CTA text names it in passing, "ordinarily a Button (A-062) or a Link (V-311)" — but it has no anatomy entry of its own, the same as the other five. Grouping, folding, and scoping these six is exactly the kind of call `AGENTS.md` reserves for a human decision rather than one made unilaterally inside a task, so it is opened as issue #48 rather than drafted here. `ROADMAP.md`'s "~23" figure for the remaining count is corrected in the same commit as this entry, to the verified total: 20 before this slice, 17 after — the 11 already named above (badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, toolbar) plus the six this re-verification surfaced.
 
 **Still open after this slice.** Badges and chips, avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain uncovered in Vocabulary's `H` part, unchanged by this slice apart from the removal of toasts, banners, and callouts. Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll join the open list for the first time here, per the re-verification above — never covered, but also never previously named as open in this section; see issue #48. Content elements remain the other settled-but-undrafted slice, per the fourth and fifth slices' own notes. Seventeen names remain open in the `H` part in total; each is additive follow-up work under further new A-IDs, on the same terms this document has already set six times.
+
+**Seventh slice: badges and chips, two entries covering two of Vocabulary's `H` names.** A-097 Badge and A-098 Chip were chosen over the ten other names still open after the sixth slice (avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, toolbar) and the six issue #48 surfaced (Link, Table, Data grid, Accordion, Disclosure, Infinite scroll) for two reasons together, not either alone: both were already partially characterized by the sixth slice's own "Not folded with Badge or Chip" paragraph in A-096 — which had to describe both terms accurately enough to justify not folding Callout into either — leaving less new ground to cover than any other remaining name; and, unlike the six issue #48 names, neither carries an open scoping call. Table/Data grid and Accordion/Disclosure each raise a genuine fold-or-separate question (both pairs already carry a Vocabulary "→ distinguish" cross-reference, the same signal that preceded folds elsewhere in this document), and Link and Infinite scroll each raise a where-does-this-land question; issue #48 itself reserves all six for a human scoping call on the same grounds `AGENTS.md` gives for tokens, content, and information architecture before them, and this slice does not make that call. A-097 and A-098 stay two entries rather than one: A-096 already tested Badge and Chip against Callout and against each other and found "none of the three... clears the fold test against either of the others" — a determination this slice builds anatomy from rather than re-litigates. Chip's `state` parameter is not new ground either; A-081 Facets' `applied filter` already used a chip this way, and A-098 cites that continuity instead of restating it.
+
+**Still open after this slice.** Avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar remain uncovered in Vocabulary's `H` part, unchanged by this slice apart from the removal of badges and chips. Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll remain open too, each still carrying its own scoping call per issue #48, not decided here. Content elements are unaffected by this slice and remain fully drafted, per the fifth and sixth slices' own notes. Fifteen names remain open in the `H` part in total; each is additive follow-up work under further new A-IDs, on the same terms this document has already set seven times.

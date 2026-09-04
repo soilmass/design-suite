@@ -574,6 +574,18 @@
   type: anatomy entry
   status: active
   since: 1.6.0
+- id: A-097
+  owner: anatomy
+  name: Badge
+  type: anatomy entry
+  status: active
+  since: 1.7.0
+- id: A-098
+  owner: anatomy
+  name: Chip
+  type: anatomy entry
+  status: active
+  since: 1.7.0
 - id: C001
   owner: constraints
   name: Acknowledgment window
