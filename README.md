@@ -2,7 +2,7 @@
 
 Nine documents describing what a website consists of, what bounds it, how to decide it, how to build it, how to check it, how to read someone else's, and how all of that changes.
 
-**State as of 2026-09-03** — complete and validating. 1,238 registered identifiers, zero dangling references.
+**State as of 2026-09-03** — complete and validating. 1,240 registered identifiers, zero dangling references.
 
 ---
 
@@ -13,9 +13,9 @@ New to the suite, read three: **Suite Architecture** for how the documents relat
 | # | Document | Version | Tier | Answers |
 |---|---|---|---|---|
 | — | `suite-architecture.md` | 1.0.0 | — | How the documents depend on each other |
-| 1 | `docs/vocabulary-1.0.0.md` | 1.1.0 | 0 | What does this term mean? |
+| 1 | `docs/vocabulary-1.0.0.md` | 1.1.1 | 0 | What does this term mean? |
 | 2 | `docs/constraints-1.0.0.md` | 1.0.1 | 0 | What may not be done? |
-| 3 | `docs/anatomy-1.0.0.md` | 1.5.0 | 1 | What is this made of? |
+| 3 | `docs/anatomy-1.0.0.md` | 1.6.1 | 1 | What is this made of? |
 | 4 | `docs/composition-1.0.0.md` | 1.0.3 | 1 | What choices exist? |
 | 5 | `docs/decision-1.0.0.md` | 1.0.3 | 2 | What should they be set to? |
 | 6 | `docs/implementation-1.0.0.md` | 1.0.4 | 2 | How does that get built? |
