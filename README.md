@@ -75,7 +75,6 @@ with no one assigning you one, and how to get reviewed.
 Stated so it is not discovered later.
 
 - **Only components remain partially open in Anatomy.** Tokens are settled out of scope; information architecture and content have each shipped a full slice. See `ROADMAP.md` Phase 2 for which component names are still open and why.
-- **Decision completeness is unbuilt.** Nothing reports which of the 67 families have been decided versus left on defaults. Small, high-value, and the one build recommended in `audit/`.
 - **Congruence checking has no tool** and probably cannot have one. Human reading on a schedule.
 - **Citation correctness is unautomatable.** The validator confirms an identifier resolves, never that it is the intended one. Second reader, no alternative.
 - **Constraints Part C is legally volatile** and is a map of where obligations sit, not legal advice. Quarterly recheck per jurisdiction.
