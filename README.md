@@ -2,7 +2,7 @@
 
 Nine documents describing what a website consists of, what bounds it, how to decide it, how to build it, how to check it, how to read someone else's, and how all of that changes.
 
-**State as of 2026-09-03** — complete and validating. 1,240 registered identifiers, zero dangling references.
+**State as of 2026-09-04** — complete and validating. 1,255 registered identifiers, zero dangling references.
 
 ---
 
@@ -15,7 +15,7 @@ New to the suite, read three: **Suite Architecture** for how the documents relat
 | — | `suite-architecture.md` | 1.0.0 | — | How the documents depend on each other |
 | 1 | `docs/vocabulary-1.0.0.md` | 1.1.1 | 0 | What does this term mean? |
 | 2 | `docs/constraints-1.0.0.md` | 1.0.1 | 0 | What may not be done? |
-| 3 | `docs/anatomy-1.0.0.md` | 1.6.1 | 1 | What is this made of? |
+| 3 | `docs/anatomy-1.0.0.md` | 1.9.0 | 1 | What is this made of? |
 | 4 | `docs/composition-1.0.0.md` | 1.0.3 | 1 | What choices exist? |
 | 5 | `docs/decision-1.0.0.md` | 1.0.3 | 2 | What should they be set to? |
 | 6 | `docs/implementation-1.0.0.md` | 1.0.4 | 2 | How does that get built? |
@@ -74,7 +74,6 @@ with no one assigning you one, and how to get reviewed.
 
 Stated so it is not discovered later.
 
-- **Only components remain partially open in Anatomy.** Tokens are settled out of scope; information architecture and content have each shipped a full slice. See `ROADMAP.md` Phase 2 for which component names are still open and why.
 - **Congruence checking has no tool** and probably cannot have one. Human reading on a schedule.
 - **Citation correctness is unautomatable.** The validator confirms an identifier resolves, never that it is the intended one. Second reader, no alternative.
 - **Constraints Part C is legally volatile** and is a map of where obligations sit, not legal advice. Quarterly recheck per jurisdiction.
