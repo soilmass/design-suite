@@ -15,9 +15,11 @@ still applies regardless of who assigned the work.
 
 Read, in this order, before doing anything else:
 
-1. `CLAUDE.md` — the technical model: tiers, stable IDs, versioning, front matter, the registry.
-2. `CONTRIBUTING.md` — the process: kinds of change, PR shape, review.
-3. `ROADMAP.md` — where the suite is headed and why, in that order.
+1. `README.md` — what the suite is and its own "read in this order" pointer; short, and
+   `CONTRIBUTING.md` at step 3 assumes you've already seen it.
+2. `CLAUDE.md` — the technical model: tiers, stable IDs, versioning, front matter, the registry.
+3. `CONTRIBUTING.md` — the process: kinds of change, PR shape, review.
+4. `ROADMAP.md` — where the suite is headed and why, in that order.
 
 If your task will touch anything under `docs/`, also read `suite-architecture.md` in full before
 you write a word — it's short, and every rule in the three files above assumes it.
