@@ -102,6 +102,8 @@ def run_apply(target_repo, decisions_path, suite_composition_path, suite_constra
             low_confidence_families.add(family)
 
         accepted_decisions.append((d, family, fam_knowledge, confidence))
+        # Add to decided set immediately to catch same-batch duplicates
+        decided.add(family)
 
     # coupling propagation: a second pass, since a family's own stated confidence
     # can be overridden by a tightly-coupled sibling's low confidence, and that

@@ -115,3 +115,64 @@ def test_run_apply_malformed_decisions_file_not_a_mapping(tmp_path, suite_snapsh
             pass
     finally:
         os.unlink(path)
+
+
+def test_run_apply_rejects_duplicate_family_same_batch(tmp_path, suite_snapshot):
+    """Regression test for Finding 1: Guardrail 1 doesn't catch same-batch duplicates.
+
+    When a decisions.yaml lists the same family twice with different values,
+    Guardrail 1 should reject the second entry and only write one ADR.
+    """
+    repo = _make_target_repo(tmp_path)
+    result = run_apply(
+        repo,
+        os.path.join(FIXTURES, "decisions", "duplicate_same_batch.yaml"),
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"],
+    )
+    # Only one F02 should be written
+    written_families = {w["family"] for w in result["written"]}
+    assert written_families == {"F02"}, f"Expected only F02 written, got {written_families}"
+
+    # Second F02 entry should be in skipped_already_decided
+    assert "F02" in result["skipped_already_decided"], \
+        f"F02 should be in skipped_already_decided, got {result['skipped_already_decided']}"
+
+    # Only one ADR file should exist
+    adr_files = os.listdir(os.path.join(repo, "adr"))
+    assert len(adr_files) == 1, f"Expected 1 ADR file, got {len(adr_files)}"
+
+
+def test_run_apply_coupling_propagation_order_independent(tmp_path, suite_snapshot):
+    """Regression test for Finding 2: Coupling propagation coverage.
+
+    F02 (high confidence) and F22 (low confidence) are tightly coupled.
+    Even though F02 appears first with high confidence, it should be flagged
+    low due to its coupling with F22 (which appears second with low confidence).
+    This proves coupling propagation is order-independent.
+    """
+    repo = _make_target_repo(tmp_path)
+    result = run_apply(
+        repo,
+        os.path.join(FIXTURES, "decisions", "coupling_propagation_order_independent.yaml"),
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"],
+    )
+
+    # Both F02 and F22 should be written
+    written_families = {w["family"] for w in result["written"]}
+    assert written_families == {"F02", "F22"}, f"Expected F02 and F22 written, got {written_families}"
+
+    # Both should be in flagged_low_confidence
+    assert "F02" in result["flagged_low_confidence"], \
+        f"F02 should be flagged low (coupled with F22), got {result['flagged_low_confidence']}"
+    assert "F22" in result["flagged_low_confidence"], \
+        f"F22 should be flagged low, got {result['flagged_low_confidence']}"
+
+    # F02's written entry should show confidence: low (propagated from F22)
+    f02_entry = next(w for w in result["written"] if w["family"] == "F02")
+    assert f02_entry["confidence"] == "low", \
+        f"F02 confidence should be 'low' (propagated from F22), got '{f02_entry['confidence']}'"
+
+    # F22's written entry should show confidence: low (as specified)
+    f22_entry = next(w for w in result["written"] if w["family"] == "F22")
+    assert f22_entry["confidence"] == "low", \
+        f"F22 confidence should be 'low', got '{f22_entry['confidence']}'"
