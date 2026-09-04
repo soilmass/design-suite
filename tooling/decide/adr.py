@@ -64,17 +64,35 @@ def next_adr_id(adr_dir):
 def already_decided_families(adr_dir, target_families):
     """Every id in target_families with at least one accepted-status ADR citing
     it in adr_dir. Shared by tooling/decide's context and apply subcommands --
-    both need to know what's already decided before doing anything else."""
+    both need to know what's already decided before doing anything else.
+
+    Implements asymmetric rollup matching:
+    - For whole-family targets (no '.' in the id, e.g. F01): a citation matches
+      if it's either that exact id OR any segment under it (e.g. F01.2 counts as
+      deciding F01). This matches decision_completeness.py's own rollup behavior.
+    - For segment targets (has '.' in the id, e.g. F05.1): a citation matches
+      only if it's that exact segment id. A citation of just the parent family
+      (e.g. F05) does NOT count, preventing false "already decided" signals for
+      segments that deserve deliberate independent decision.
+    """
     if not os.path.isdir(adr_dir):
         return set()
     adrs, _malformed = load_adrs(adr_dir)
-    target_set = set(target_families)
     decided = set()
     for adr in adrs:
         if adr["status"] != "accepted":
             continue
         for cited in adr["families"]:
             cited = str(cited).strip().upper()
-            if cited in target_set:
-                decided.add(cited)
+            # Check against each target_family for a match (asymmetric rollup)
+            for target in target_families:
+                target = str(target).strip().upper()
+                if "." in target:
+                    # Segment target: match only if exact
+                    if cited == target:
+                        decided.add(target)
+                else:
+                    # Whole-family target: match if exact OR any segment under it
+                    if cited == target or cited.startswith(target + "."):
+                        decided.add(target)
     return decided

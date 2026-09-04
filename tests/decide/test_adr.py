@@ -87,3 +87,39 @@ def test_already_decided_families_ignores_non_target_families(tmp_path):
     )
     result = already_decided_families(str(tmp_path), ["F01", "F02"])
     assert result == set()
+
+
+def test_already_decided_families_whole_family_matches_segment_citation(tmp_path):
+    """Whole-family target (F01) should match if ADR cites any segment under it (F01.2)."""
+    from tooling.decide.adr import already_decided_families
+    (tmp_path / "0001-segment.md").write_text(
+        '```yaml\nid: ADR-0001\ntitle: x\nstatus: accepted\nfamilies: [F01.2]\n```\n# x\n',
+        encoding="utf-8",
+    )
+    # Target is whole family F01; ADR cites segment F01.2
+    result = already_decided_families(str(tmp_path), ["F01"])
+    assert result == {"F01"}
+
+
+def test_already_decided_families_segment_does_not_match_parent_only(tmp_path):
+    """Segment target (F05.1) should NOT match if ADR cites only parent family (F05)."""
+    from tooling.decide.adr import already_decided_families
+    (tmp_path / "0001-parent.md").write_text(
+        '```yaml\nid: ADR-0001\ntitle: x\nstatus: accepted\nfamilies: [F05]\n```\n# x\n',
+        encoding="utf-8",
+    )
+    # Target is segment F05.1; ADR cites only parent F05
+    result = already_decided_families(str(tmp_path), ["F05.1"])
+    assert result == set()
+
+
+def test_already_decided_families_segment_matches_exact(tmp_path):
+    """Segment target (F05.1) should match if ADR cites that exact segment."""
+    from tooling.decide.adr import already_decided_families
+    (tmp_path / "0001-exact.md").write_text(
+        '```yaml\nid: ADR-0001\ntitle: x\nstatus: accepted\nfamilies: [F05.1]\n```\n# x\n',
+        encoding="utf-8",
+    )
+    # Target is segment F05.1; ADR cites exact segment F05.1
+    result = already_decided_families(str(tmp_path), ["F05.1"])
+    assert result == {"F05.1"}
