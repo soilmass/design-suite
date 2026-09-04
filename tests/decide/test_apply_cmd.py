@@ -86,6 +86,31 @@ def test_run_apply_rejects_missing_bound_citation(tmp_path, suite_snapshot):
     assert not os.path.isdir(os.path.join(repo, "adr")) or os.listdir(os.path.join(repo, "adr")) == []
 
 
+def test_run_apply_all_rejected_self_check_output_not_empty(tmp_path, suite_snapshot):
+    """Regression test for D4 (independent peer review of PR #72): when every
+    decision in a batch is rejected (and no pre-existing adr/ directory exists
+    either), adr/ is never created. run_apply must still actually call
+    decision_completeness.main() (which handles a nonexistent directory
+    gracefully, printing an ERROR line and returning 1) so self_check_output
+    carries real, honest content explaining the failure -- not an empty string
+    while self_check_passed silently claims false, which would contradict the
+    README's own claim that self_check_passed: false means the checker found
+    something actually wrong (never that it merely never ran)."""
+    repo = _make_target_repo(tmp_path)
+    result = run_apply(
+        repo,
+        os.path.join(FIXTURES, "decisions", "missing_bound_citation.yaml"),
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"],
+    )
+    assert result["written"] == []
+    assert not os.path.isdir(os.path.join(repo, "adr"))
+    assert result["self_check_passed"] is False
+    assert result["self_check_output"] != "", \
+        "self_check_output must not be empty -- decision_completeness.main() should have run"
+    assert "not a directory" in result["self_check_output"].lower(), \
+        f"expected an explanation the checker never found an adr/ dir, got: {result['self_check_output']!r}"
+
+
 def test_run_apply_rejects_unknown_family(tmp_path, suite_snapshot):
     repo = _make_target_repo(tmp_path)
     result = run_apply(
@@ -236,7 +261,12 @@ def test_run_apply_coupling_propagation_order_independent(tmp_path, suite_snapsh
     F02 (high confidence) and F22 (low confidence) are tightly coupled.
     Even though F02 appears first with high confidence, it should be flagged
     low due to its coupling with F22 (which appears second with low confidence).
-    This proves coupling propagation is order-independent.
+
+    This is a ONE-HOP case only (F02 and F22 are directly, mutually coupled in
+    Composition's own text) -- it does NOT prove propagation is order-independent
+    in general. See test_run_apply_coupling_propagation_transitive_two_hop_order_independent
+    below for the genuine (order-dependent-until-fixed) transitive case, per D1 of
+    the independent peer review of PR #72.
     """
     repo = _make_target_repo(tmp_path)
     result = run_apply(
@@ -264,3 +294,56 @@ def test_run_apply_coupling_propagation_order_independent(tmp_path, suite_snapsh
     f22_entry = next(w for w in result["written"] if w["family"] == "F22")
     assert f22_entry["confidence"] == "low", \
         f"F22 confidence should be 'low', got '{f22_entry['confidence']}'"
+
+
+def test_run_apply_coupling_propagation_transitive_two_hop_order_independent(tmp_path, suite_snapshot):
+    """Regression test for D1 (independent peer review of PR #72): a genuine
+    TWO-HOP transitive coupling chain must propagate the same way regardless of
+    decisions.yaml list order.
+
+    Uses real Coupling prose from docs/composition-1.0.0.md among three of the 11
+    target families:
+      - F15's own Coupling line does not mention F17 or F31 at all.
+      - F31's own Coupling line: "tight with F17. Moderate with F15." -- so F31
+        is coupled (one hop) to F15.
+      - F17's own Coupling line: "tight with F31, F32." -- so F17 is coupled
+        (one hop) to F31, but NOT directly to F15.
+
+    Only F15 is marked confidence: low. F31 should be flagged low because it is
+    directly coupled to F15 (one hop). F17 should THEN be flagged low because it
+    is directly coupled to F31, which only became low-confidence during this same
+    propagation pass (two hops from F15) -- this only happens correctly if the
+    propagation pass runs to a fixpoint. A single forward pass gets this right
+    only when F31 happens to be processed before F17 in list order; this test
+    exercises both orders and asserts the same (correct) result either way.
+    """
+    repo_a = tmp_path / "target_repo_a"
+    repo_a.mkdir()
+    repo_b = tmp_path / "target_repo_b"
+    repo_b.mkdir()
+    result_a = run_apply(
+        str(repo_a),
+        os.path.join(FIXTURES, "decisions", "coupling_propagation_transitive_order_a.yaml"),
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"],
+    )
+    result_b = run_apply(
+        str(repo_b),
+        os.path.join(FIXTURES, "decisions", "coupling_propagation_transitive_order_b.yaml"),
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"],
+    )
+
+    expected_flagged = ["F15", "F17", "F31"]
+    assert result_a["flagged_low_confidence"] == expected_flagged, \
+        f"order a: expected {expected_flagged}, got {result_a['flagged_low_confidence']}"
+    assert result_b["flagged_low_confidence"] == expected_flagged, \
+        f"order b: expected {expected_flagged}, got {result_b['flagged_low_confidence']}"
+    assert result_a["flagged_low_confidence"] == result_b["flagged_low_confidence"], (
+        "coupling propagation must be order-independent: identical coupling "
+        f"relationships produced different results depending on list order "
+        f"(order a: {result_a['flagged_low_confidence']}, order b: {result_b['flagged_low_confidence']})"
+    )
+
+    f17_a = next(w for w in result_a["written"] if w["family"] == "F17")
+    f17_b = next(w for w in result_b["written"] if w["family"] == "F17")
+    assert f17_a["confidence"] == "low", f"F17 (order a) should be transitively flagged low, got {f17_a}"
+    assert f17_b["confidence"] == "low", f"F17 (order b) should be transitively flagged low, got {f17_b}"

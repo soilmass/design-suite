@@ -127,14 +127,33 @@ def run_apply(target_repo, decisions_path, suite_composition_path, suite_constra
         # seen_in_batch (added above) already guards against a same-batch
         # duplicate reaching this point twice -- `decided` stays pre-existing-only.
 
-    # coupling propagation: a second pass, since a family's own stated confidence
-    # can be overridden by a tightly-coupled sibling's low confidence, and that
-    # sibling may appear later in the decisions list than the family it affects.
-    for d, family, fam_knowledge, confidence in accepted_decisions:
-        coupled = _coupled_target_families(fam_knowledge["coupling"])
-        if coupled & low_confidence_families:
-            confidence = "low"
-            low_confidence_families.add(family)
+    # coupling propagation: repeated passes to a fixpoint, since a family's own
+    # stated confidence can be overridden by a tightly-coupled sibling's low
+    # confidence, and that sibling may itself only become low-confidence
+    # *during this same propagation* -- via a chain of coupling relationships
+    # rather than a single direct link (e.g. A coupled to B, B coupled to C,
+    # only C starts low). A single forward pass over accepted_decisions would
+    # only catch such a transitive chain when the intermediate family (B)
+    # happens to be processed before the family it affects (A), making the
+    # result depend on decisions.yaml's list order. Repeating the pass until a
+    # full pass adds nothing new makes the result order-independent. The set
+    # of target families is small (at most 11), so this is not a performance
+    # concern.
+    confidence_by_family = {family: confidence for _, family, _, confidence in accepted_decisions}
+    changed = True
+    while changed:
+        changed = False
+        for _, family, fam_knowledge, _ in accepted_decisions:
+            if family in low_confidence_families:
+                continue
+            coupled = _coupled_target_families(fam_knowledge["coupling"])
+            if coupled & low_confidence_families:
+                low_confidence_families.add(family)
+                confidence_by_family[family] = "low"
+                changed = True
+
+    for d, family, fam_knowledge, _ in accepted_decisions:
+        confidence = confidence_by_family[family]
 
         if not os.path.isdir(adr_dir):
             os.makedirs(adr_dir)
@@ -172,9 +191,15 @@ def run_apply(target_repo, decisions_path, suite_composition_path, suite_constra
             f.write(content)
         written.append({"family": family, "adr_id": adr_id, "confidence": confidence})
 
+    # Always actually call decision_completeness.main(), even when adr_dir was
+    # never created (every decision in the batch was rejected). Its own main()
+    # already handles a nonexistent directory gracefully -- it prints an
+    # explanatory ERROR line and returns 1 -- which gives self_check_output real,
+    # honest content instead of silently claiming failure (self_check_passed:
+    # false) with no explanation of why the checker never ran. See D4.
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
-        exit_code = decision_completeness.main([adr_dir]) if os.path.isdir(adr_dir) else 1
+        exit_code = decision_completeness.main([adr_dir])
     self_check_output = buf.getvalue()
 
     return {
