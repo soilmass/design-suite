@@ -61,15 +61,15 @@ Everything citable gets an ID. The rules matter more than the scheme.
 
 | Namespace | Owner | Example |
 |---|---|---|
-| `V-###` | Vocabulary | `V-204` measure |
-| `A-###` | Anatomy | `A-118` shadow spread |
+| `V-###` | Vocabulary | `V-005` information architecture |
+| `A-###` | Anatomy | `A-010` lightness vs luminance vs brightness |
 | `F##` / `F##.#` | Composition | `F15`, `F15.2` |
-| `C###` | Constraints | `C012` body text contrast floor |
-| `D###` | Decision | `D007` order of operations for surface families |
-| `T###` / `K###` | Implementation | `T044` token, `K019` component |
-| `X###` | Verification | `X031` content stress check |
-| `R###` | Diagnosis | `R012` observability class of a family |
-| `G###` | Governance | `G004` contribution path |
+| `C###` | Constraints | `C012` contrast is a luminance relationship |
+| `D###` | Decision | `D007` Round 5 — the emphasis triangle |
+| `T###` / `K###` | Implementation | `T004` type annotation, `K004` focus containment for overlays |
+| `X###` | Verification | `X010` state matrix coverage |
+| `R###` | Diagnosis | `R012` observed |
+| `G###` | Governance | `G010` one named owner per document |
 
 **Four rules, non-negotiable:**
 
