@@ -12,7 +12,7 @@ import sys
 
 import yaml
 
-from .apply_cmd import run_apply
+from .apply_cmd import run_apply, DecisionsFileError
 from .context_cmd import run_context
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -43,14 +43,18 @@ def main(argv=None):
 
     args = parser.parse_args(argv)
 
-    if args.command == "context":
-        result = run_context(args.target_repo, args.composition, args.constraints, args.decision)
-        exit_code = 0
-    else:
-        result = run_apply(
-            args.target_repo, args.decisions_path, args.composition, args.constraints, args.decision
-        )
-        exit_code = 1 if result["rejected"] else 0
+    try:
+        if args.command == "context":
+            result = run_context(args.target_repo, args.composition, args.constraints, args.decision)
+            exit_code = 0
+        else:
+            result = run_apply(
+                args.target_repo, args.decisions_path, args.composition, args.constraints, args.decision
+            )
+            exit_code = 1 if result["rejected"] else 0
+    except (DecisionsFileError, OSError) as e:
+        print(f"Error: {e}", file=sys.stderr)
+        return 1
 
     output = yaml.safe_dump(result, sort_keys=False, default_flow_style=False, width=100)
     if args.out:

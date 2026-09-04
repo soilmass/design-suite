@@ -51,3 +51,45 @@ def test_cli_apply_exits_nonzero_on_rejection(tmp_path):
         cwd=REPO_ROOT, capture_output=True, text=True,
     )
     assert result.returncode == 1
+
+
+def test_cli_apply_handles_missing_decisions_file(tmp_path):
+    """Regression test: missing decisions file should exit 1 with clean error, not traceback."""
+    repo = tmp_path / "target_repo"
+    repo.mkdir()
+    design_suite_dir = repo / ".design-suite"
+    design_suite_dir.mkdir()
+    import shutil
+    shutil.copy(os.path.join(FIXTURES, "briefs", "valid.yaml"), design_suite_dir / "brief.yaml")
+
+    result = subprocess.run(
+        [
+            sys.executable, "-m", "tooling.decide", "apply", str(repo),
+            "/nonexistent/path/decisions.yaml",
+        ],
+        cwd=REPO_ROOT, capture_output=True, text=True,
+    )
+    assert result.returncode == 1
+    assert "Traceback" not in result.stderr, "Should have clean error message, not Python traceback"
+    assert "Error:" in result.stderr or "could not read" in result.stderr, "Should have error message in stderr"
+
+
+def test_cli_apply_handles_bad_composition_path(tmp_path):
+    """Regression test: bad --composition path should exit 1 with clean error, not traceback."""
+    repo = tmp_path / "target_repo"
+    repo.mkdir()
+    design_suite_dir = repo / ".design-suite"
+    design_suite_dir.mkdir()
+    import shutil
+    shutil.copy(os.path.join(FIXTURES, "briefs", "valid.yaml"), design_suite_dir / "brief.yaml")
+
+    result = subprocess.run(
+        [
+            sys.executable, "-m", "tooling.decide", "apply", str(repo),
+            os.path.join(FIXTURES, "decisions", "all_valid.yaml"),
+            "--composition", "/nonexistent/composition.md",
+        ],
+        cwd=REPO_ROOT, capture_output=True, text=True,
+    )
+    assert result.returncode == 1
+    assert "Traceback" not in result.stderr, "Should have clean error message, not Python traceback"
