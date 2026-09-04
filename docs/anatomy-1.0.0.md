@@ -1,13 +1,13 @@
 ```yaml
 document: Anatomy
-version: 1.8.1
+version: 1.9.0
 tier: 1
-scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice, plus content elements, plus message surfaces, plus badges and chips, plus avatars, progress and spinner, skeleton, empty/zero state, carousel, lightbox, and toolbar
+scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice, plus content elements, plus message surfaces, plus badges and chips, plus avatars, progress and spinner, skeleton, empty/zero state, carousel, lightbox, and toolbar, plus link, table, data grid, disclosure, accordion, and infinite scroll — completing Vocabulary's `H · Components` part
 owns:
   - what each thing is made of, expressed as parameters
   - the range or type of each parameter
   - what is derived rather than chosen
-exports: A-001–A-105
+exports: A-001–A-111
 depends:
   - Vocabulary ^1
   - Constraints ^1
@@ -37,6 +37,8 @@ What each thing is made of. Where Vocabulary establishes what a term denotes, th
 **Scope of 1.8.0** — adds an eighth slice, the six names Phase 2 flagged as ready to draft without a human scoping call: Avatar (A-099), Progress and spinner (A-100, folding V-355 and V-356 into one entry), Skeleton (A-101), Empty and zero state (A-102, folding V-358 and V-359 into one entry), Carousel (A-103), Lightbox (A-104), and Toolbar (A-105) — seven entries covering nine of Vocabulary's `H` names. All nine already had Vocabulary IDs before this slice; none required a companion Vocabulary addition. Only Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll — the six names issue #48 surfaced — remain open in the `H` part; see **Scope of 1.8.1** below for their scoping call. See **Settled decisions**.
 
 **Scope of 1.8.1** — no new A-IDs. Resolves the scoping call issue #48 reserved for Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll, which the issue's own closure left unmade: Link stands alone; Data grid stays separate from and extends Table rather than folding with it; Accordion composes from Disclosure rather than folding with it; Infinite scroll stands alone, reusing Progress and spinner's indeterminate construction. See **Settled decisions**. The six names remain undrafted — this entry settles their shape, not their anatomy.
+
+**Scope of 1.9.0** — adds a ninth slice, the last six names in Vocabulary's `H · Components` part: Link (A-106), Table (A-107), Data grid (A-108), Disclosure (A-109), Accordion (A-110), and Infinite scroll (A-111). This is the full six-name set the 1.8.1 scoping resolution reserved, drafted to the shape that resolution already settled — none of its four calls (Link standalone; Data grid separate from and extending Table; Accordion composing from Disclosure; Infinite scroll standalone, reusing Progress and spinner's indeterminate construction) is reopened here. Vocabulary's `H · Components` part (V-310–V-364, 55 names) is now fully covered by this document; no component name remains open for a future Anatomy volume-2 slice. See **Settled decisions**.
 
 ## What this document does not own
 
@@ -1290,6 +1292,73 @@ Toolbar (V-363) is a grouped row of controls acting on the current context: a `c
 
 ---
 
+# M. Link, tabular data, and disclosure
+
+A-106–A-111 below are the ninth and final addition to Vocabulary's `H · Components` part, given their own section for the same reason Sections J, K, and L were: arrival order, not a claim that a link, a table, a data grid, a disclosure, an accordion, or an infinite-scroll mechanism belongs to some category Button, Card, or Callout does not. Each entry drafts the shape the 1.8.1 scoping resolution already settled in **Settled decisions** — none of that resolution's four calls is reopened here. This slice closes Vocabulary's `H · Components` part entirely: after it, no component name in that part remains uncovered by an A-ID.
+
+## A-106 · Link
+
+`label` · `destination` · `leading icon` · `trailing icon` · `hit target` · `state matrix`
+
+Link (V-311) shares Button's (A-062) construction in full — a label with optional leading and trailing icons, sized independently of its hit target and rendered across the state matrix — substituting a `destination` the activating action resolves to in place of an arbitrary action; where a button does something, a link's entire function is arriving somewhere else.
+**Distinguished from Button (A-062)** — Vocabulary marks the two "→ distinguish" on exactly this axis: a button performs an action, a link navigates to a location. The same markup, and even the same visual treatment, can implement either; what makes a control a link rather than a button is a stated `destination`, not a class name or a shape.
+**Breaks when** — an icon-only link ships with no accessible name independent of the icon's visible form, the same gap A-062 names for an icon-only button; C046 requires a component's name to be programmatically determinable regardless of what is painted.
+**Also breaks when** — a link inside running text is distinguished from the surrounding non-link text by color alone, with no underline or other non-color cue present at rest; C023 requires a non-color means of conveying that same distinction.
+
+---
+
+## A-107 · Table
+
+`caption` · `column header[]` · `row[]` (each optional `row header` · `cell[]`) · `cell–header association`
+
+Table (V-332) is a two-dimensional structure of `row[]` read against `column header[]`: an optional `caption` naming what the table represents, a header labeling what each column holds, and a body of rows, each an array of `cell[]` optionally led by its own `row header` where the data reads meaningfully by row as well as by column. Every data `cell` carries a `cell–header association` back to whichever header or headers describe it — the relationship a sighted reader infers for free from position alone, and the one this parameter exists to make explicit.
+**Breaks when** — a cell's association to its header exists only as visual position — the nearest label above it, or the leftmost cell in its row — with no association recorded structurally; C046 requires a component's structure, not only its appearance, to be programmatically determinable, and reading the grid one cell at a time with no recorded association loses exactly the meaning position alone supplied.
+**Also breaks when** — the visual column order is produced by reordering cells independently of their underlying sequence, so a person reading in source order encounters a different arrangement than a person reading the rendered grid; C038 requires reading order to preserve meaning, and a table whose visual and structural orders diverge breaks that for anyone not reading it visually.
+
+---
+
+## A-108 · Data grid
+
+`sort control` (per column header) · `sort state` · `filter control` · `resize handle` (per column header) · `edit affordance` (`edit state` · `commit control` · `cancel control`)
+
+Data grid (V-333) builds on Table's (A-107) `column header[]`, `row[]`, `cell[]`, and `cell–header association` — reused here in full, the same relationship A-104 Lightbox has to A-065 Dialog — adding only what interaction actually requires: a `sort control` on a column header toggling that column's `sort state` (ascending, descending, or none); a `filter control`, scoped to one column or centralized above the grid, narrowing which rows display; a `resize handle` on a column header's trailing edge adjusting that column's width; and, where a cell is editable, an `edit affordance` opening an `edit state` in place of the cell's display value, resolved by a `commit control` or a `cancel control` rather than left to close on its own.
+**Breaks when** — `sort state` is carried by an icon's rotation or fill color alone with no programmatically determinable value behind it; C046 requires a component's state to be reported, not only painted, and a sortable header exposing ascending/descending/none only as a glyph tells anything but a sighted user watching for it nothing about which state currently applies.
+**Also breaks when** — dragging a `resize handle` is the only means of changing a column's width; C037 requires a single-pointer alternative to any function using a dragging movement, the same obligation A-072 Slider's thumb and A-075 Dropzone's drop target already meet in their own constructions.
+
+---
+
+## A-109 · Disclosure
+
+`trigger` · `content` · `state`
+
+Disclosure (V-336) is the atomic show/hide unit the rest of this section builds larger constructions from: a `trigger` that toggles whether `content` is shown, holding a `state` — expanded or collapsed — that the trigger's own appearance reflects, commonly a chevron or plus/minus icon that flips or rotates between the two.
+**Composes into** — A-110 Accordion, whose `section[]` is an array of this entry.
+**Breaks when** — the relationship between `trigger` and `content`, and the state itself, are carried only by the trigger's visual form with no programmatic association tying the two together or reporting whether `content` is currently shown; C046 requires exactly that pairing to be determinable, not only painted.
+**Also breaks when** — activating the trigger changes what's visible somewhere outside the trigger's own immediate surroundings — a distant panel, or a region below the current scroll position — with no other signal that anything changed; C008 documents that a change made outside the current fixation, with no motion carrying the eye to it, is frequently not perceived at all, and a disclosure whose only feedback is the distant content itself appearing is exactly that case.
+
+---
+
+## A-110 · Accordion
+
+`group container` · `section[]` (each a Disclosure, A-109) · `expansion mode`
+
+Accordion (V-335) is a set of Disclosures (A-109) collected under one `group container`: each `section` is exactly A-109's `trigger`/`content`/`state` construction, unmodified — the same array shape A-081 Facets already established for its own `applied filter[]`, a list of an already-anatomized unit. What that array shape alone doesn't give Accordion, and what a group of Disclosures needs beyond a repeated Disclosure, is `expansion mode`: exclusive, where opening one `section` closes whichever other section was open, or independent, where each `section`'s `state` moves without affecting its siblings. That coordination belongs to the `group container`, not to any one `section` — the same relationship A-069 Radio group's group container has to its own `radio[]`, each of which stays as simple standing alone as it is inside the group, with the group alone owning whether exactly one member may be selected.
+**Breaks when** — an exclusive `expansion mode` collapses a `section` whose `content` holds the current keyboard focus, with focus left inside now-hidden content rather than moved back to that section's own `trigger`; C038 requires the resulting focus sequence to still make sense, and focus stranded inside collapsed, invisible content satisfies that for no one.
+**Also breaks when** — the `group container` exposes no programmatic grouping tying its `section[]` together as one coordinated set, only each section's own trigger/content pairing; C046 requires a group's role to be determinable the same way it requires an individual control's, the same obligation A-069 Radio group and A-105 Toolbar already state for their own containers.
+
+---
+
+## A-111 · Infinite scroll
+
+`item[]` · `load trigger` · `loading indicator` · `end state`
+
+Infinite scroll (V-354) appends further `item[]` to a list automatically as a person nears the end of what's currently loaded: a `load trigger` — ordinarily a scroll-position or viewport-intersection threshold near the bottom of the loaded items — fires a fetch, during which a `loading indicator` signals that more content is on its way. That indicator is not a construction of its own: it is A-100 Progress and spinner's `indicator` and `size`, held at indeterminate `determinacy`, since the amount of content still to come is unknown while a fetch is in flight — `value` and `max` have nothing to measure against here the way they do for a determinate bar. An `end state` replaces the `load trigger` once a fetch returns nothing further, so the mechanism stops asking.
+**Distinguished from A-080 Pagination** — both address the same underlying need, reaching more of a long result set, but share no parameter set: pagination's `page control[]`, `current indicator`, and `overflow marker` describe discrete, individually addressable pages; infinite scroll has no page boundaries at all, only a continuously growing `item[]` with nothing in the middle to address directly. This entry is an alternative to A-080, not an extension of it the way A-108 Data grid extends A-107 Table.
+**Breaks when** — the `loading indicator` runs past roughly 4–5 seconds with no `end state` reached and nothing else changing; C003 sets that threshold directly, the same obligation A-100 already states for its own indeterminate indicator, and a stalled fetch behind an infinite scroll's `load trigger` is exactly that indicator held past its own limit.
+**Also breaks when** — newly appended `item[]` arrive below the current viewport with no motion or signal drawing attention to them, and no equivalent reaches anything other than sighted users watching the list grow; C008 documents that a change made outside the current fixation, with nothing carrying the eye to it, is frequently not perceived at all, and a list that grows silently below what's on screen is exactly that case for everyone, not only assistive-technology users.
+
+---
+
 # EXPORT INDEX
 
 | ID | Entry |
@@ -1399,6 +1468,12 @@ Toolbar (V-363) is a grouped row of controls acting on the current context: a `c
 | A-103 | Carousel |
 | A-104 | Lightbox |
 | A-105 | Toolbar |
+| A-106 | Link |
+| A-107 | Table |
+| A-108 | Data grid |
+| A-109 | Disclosure |
+| A-110 | Accordion |
+| A-111 | Infinite scroll |
 
 ---
 
@@ -1473,3 +1548,7 @@ Only one fold happened in this slice: Stat and Callout share one construction �
 This entry resolves the scoping call; it does not draft the six entries themselves; that is the next slice's work, following the shape resolved here.
 
 **Still open after this slice.** Link, Table, Data grid, Accordion, Disclosure, and Infinite scroll are the only names remaining open in the `H` part — no longer carrying an open scoping call, per the entry above, but not yet drafted. Content elements, information architecture, and tokens are unaffected by this slice and remain settled per the earlier entries in this section. Six names remain open in the `H` part in total, correcting the fifteen the seventh slice's own note above left open by the nine this slice closes; each is additive follow-up work under further new A-IDs, on the same terms this document has already set eight times.
+
+**Ninth slice: Link, Table, Data grid, Disclosure, Accordion, and Infinite scroll — six entries covering the last six names in Vocabulary's `H · Components` part.** A-106–A-111 draft the anatomy the scoping entry above already settled, reopening none of its four calls. A-106 Link stands alone, parallel to A-062 Button, substituting a `destination` parameter for Button's own action-bearing construction. A-107 Table and A-108 Data grid stay two entries: A-107 anatomizes the row/column-header/cell structure common to both; A-108 reuses that structure in full and adds only what sorting, filtering, resizing, and editing actually require — a `sort control` and `sort state`, a `filter control`, a `resize handle`, and an `edit affordance` — the same relationship the scoping entry named to A-104 Lightbox's reuse of A-065 Dialog. A-109 Disclosure and A-110 Accordion stay two entries for the different reason the scoping entry gave: Disclosure is the atomic `trigger`/`content`/`state` unit; Accordion is a `group container` holding a `section[]` of that unit — structurally the array shape A-081 Facets already established for `applied filter[]` — with an `expansion mode` parameter on the group itself, exclusive or independent, the same exactly-one-selected coordination A-069 Radio group's own `group container` already owns over its `radio[]`, applied here to whether more than one section may stay open at once. A-111 Infinite scroll stands alone, sharing no parameter set with A-080 Pagination's `page control[]`, `current indicator`, and `overflow marker` — an alternative mechanism for reaching more of a long result set, not a variant of pagination's own construction — and reuses only A-100 Progress and spinner's `indicator` and `size` at indeterminate `determinacy` for its own `loading indicator`, narrower than Data grid's full-structure reuse of Table and narrower than Lightbox's five-parameter reuse of Dialog.
+
+**Still open after this slice.** None. Vocabulary's `H · Components` part (V-310–V-364, 55 names) is now fully covered by this document. Content elements, information architecture, and tokens remain settled per the earlier entries in this section. No component name in Vocabulary's `H` part remains open for a future Anatomy volume-2 slice; the gap `ROADMAP.md` Phase 2 has tracked across all nine slices is closed.

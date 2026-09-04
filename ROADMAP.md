@@ -30,9 +30,9 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   Composition families are decided versus still on default. Converts Composition from a reference
   into a checklist that knows its own state; see `README.md`'s command list for usage and
   `tests/decision_completeness/fixtures/` for the ADR format and worked examples.
-- **Anatomy volume 2.** Partially done. Components, tokens, information architecture, and content
-  — the volumes `README.md` already flags as needed beyond the current rendering-primitives-only
-  scope. Seven slices have landed: `docs/anatomy-1.0.0.md` is now 1.7.0, exports `A-001`–`A-098`.
+- **Anatomy volume 2.** Done. Components, tokens, information architecture, and content — the
+  volumes `README.md` already flags as needed beyond the current rendering-primitives-only scope.
+  Nine slices have landed: `docs/anatomy-1.0.0.md` is now 1.9.0, exports `A-001`–`A-111`.
   The first slice added `A-062`–`A-066` for Button, Card, Tooltip/Popover, Dialog, and Tabs; the
   second added `A-067`–`A-076` for the input controls — Text input, Checkbox, Radio group,
   Switch, Select and combobox, Slider, Stepper, Segmented control, Dropzone, and Fieldset; the
@@ -96,10 +96,14 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   — is resolved in `docs/anatomy-1.0.0.md`'s own **Settled decisions**, not here: Link stands alone;
   Data grid extends Table rather than folding with or separating from it; Accordion composes from
   Disclosure rather than raising a fold question at all; Infinite scroll stands alone, reusing
-  Progress and spinner's construction for its own loading indicator. Ready to draft as a ninth
-  slice. Each is additive follow-up work, a natural first project for an outside contributor, each
-  its own bounded, separately scoped contribution rather than one PR closing the whole gap. Phase 2
-  is not complete while those remain unbuilt.
+  Progress and spinner's construction for its own loading indicator. The ninth slice draws those six
+  entries — `A-106`–`A-111` for Link, Table, Data grid, Disclosure, Accordion, and Infinite scroll —
+  taking `docs/anatomy-1.0.0.md` from 1.8.1 to 1.9.0 (`exports: A-001–A-111`). This closes
+  Vocabulary's `H · Components` part entirely: all 55 names in `V-310`–`V-364` now have anatomy, and
+  no component name remains open for a future Anatomy volume-2 slice. Content elements and
+  information architecture were closed by the fourth and fifth slices; tokens were closed as
+  genuinely out of scope by the third. Anatomy volume 2, as `README.md`'s "What is not covered"
+  originally scoped it, is complete.
 
 Everything else in the gap register (language-plane consistency measurement, representation-plane
 verification, citation-intent checking, legal-change monitoring) stays explicitly out of scope —
