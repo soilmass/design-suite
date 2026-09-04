@@ -82,11 +82,19 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   content each got their own scoping issue before being drafted. The seventh slice closes 2 of the
   first 11 — `A-097`–`A-098` for Badge and Chip, chosen because both were already partially
   characterized by the sixth slice's own "Not folded with Badge or Chip" paragraph and, unlike the
-  six issue #48 names, neither carries an open scoping call of its own. 15 names remain: avatars,
-  progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar, plus the
-  six still tracked in issue #48. Each is additive follow-up work, a natural first project for an
-  outside contributor, each its own bounded, separately scoped contribution rather than one PR
-  closing the whole gap. Phase 2 is not complete while those remain unbuilt.
+  six issue #48 names, neither carries an open scoping call of its own. 15 names remained after the
+  seventh slice: avatars, progress and spinner, skeleton and empty/zero state, carousel, lightbox,
+  and toolbar, plus the six still tracked in issue #48. The eighth slice closes all six of the first
+  group — `A-099`–`A-105` for Avatar, Progress and spinner (folding Progress bar and Spinner into
+  one entry), Skeleton, Empty and zero state (folding Empty state and Zero state into one entry),
+  Carousel, Lightbox, and Toolbar — chosen because, unlike the six issue #48 names, none of the six
+  carried an open scoping call, and all nine Vocabulary IDs the slice cites already existed with no
+  companion Vocabulary addition needed. Only the six issue #48 names — Link, Table, Data grid,
+  Accordion, Disclosure, and Infinite scroll — remain open, each still awaiting the human scoping
+  call issue #48 reserves for it, correcting this entry's prior "15 names remain" to the current
+  count of six. Each is additive follow-up work, a natural first project for an outside
+  contributor, each its own bounded, separately scoped contribution rather than one PR closing the
+  whole gap. Phase 2 is not complete while those remain unbuilt.
 
 Everything else in the gap register (language-plane consistency measurement, representation-plane
 verification, citation-intent checking, legal-change monitoring) stays explicitly out of scope —
