@@ -562,6 +562,18 @@
   type: anatomy entry
   status: active
   since: 1.5.0
+- id: A-095
+  owner: anatomy
+  name: Toast and banner
+  type: anatomy entry
+  status: active
+  since: 1.6.0
+- id: A-096
+  owner: anatomy
+  name: Callout
+  type: anatomy entry
+  status: active
+  since: 1.6.0
 - id: C001
   owner: constraints
   name: Acknowledgment window
