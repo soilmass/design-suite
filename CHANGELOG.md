@@ -116,6 +116,31 @@ _Nothing yet._
   read it first; `CONTRIBUTING.md`'s concurrent-agent section was trimmed to a stub pointing at it
   instead of duplicating it. PR #38 (`docs/agents-md-contribution-model`, `c5173dc` + `9f1b6ab`),
   merged.
+- GitHub's pull request and issue templates gained a pointer to `AGENTS.md` as the front door for
+  AI agent contributors, added to both issue templates and the PR template — additive prose only,
+  `config.yml`'s contact-links config deliberately left untouched. PR #40
+  (`docs/agents-md-template-pointers`, `9d0f915`), merged.
+- `tests/decision_completeness/README.md` added, matching `tests/validate/README.md`'s existing
+  structure and terseness (how to run the suite, how its fixtures are organized, how to add a
+  case) — the fixture-based pytest suite PR #25 added had none. PR #41
+  (`tests/decision-completeness-readme`, `8e2a74c`), merged.
+- `adr/` added: six retroactive Architecture Decision Records recording this repository's own
+  process precedents, previously scattered across closed PR bodies and comment threads with no
+  durable, citable home — AI agents as primary contributors (`0001`), Anatomy's single-writer
+  constraint (`0002`), the `registry.yaml` regeneration/benign-conflict pattern (`0003`), peer
+  review via a dispatched agent (`0004`), the no-direct-to-main policy (`0005`), and the citation
+  elaboration-vs-homonym test that adjudicated the V-195/V-348 dispute (`0006`) — plus an
+  `adr/README.md` index. `AGENTS.md` gained a "Record decisions (ADRs)" section with concrete
+  trigger criteria. PR #54 (`docs/retroactive-adrs`, `fa87ed4`; `d79d727` then added ADR-0001 and
+  ADR-0004 as worked examples in that section's trigger bullet, caught by peer review), merged.
+- The PR template's header comment gained a pointer to `adr/` alongside its existing `AGENTS.md`
+  pointer, for decisions that bind future contributors. PR #55 (`docs/pr-template-adr-pointer`,
+  `0767f6e`), merged.
+- `ROADMAP.md`'s Phase 3 gained a concrete four-item task list — a worked example, on-ramp polish
+  surfacing `audit/tooling-audit-2.0.0.md`'s "assembly, not new mechanism" framing, this
+  `CHANGELOG.md` completeness check, and repository discoverability metadata gated on a separate
+  human confirmation — now that Phase 1 and Phase 2 have both closed. PR #65
+  (`roadmap/phase-3-scoping`, `9db70ca`), merged.
 
 ### Fixed
 - `tooling/validate.py` was hardcoding every registry entry's `since` field to `1.0.0` on every
@@ -174,3 +199,49 @@ _Nothing yet._
   `fix/governance-g082-evidence-and-trigger`, `e320225`, merged), and `CONTRIBUTING.md`'s own
   restatement of that trigger was synced to match (PR #35,
   `docs/contributing-org-tier-trigger-sync`, `3909e32`, merged).
+- CI's `actions/checkout` and `actions/setup-python` were pinned to floating major-version tags
+  (`@v4`, `@v5`) while the workflow's Vale binary was already checksum-verified — a supply-chain
+  gap, since a tag can be moved but a commit SHA cannot. Pinned both to the commit SHA each tag
+  currently resolved to. PR #39 (`ci/pin-actions-to-sha`, `0003920`), merged.
+- A fresh whole-suite read of `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, and `README.md` together
+  (as their merged, standing state, not just as individual PR diffs) turned up three independent
+  drifts: `README.md`'s document table and identifier count hadn't been resynced since the
+  content-elements slice landed (seven of nine versions stale, count off by 42); `AGENTS.md`'s
+  single-writer bullet pointed at "Known gotchas" for its reasoning when the reasoning actually
+  lives in "Do the work"; and `CONTRIBUTING.md` still described `validate.py`/Vale as running "on
+  the honor system" with CI enforcement merely "tracked," though it had run on every PR and push
+  to `main` since PR #1. A fourth finding — `README.md`'s "What is not covered" Anatomy bullet
+  overclaiming what still needed further volumes — needed editorial judgment and was filed as
+  issue #44 instead of guessed at here. PR #45 (`docs/agents-crossref-sync`, `7440e07`), merged.
+- `README.md`'s "What is not covered" Anatomy bullet, filed as issue #44 above, was rewritten:
+  three of its four claims (tokens deferred, information architecture and content still open) no
+  longer matched `docs/anatomy-1.0.0.md`'s state at 1.6.0 — tokens had been settled out of scope
+  and both information architecture and content had shipped full slices. Reworded short, pointing
+  to `ROADMAP.md` Phase 2 for the numeric specifics instead of restating them, closing issue #44.
+  PR #51 (`docs/readme-anatomy-scope-bullet-issue44`, `9115c35`), merged.
+- `README.md`'s adjacent "Decision completeness is unbuilt" bullet, found stale during PR #51's
+  review, was removed rather than reworded — `tooling/decision_completeness.py` has existed since
+  PR #4, is tested, and is documented, so it is no longer a gap for the "What is not covered"
+  section to list. PR #53 (`docs/readme-decision-completeness-built`, `4b1e7d5`), merged.
+- `README.md`'s document version table drifted again after six more Anatomy content slices and a
+  Vocabulary patch landed since PR #15's sync (`Anatomy` 1.5.0 → actual 1.6.1, `Vocabulary` 1.1.0
+  → actual 1.1.1), and the registered-identifier count was off by two (1,238 vs. the registry's
+  1,240). PR #56 (`docs/readme-version-table-resync-2026-09-03`, `40c2a50`), merged.
+- `CLAUDE.md`'s and `suite-architecture.md`'s "Stable identifiers" worked-example tables cited
+  five IDs that don't exist anywhere in the suite (`V-204`, `A-118`, `T044`, `K019`, `X031`,
+  `G004`) and two more that exist but mean something different than claimed (`C012`, `D007`).
+  Replaced all nine examples in `suite-architecture.md` §3 with real, grepped-and-verified IDs, and
+  removed `CLAUDE.md`'s duplicate copy of the table — the exact mechanism that had let the two
+  drift independently — replacing it with a namespace-to-owner table pointing at
+  `suite-architecture.md` §3 as the single source of truth. Resolved finding #1 of issue #57. PR
+  #59 (`docs/stable-identifiers-table-fix-57`, `09ee192`), merged.
+- `AGENTS.md`'s "Start here" reading order never named `README.md`, even though
+  `CONTRIBUTING.md` — reached at step 2 of that same order — opens by pointing the reader to
+  README's own "read in this order" section, a gap issue #57's second finding flagged. Added
+  `README.md` as the first step in the order. PR #60 (`docs/agents-md-readme-reading-order`,
+  `1efb929`), merged.
+- `README.md`'s document version table drifted a third time after the ninth Anatomy slice
+  (`A-106`–`A-111`, PR #63) closed Vocabulary's `H`-part entirely: synced `Anatomy` 1.6.1 → 1.9.0,
+  the identifier count 1,240 → 1,255, and retired the "Only components remain partially open in
+  Anatomy" bullet from "What is not covered" now that it no longer described anything true. PR #64
+  (`docs/readme-resync-anatomy-volume-2-complete`, `f758896`), merged.
