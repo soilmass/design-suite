@@ -2,6 +2,7 @@ import sys
 import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".."))
+from tooling.decide.knowledge import parse_decision_rounds, TARGET_FAMILIES, build_family_knowledge
 from tooling.decide.knowledge import extract_constraint_ids, parse_composition, parse_constraints
 
 
@@ -92,3 +93,74 @@ def test_parse_constraints_c124_no_export_bleed(suite_snapshot):
     assert "Review schedule" not in c124["text"]
     # C124's body should be reasonably short (just the constraint desc, not 5.6KB)
     assert len(c124["text"]) < 2000, f"C124 text is too long ({len(c124['text'])} chars)"
+
+
+def test_parse_decision_rounds_round_1(suite_snapshot):
+    rounds = parse_decision_rounds(suite_snapshot["decision"])
+    round1 = next(r for r in rounds if r["id"] == "D003")
+    assert round1["title"] == "Round 1 — Purpose"
+    assert "F01" in round1["families"]
+    assert "F02" in round1["families"]
+    assert round1["bounded_by"] == []
+
+
+def test_parse_decision_rounds_round_4_density_cluster(suite_snapshot):
+    rounds = parse_decision_rounds(suite_snapshot["decision"])
+    round4 = next(r for r in rounds if r["id"] == "D006")
+    assert set(round4["families"]) == {"F15", "F16", "F33", "F30", "F18"}
+    assert round4["bounded_by"] == ["C004", "C027", "C028"]
+
+
+def test_parse_decision_rounds_round_10_conduct_range(suite_snapshot):
+    rounds = parse_decision_rounds(suite_snapshot["decision"])
+    round10 = next(r for r in rounds if r["id"] == "D012")
+    assert set(round10["families"]) >= {"F63", "F64", "F65", "F66", "F67"}
+    assert round10["bounded_by"] == ["C001", "C002", "C003", "C066", "C067", "C068", "C069", "C070"]
+
+
+def test_target_families_constant():
+    assert TARGET_FAMILIES == [
+        "F01", "F02", "F05.1", "F11.1", "F15", "F17", "F22", "F31", "F32", "F40", "F64",
+    ]
+
+
+def test_build_family_knowledge_f15_unions_family_and_round_bounds(suite_snapshot):
+    knowledge = build_family_knowledge(
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"]
+    )
+    f15 = knowledge["F15"]
+    assert f15["round"]["id"] == "D006"
+    # Composition's own F15 entry and Round 4's "Bounded by" state the same three ids --
+    # this asserts the union doesn't duplicate them.
+    assert set(f15["bounded_by"].keys()) == {"C004", "C027", "C028"}
+    assert f15["bounded_by"]["C028"]["name"] == "Target size minimum"
+
+
+def test_build_family_knowledge_f64_gets_round_level_bound_composition_lacks(suite_snapshot):
+    # F64's Composition entry alone has no "Bounded by" line -- its only mechanical
+    # bound comes from Round 10 (D012)'s "Bounded by C001-C003, C066-C070."
+    knowledge = build_family_knowledge(
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"]
+    )
+    f64 = knowledge["F64"]
+    assert f64["round"]["id"] == "D012"
+    assert set(f64["bounded_by"].keys()) == {
+        "C001", "C002", "C003", "C066", "C067", "C068", "C069", "C070",
+    }
+
+
+def test_build_family_knowledge_segment_id_f05_1(suite_snapshot):
+    knowledge = build_family_knowledge(
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"]
+    )
+    f05_1 = knowledge["F05.1"]
+    assert f05_1["round"]["id"] == "D005"
+    assert set(f05_1["segments"]) == {"F05.1"}
+    assert f05_1["segments"]["F05.1"].startswith("Pricing")
+
+
+def test_build_family_knowledge_f01_no_bounds_at_all(suite_snapshot):
+    knowledge = build_family_knowledge(
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"]
+    )
+    assert knowledge["F01"]["bounded_by"] == {}
