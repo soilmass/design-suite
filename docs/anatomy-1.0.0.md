@@ -1,6 +1,6 @@
 ```yaml
 document: Anatomy
-version: 1.6.0
+version: 1.6.1
 tier: 1
 scope: rendering primitives (color, typography, shape, space, motion, imagery, state), plus a first slice of component anatomy, plus input controls, plus menus, plus a first information-architecture slice, plus content elements, plus message surfaces
 owns:
@@ -266,7 +266,7 @@ The parts of a letterform, roughly outside-in:
 **line-height** — accepts a unitless multiplier, a length, or a percentage. Unitless resolves against the element's own font size; length and percentage resolve once and are inherited as computed values, which is why they behave differently under nesting.
 **Inverse relationship** — as size increases, line-height should decrease; as measure increases, line-height should increase.
 **letter-spacing** — em units. Negative for large display text (−0.01 to −0.03em), positive for uppercase and small text (+0.02 to +0.1em).
-**measure** — expressed in `ch` units or a max-width. 45–75 characters, 66 as the classic target.
+**measure** — expressed in `ch` units or a max-width, bounded by C004.
 **text-wrap** — `balance` for headings up to about six lines, `pretty` for body copy, `stable` for content that updates in place.
 
 ---
@@ -474,9 +474,7 @@ Soft-edged. A gradient mask produces a fade; a luminance mask uses brightness as
 
 **Track sizing functions** — `<length>` · `<percentage>` · `fr` · `min-content` · `max-content` · `auto` · `fit-content(n)` · `minmax(min, max)` · `repeat(count | auto-fill | auto-fit, ...)`
 
-**The responsive card formula**
-`repeat(auto-fit, minmax(min(100%, 280px), 1fr))`
-Parts: `auto-fit` collapses empty tracks so items stretch · `minmax` sets the floor and lets them grow · the inner `min()` prevents overflow when the container is narrower than the floor.
+**A responsive-track pattern** composes three of the track-sizing functions above: `repeat()`'s `auto-fit` keyword collapses empty tracks so items stretch to fill the row, `minmax()` sets a floor below which a track will not shrink and a ceiling it may grow toward, and wrapping that floor in `min()` against the available width keeps a track from overflowing a container narrower than the floor. The floor value itself, and whether to use `auto-fit` or `auto-fill`, are choices with a range and a decision behind them, not a fact this document fixes.
 
 **auto-fill vs auto-fit** — fill keeps empty tracks; fit collapses them. Identical when items fill the row, visibly different when they don't.
 
@@ -539,7 +537,6 @@ Block axis: `align-items` · `align-content` · `align-self`
 **Basis** — viewport (media query) or container (container query). Container queries take `inline-size`, `block-size`, or style, and require the parent declare `container-type`.
 
 **Common set** — 640 / 768 / 1024 / 1280 / 1536.
-**Better practice** — set breakpoints where the *content* breaks, not at device widths.
 
 ---
 
@@ -769,7 +766,7 @@ Every component exists at the intersection of several independent dimensions. Th
 `trigger` → `acknowledgment` → `progress` → `resolution` → `recovery`
 
 **Acknowledgment** — bounded by C001. A separate obligation from completing the action.
-**Progress** — required past about 1 second. Determinate where possible; indeterminate spinners past 4–5 seconds read as failure regardless of what is happening.
+**Progress** — required past the point C003 sets. Determinate where possible; indeterminate spinners past that point read as failure regardless of what is happening.
 **Resolution** — success needs confirmation proportional to the stakes. A saved draft needs a whisper; a deleted account needs a sentence.
 **Recovery** — every failure state needs a stated cause and a next action. "Something went wrong" satisfies neither.
 
@@ -782,7 +779,7 @@ Every component exists at the intersection of several independent dimensions. Th
 `label` · `input` · `placeholder` · `helper text` · `error message` · `required indicator` · `character count` · `prefix/suffix` · `clear affordance` · `autocomplete token` · `inputmode` · `pattern`
 
 **Validation timing dimensions** — `on submit` · `on blur` · `on change while already invalid` · `on change always`
-The usual correct combination: validate on blur, then re-validate on every change once a field has failed, so people see themselves fixing it.
+These dimensions are not mutually exclusive — a field can be validated on more than one of them at once, for example on blur and then again on change once it has already failed.
 
 **inputmode** — text, numeric, decimal, tel, email, url, search. Controls the mobile keyboard.
 **autocomplete** — a specific token vocabulary (`given-name`, `email`, `street-address`, `cc-number`, `one-time-code`). Not a boolean, and filling these in correctly is one of the largest usability wins available for the effort.
@@ -1015,7 +1012,7 @@ Pagination (V-353) is navigation between discrete pages of results: a row of `pa
 
 A facet (V-360) is a single filterable dimension, usually shown with counts: a labeled group of `member control`s — most often checkboxes (A-068), sometimes a slider (A-072) for a range — each option carrying a `count` of how many results choosing it would leave. Facets composing together into one filtering interface is faceted navigation (V-536); this entry anatomizes the facet, not the pattern several of them compose into.
 **Applied filter** — a chip (V-350) representing one active selection, removable independently of unchecking it inside its own facet, paired with a `clear control` that resets every facet at once.
-**Breaks when** — a facet's `member control` is a custom-styled element that does not expose checked state as programmatically determinable — the same failure A-068 names for checkbox generally; C046 requires it regardless of what markup produces the facet.
+**Breaks when** — a facet's `member control` is a custom-styled element that does not expose checked state as programmatically determinable; C046 requires it regardless of what markup produces the facet.
 **Also breaks when** — the `result count` updates after a selection with no signal reaching anything other than sighted users watching the number change; a screen-reader user who just toggled a facet has no way to learn how many results remain, or whether the toggle had any effect at all.
 
 ---
