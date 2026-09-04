@@ -162,7 +162,8 @@ decision_completeness.py` expects from a downstream team building an actual webs
 README.md` for the distinction). Write one when your task involves a decision that will **bind how
 future contributors work here**, not for the fix itself:
 
-- A new standing constraint, convention, or process rule (the shape of ADR-0002, ADR-0003).
+- A new standing constraint, convention, or process rule (the shape of ADR-0001, ADR-0002,
+  ADR-0003, ADR-0004).
 - A precedent for a judgment call that will recur — a citation dispute resolved by a test other
   agents should reuse (ADR-0006), not a one-off correction.
 - A policy change, especially one that closes a loophole a prior mistake exposed (ADR-0005).
