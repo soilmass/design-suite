@@ -2,7 +2,7 @@ import sys
 import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".."))
-from tooling.decide.knowledge import extract_constraint_ids, parse_composition
+from tooling.decide.knowledge import extract_constraint_ids, parse_composition, parse_constraints
 
 
 def test_extract_constraint_ids_plain_list():
@@ -52,3 +52,17 @@ def test_parse_composition_f05_segment_f05_1(suite_snapshot):
     f05 = families["F05"]
     assert "F05.1" in f05["segments"]
     assert f05["segments"]["F05.1"].startswith("Pricing")
+
+
+def test_parse_constraints_c046(suite_snapshot):
+    constraints = parse_constraints(suite_snapshot["constraints"])
+    c046 = constraints["C046"]
+    assert c046["name"] == "Name, role, value"
+    assert "programmatically determinable" in c046["text"]
+
+
+def test_parse_constraints_c028_target_size(suite_snapshot):
+    constraints = parse_constraints(suite_snapshot["constraints"])
+    c028 = constraints["C028"]
+    assert c028["name"] == "Target size minimum"
+    assert "24" in c028["text"]
