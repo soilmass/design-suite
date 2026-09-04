@@ -172,3 +172,7 @@ the roadmap and phase sequencing is owned by `ROADMAP.md`. Don't restate either 
 - `audit/tooling-audit-2.0.0.md` records where the suite duplicates existing standards vs. is
   genuinely novel — its conclusion is that the suite's contribution is assembly and completeness,
   not new mechanism. Read it before claiming a document "invented" something.
+- `adr/` records this repository's own process/tooling decisions (why Anatomy is single-writer,
+  how a contested citation gets adjudicated) — distinct from a downstream team's `F##`-family
+  ADRs, which `tooling/decision_completeness.py` consumes and this repo has none of. `AGENTS.md`
+  owns when to write one; don't restate that here either.

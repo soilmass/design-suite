@@ -22,6 +22,10 @@ Read, in this order, before doing anything else:
 If your task will touch anything under `docs/`, also read `suite-architecture.md` in full before
 you write a word — it's short, and every rule in the three files above assumes it.
 
+Skim `adr/`'s index (`adr/README.md`) too — it's short, and it's where this repository's own
+precedents live (why Anatomy is single-writer, how a contested citation gets adjudicated) instead
+of buried in a closed PR thread you'd otherwise have no reason to find.
+
 Do not skip this because a task looks small. A one-line citation fix and an eleven-entry Anatomy
 slice both depend on the same tier/ID discipline, and getting it wrong either way produces a
 correction someone else has to find later.
@@ -150,6 +154,34 @@ human's — is genuinely on record.
 
 ---
 
+## Record decisions (ADRs)
+
+`adr/` holds Architecture Decision Records for this repository's own process, tooling, and
+contribution architecture — a different thing from the `F##`-family ADRs `tooling/
+decision_completeness.py` expects from a downstream team building an actual website (see `adr/
+README.md` for the distinction). Write one when your task involves a decision that will **bind how
+future contributors work here**, not for the fix itself:
+
+- A new standing constraint, convention, or process rule (the shape of ADR-0001, ADR-0002,
+  ADR-0003, ADR-0004).
+- A precedent for a judgment call that will recur — a citation dispute resolved by a test other
+  agents should reuse (ADR-0006), not a one-off correction.
+- A policy change, especially one that closes a loophole a prior mistake exposed (ADR-0005).
+- Reversing or superseding an existing ADR — write a new one and mark the old `status: superseded`
+  pointing at it; never edit an accepted ADR's Decision section after the fact.
+
+Do **not** write one for: a routine citation fix, a version-table sync, a single document's content
+addition — those get a PR description, and if they're a suite-content scoping call, they get
+recorded in the governed document's own Settled Decisions section (per "Find your task" step 4
+above), not here. An ADR records a decision about *how this repository operates*; a Settled
+Decisions entry records a decision about *what a suite document says*. Keep them apart — recording
+the same fact in both would be exactly the drift this suite's own reference discipline (cite once,
+never restate) warns against.
+
+Format, numbering, and the full index are in `adr/README.md`.
+
+---
+
 ## Known gotchas
 
 **GitHub's issue-closing keyword parser does plain substring matching — it does not understand
@@ -169,4 +201,6 @@ time trying `gh pr review --approve` on your own PR, it will fail.
 exists; it has no way to confirm the sentence citing it means what the ID actually means. This is
 the single most common real defect found in this suite's history — always the same shape: an ID
 that's real, cited in a plausible-sounding sentence, that turns out to name something adjacent but
-different. Grep the definition. Every time.
+different. Grep the definition. Every time. When you're genuinely unsure whether a citation is a
+correct elaboration or a wrong-sense collision, `adr/0006-citation-elaboration-vs-homonym-test.md`
+has the actual test, worked through on two real, opposite examples.
