@@ -16,6 +16,7 @@ downstream team's ADR never needs to know this directory exists.
 | [ADR-0004](0004-peer-review-via-dispatched-agent.md) | Second-reader review via an independently-dispatched agent, evidenced by a comment | Accepted |
 | [ADR-0005](0005-no-direct-to-main.md) | No direct-to-main pushes, including the maintainer's own small fixes | Accepted |
 | [ADR-0006](0006-citation-elaboration-vs-homonym-test.md) | The elaboration-vs-homonym test for judging a citation's correctness | Accepted |
+| [ADR-0007](0007-decide-tool-scope-and-conventions.md) | tooling/decide's build authority and the conventions it establishes | Accepted |
 
 ## Format
 

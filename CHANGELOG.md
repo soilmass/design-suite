@@ -18,6 +18,29 @@ _Nothing yet._
 
 ---
 
+## 2026-09-04
+
+### Added
+- `tooling/decide/`: a new package helping an AI agent make and record the `D204` "first pass"
+  Composition decisions (`F01, F02, F05.1, F11.1, F15, F17, F22, F31, F32, F40, F64`) for a real
+  downstream project — the suite's first capability built for an agent *acting on* the suite
+  rather than reading it. Two CLI subcommands, `context` (surfaces every undecided target
+  family's range, bounding Constraints, and governing Decision-round guidance) and `apply`
+  (validates a `decisions.yaml` an agent produced against two mechanical guardrails, writes real
+  ADRs matching `tooling/decision_completeness.py`'s existing format, self-checks the result).
+  Built via 8 TDD tasks plus a whole-branch review and two independent-review fix waves — see
+  `specs/2026-09-04-decision-making-tool-design.md` and `specs/2026-09-04-decide-tool-plan.md`
+  for the full design and plan, and `adr/0007-decide-tool-scope-and-conventions.md` for the
+  build's authority (this tool sits outside `audit/tooling-audit-2.0.0.md` Part VI's register,
+  built on direct human delegation of that call) and the standing conventions it establishes
+  (`.design-suite/brief.yaml`'s schema, `decisions.yaml`'s schema, the target-repo `adr/`
+  location contract). PR #72, merged. `ROADMAP.md`'s rewrite around this as the flagship goal —
+  replacing the three-phase structure that closed out in full before this pivot — is deliberately
+  sequenced after this PR, not included in it, so the roadmap describes something real rather than
+  something proposed; not yet done as of this entry.
+
+---
+
 ## 2026-09-03
 
 ### Added
