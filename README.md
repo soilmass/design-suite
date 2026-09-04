@@ -6,6 +6,26 @@ Nine documents describing what a website consists of, what bounds it, how to dec
 
 ---
 
+## Who this is for
+
+The honest account of what this suite actually contributes lives in
+`audit/tooling-audit-2.0.0.md`: almost every mechanism it uses — decision records, semantic
+versioning, one-way dependency citation, controlled vocabularies, sampling-based accessibility
+review — already has an established equivalent elsewhere, catalogued there one by one. What's
+uncommon is running all of them together, consistently, across one website's full decision chain,
+under one governed set of IDs.
+
+That's a fit if you want a single coordinated, citable reference spanning what a site is made of
+through how it gets checked, and you're willing to carry the tier and ID discipline that buys. It's
+a poor fit if you're after a single new checker or a novel technique — for most individual needs a
+narrower, already-established tool exists (the audit's tool map names them), and adopting nine
+governed documents to reach one of them costs more than it returns.
+
+For a worked case — one small decision moving through all nine documents start to finish — see
+`examples/end-to-end-walkthrough.md`.
+
+---
+
 ## Read in this order
 
 New to the suite, read three: **Suite Architecture** for how the documents relate, **Composition** for what the choices are, **Decision** for how to set them. That is enough to use it.
