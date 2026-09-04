@@ -116,7 +116,35 @@ recommending one is a plan.
 Deliberately last. Polish the on-ramp, add examples, and push for visibility only once the suite
 can absorb outside contributions (Phase 1) and has closed its known content gaps (Phase 2).
 Publicizing an incomplete, unprocessed suite invites contributors into a mess instead of a
-project — the opposite of what adoption is meant to buy.
+project — the opposite of what adoption is meant to buy. Both gates closed on 2026-09-04: Phase 1
+has been done since CI landed; Phase 2 closed when the ninth Anatomy slice (`A-106`–`A-111`)
+completed Vocabulary's `H`-part. Scoped as four items, in the order a cold reader would actually
+encounter them:
+
+- **A worked example.** No end-to-end walkthrough exists anywhere in the suite — every document
+  explains its own piece, but nothing shows one small, illustrative case moving through all nine:
+  Vocabulary naming a term, Constraints bounding it, Composition framing the choice, Decision
+  setting it, Implementation building it, Verification confirming it. A newcomer currently has to
+  take the ownership table's word that the documents interlock rather than see it happen once.
+  Lives in a new file — illustrative prose, not a governed document, so it introduces no new IDs
+  and isn't part of `tooling/registry.yaml`'s scope.
+- **On-ramp polish on `README.md`.** `audit/tooling-audit-2.0.0.md`'s own honest conclusion — the
+  suite's contribution is assembly and completeness, not new mechanism — currently sits in an
+  audit document a newcomer has no reason to open before deciding whether the suite applies to
+  them. Surface a short "when this applies, when it doesn't" framing where the cold-read path
+  actually reaches it.
+- **`CHANGELOG.md` completeness check.** It scopes itself to repository and infrastructure events,
+  not per-document version bumps (which live in the registry, per its own stated rule). Audit it
+  against what's actually landed since it was last touched — the ADR system, `AGENTS.md`, GitHub
+  issue/PR templates, CI hardening rounds — and fill any real gap against that stated scope, not
+  invent a new one.
+- **Repository discoverability metadata.** GitHub topics and a homepage URL are currently unset.
+  Low-risk and reversible, but visible to everyone who finds the repo, so a specific topic list
+  gets proposed for a human confirmation before it's applied, not set unilaterally.
+
+Explicitly out of scope for any of the four: actually publicizing the suite anywhere (posting,
+submitting, announcing). That's the "push for visibility" this phase is named for, and it's a
+human action outside what gets scoped, dispatched, or executed as a documentation task.
 
 ## What doesn't move
 
