@@ -628,6 +628,42 @@
   type: anatomy entry
   status: active
   since: 1.8.0
+- id: A-106
+  owner: anatomy
+  name: Link
+  type: anatomy entry
+  status: active
+  since: 1.9.0
+- id: A-107
+  owner: anatomy
+  name: Table
+  type: anatomy entry
+  status: active
+  since: 1.9.0
+- id: A-108
+  owner: anatomy
+  name: Data grid
+  type: anatomy entry
+  status: active
+  since: 1.9.0
+- id: A-109
+  owner: anatomy
+  name: Disclosure
+  type: anatomy entry
+  status: active
+  since: 1.9.0
+- id: A-110
+  owner: anatomy
+  name: Accordion
+  type: anatomy entry
+  status: active
+  since: 1.9.0
+- id: A-111
+  owner: anatomy
+  name: Infinite scroll
+  type: anatomy entry
+  status: active
+  since: 1.9.0
 - id: C001
   owner: constraints
   name: Acknowledgment window
