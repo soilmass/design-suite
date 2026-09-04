@@ -79,17 +79,21 @@ fact. Composition may say "bounded below by C012," never repeat the number itsel
 
 ### Stable identifiers
 
-| Namespace | Owner | Example |
-|---|---|---|
-| `V-###` | Vocabulary | `V-204` measure |
-| `A-###` | Anatomy | `A-118` shadow spread |
-| `F##` / `F##.#` | Composition | `F15`, `F15.2` |
-| `C###` | Constraints | `C012` body text contrast floor |
-| `D###` | Decision | `D007` order of operations |
-| `T###` / `K###` | Implementation | `T044` token, `K019` component |
-| `X###` | Verification | `X031` content stress check |
-| `R###` | Diagnosis | `R012` observability class |
-| `G###` | Governance | `G004` contribution path |
+| Namespace | Owner |
+|---|---|
+| `V-###` | Vocabulary |
+| `A-###` | Anatomy |
+| `F##` / `F##.#` | Composition |
+| `C###` | Constraints |
+| `D###` | Decision |
+| `T###` / `K###` | Implementation |
+| `X###` | Verification |
+| `R###` | Diagnosis |
+| `G###` | Governance |
+
+Worked examples for each namespace, verified against the current documents, live in
+`suite-architecture.md` §3 — that document is the single source of truth for them; this table
+is namespace-to-owner only, since an example is exactly the part that drifts.
 
 Non-negotiable rules: an ID is **assigned once** and **never reused**, even after retirement.
 IDs are **never reordered** — display order is a rendering decision, ID order is not. New
