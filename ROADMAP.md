@@ -121,30 +121,27 @@ has been done since CI landed; Phase 2 closed when the ninth Anatomy slice (`A-1
 completed Vocabulary's `H`-part. Scoped as four items, in the order a cold reader would actually
 encounter them:
 
-- **A worked example.** No end-to-end walkthrough exists anywhere in the suite — every document
-  explains its own piece, but nothing shows one small, illustrative case moving through all nine:
-  Vocabulary naming a term, Constraints bounding it, Composition framing the choice, Decision
-  setting it, Implementation building it, Verification confirming it. A newcomer currently has to
-  take the ownership table's word that the documents interlock rather than see it happen once.
-  Lives in a new file — illustrative prose, not a governed document, so it introduces no new IDs
-  and isn't part of `tooling/registry.yaml`'s scope.
-- **On-ramp polish on `README.md`.** `audit/tooling-audit-2.0.0.md`'s own honest conclusion — the
-  suite's contribution is assembly and completeness, not new mechanism — currently sits in an
-  audit document a newcomer has no reason to open before deciding whether the suite applies to
-  them. Surface a short "when this applies, when it doesn't" framing where the cold-read path
-  actually reaches it.
-- **`CHANGELOG.md` completeness check.** It scopes itself to repository and infrastructure events,
-  not per-document version bumps (which live in the registry, per its own stated rule). Audit it
-  against what's actually landed since it was last touched — the ADR system, `AGENTS.md`, GitHub
-  issue/PR templates, CI hardening rounds — and fill any real gap against that stated scope, not
-  invent a new one.
-- **Repository discoverability metadata.** GitHub topics and a homepage URL are currently unset.
-  Low-risk and reversible, but visible to everyone who finds the repo, so a specific topic list
-  gets proposed for a human confirmation before it's applied, not set unilaterally.
+- **A worked example.** Done — `examples/end-to-end-walkthrough.md`, tracing a button's disabled
+  state through all seven documents that have something to say about it (Diagnosis and Governance
+  don't, and the file says why), citing real IDs throughout. PR #67, merged.
+- **On-ramp polish on `README.md`.** Done — a "Who this is for" section paraphrasing
+  `audit/tooling-audit-2.0.0.md`'s real conclusion (assembly and completeness, not a new
+  mechanism) into a plain fit/poor-fit framing, plus a pointer to the worked example above. PR #66,
+  merged.
+- **`CHANGELOG.md` completeness check.** Done — found a real gap (PR #46's catch-up branched
+  before, but landed after, PRs #39–#41 and #45 had already merged, silently missing them) and
+  filled it: 13 entries added for genuine repository/infrastructure events through PR #65, nothing
+  invented, document-content changes correctly left out per the file's own stated scope. PR #68,
+  merged.
+- **Repository discoverability metadata.** Done — 8 GitHub topics applied (`design-system`,
+  `documentation`, `accessibility`, `wcag`, `governance`, `design-tokens`, `methodology`,
+  `style-guide`), confirmed with the maintainer before applying. Homepage URL left unset — nothing
+  to point it at yet.
 
-Explicitly out of scope for any of the four: actually publicizing the suite anywhere (posting,
-submitting, announcing). That's the "push for visibility" this phase is named for, and it's a
-human action outside what gets scoped, dispatched, or executed as a documentation task.
+All four items are done as of 2026-09-04. What's explicitly still out of scope: actually
+publicizing the suite anywhere (posting, submitting, announcing). That's the "push for visibility"
+this phase is named for, and it's a human action outside what gets scoped, dispatched, or executed
+as a documentation task.
 
 ## What doesn't move
 
