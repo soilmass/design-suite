@@ -32,7 +32,7 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   `tests/decision_completeness/fixtures/` for the ADR format and worked examples.
 - **Anatomy volume 2.** Partially done. Components, tokens, information architecture, and content
   — the volumes `README.md` already flags as needed beyond the current rendering-primitives-only
-  scope. Six slices have landed: `docs/anatomy-1.0.0.md` is now 1.6.0, exports `A-001`–`A-096`.
+  scope. Seven slices have landed: `docs/anatomy-1.0.0.md` is now 1.7.0, exports `A-001`–`A-098`.
   The first slice added `A-062`–`A-066` for Button, Card, Tooltip/Popover, Dialog, and Tabs; the
   second added `A-067`–`A-076` for the input controls — Text input, Checkbox, Radio group,
   Switch, Select and combobox, Slider, Stepper, Segmented control, Dropzone, and Fieldset; the
@@ -72,17 +72,21 @@ Close the gaps the suite already knows about, in the order the suite itself reco
   no `H`-part citations, since content draws from a different Vocabulary part entirely) plus
   Label, Placeholder text, and Helper text (`V-318`–`V-320`), folded into the pre-existing `A-061`
   Form field rather than counted in that 32 — leaving 20 open before the sixth slice, not the
-  ~23 this entry previously estimated. The sixth slice closes 3 of those 20 (Toast, Banner,
-  Callout); 17 remain: badges and chips, avatars, progress and spinner, skeleton and empty/zero
+  ~23 this entry previously estimated. The sixth slice closed 3 of those 20 (Toast, Banner,
+  Callout), leaving 17: badges and chips, avatars, progress and spinner, skeleton and empty/zero
   state, carousel, lightbox, and toolbar (11 names, already flagged in `docs/anatomy-1.0.0.md`'s
   own **Settled decisions**), plus six names that re-verification found cited nowhere in the
   document and named in none of its "still open" notes — Link, Table, Data grid, Accordion,
-  Disclosure, and Infinite scroll — tracked in issue #48 rather than assigned to a slice here,
-  since how they group is a scoping call for a human, the same way tokens, information
-  architecture, and content each got their own scoping issue before being drafted. Each of the 17
-  is additive follow-up work, a natural first project for an outside contributor, each its own
-  bounded, separately scoped contribution rather than one PR closing the whole gap. Phase 2 is not
-  complete while those remain unbuilt.
+  Disclosure, and Infinite scroll — tracked in issue #48 rather than assigned to a slice, since how
+  they group is a scoping call for a human, the same way tokens, information architecture, and
+  content each got their own scoping issue before being drafted. The seventh slice closes 2 of the
+  first 11 — `A-097`–`A-098` for Badge and Chip, chosen because both were already partially
+  characterized by the sixth slice's own "Not folded with Badge or Chip" paragraph and, unlike the
+  six issue #48 names, neither carries an open scoping call of its own. 15 names remain: avatars,
+  progress and spinner, skeleton and empty/zero state, carousel, lightbox, and toolbar, plus the
+  six still tracked in issue #48. Each is additive follow-up work, a natural first project for an
+  outside contributor, each its own bounded, separately scoped contribution rather than one PR
+  closing the whole gap. Phase 2 is not complete while those remain unbuilt.
 
 Everything else in the gap register (language-plane consistency measurement, representation-plane
 verification, citation-intent checking, legal-change monitoring) stays explicitly out of scope —
