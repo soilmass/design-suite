@@ -1,0 +1,9 @@
+decisions:
+  - family: F02
+    value: "One named segment: technical decision-makers. Assumes some field expertise. Arrives to find out specifics. Addressed as 'you'."
+    rationale: "Per brief.audience and D003's F02/F03/F04-together guidance."
+    confidence: high
+  - family: F22
+    value: "Register value: conversational."
+    rationale: "Per audience and tone guidance for this product."
+    confidence: low

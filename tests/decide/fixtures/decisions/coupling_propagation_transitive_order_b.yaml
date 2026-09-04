@@ -1,0 +1,13 @@
+decisions:
+  - family: F31
+    value: "One typeface, harmonious pairing, sans classification, narrow scale range."
+    rationale: "Per D007 guidance, bounded by C011, C020, C021, C022, C023, C025, C080, C084, C085 -- legibility and scale respected."
+    confidence: high
+  - family: F17
+    value: "One dominant focus per screen, single persistent CTA, repeated once mid-scroll."
+    rationale: "Per D007 guidance, bounded by C011, C020, C021, C022, C023 -- hierarchy kept legible throughout."
+    confidence: high
+  - family: F15
+    value: "Content-dominant, moderate density, generous whitespace around code samples."
+    rationale: "Per D006's density-cluster guidance, bounded by C004, C027, C028 -- generous target sizes and measure respected throughout."
+    confidence: low

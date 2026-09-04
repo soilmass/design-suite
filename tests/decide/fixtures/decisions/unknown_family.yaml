@@ -1,0 +1,5 @@
+decisions:
+  - family: F99
+    value: "Not a real family."
+    rationale: "N/A"
+    confidence: high

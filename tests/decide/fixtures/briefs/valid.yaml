@@ -1,0 +1,11 @@
+purpose: >
+  A marketing site for a small SaaS product. Primary goal is trial signups.
+audience: Technical decision-makers evaluating developer tools, arriving with some context.
+brand:
+  - direct
+  - technical
+  - unglossy
+jurisdiction: United States, no EU presence yet
+constraints:
+  - Must reuse the existing brand palette from the company's product UI
+  - No pricing page yet -- pricing is handled by sales

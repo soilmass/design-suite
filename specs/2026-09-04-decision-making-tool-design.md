@@ -72,12 +72,17 @@ Decision's round guidance for each family (which round sets it, what it's couple
 1. Look up the family's range from Composition, its bounding Constraints (if any), and which
    Decision round sets it.
 2. Synthesize a specific value from the family's range, informed by the brief and repo context.
-3. **Hard block on any mechanically-checkable Constraint violation.** Where a family has a
-   `Bounded by` citation and that Constraint expresses a checkable bound (a numeric range, a WCAG
-   ratio, an enumerated set), the chosen value must satisfy it — refuse to write a decision that
-   doesn't, rather than writing a wrong one and hoping a human catches it in review. Where the
-   Constraint isn't mechanically checkable, or the family has none, this step is a no-op — the
-   agent's own rationale is the only check that exists, same as it is for a human deciding today.
+3. **Hard block on an incomplete citation, not on a value-level Constraint violation.** Where a
+   family has one or more `Bounded by` Constraint IDs, the tool refuses to write a decision whose
+   `rationale` doesn't name every one of them — a citation-completeness check, not a compliance
+   check. It does **not** verify that the chosen `value` actually satisfies any of those
+   Constraints numerically or semantically (a numeric range, a WCAG ratio, an enumerated set):
+   `value` is free text an agent writes, and there is nothing mechanical to check free text
+   against. A value that cites every bounding Constraint ID while genuinely violating one of them
+   passes this guardrail — the citation discipline is the only thing enforced here, same as it is
+   between this suite's own nine documents. Where a family has no bounding Constraint at all, this
+   step is a no-op — the agent's own rationale is the only check that exists, same as it is for a
+   human deciding today.
 4. Write a real ADR into the target repo's ADR directory, in the exact format
    `tests/decision_completeness/fixtures/` already validates: YAML front matter
    (`id`/`title`/`status`/`date`/`families`), Markdown body (Context/Decision/Consequences). One
@@ -121,8 +126,9 @@ covering at minimum:
 - A clean run producing all 11, passing `decision_completeness.py` afterward.
 - A malformed brief (missing required field, bad YAML).
 - A family already decided in the target ADR directory (must be skipped, not re-decided).
-- A synthesized value that would violate a mechanically-checkable Constraint (must refuse, not
-  write a bad decision).
+- A decision for a bounded family whose `rationale` doesn't cite every one of its `Bounded by`
+  Constraint IDs (must refuse, not write it) — a citation-completeness check; the tool does not
+  attempt to check whether `value` itself satisfies those Constraints (see step 3 above).
 - A brief-vs-Constraint conflict (must refuse and surface it, not guess).
 - The coupling-based confidence propagation (a flagged `F02` produces a flagged `F22`).
 

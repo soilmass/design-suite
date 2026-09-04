@@ -1,0 +1,5 @@
+decisions:
+  - family: F15
+    value: "Content-dominant, moderate density."
+    rationale: "Per D006's density-cluster guidance."
+    confidence: high
