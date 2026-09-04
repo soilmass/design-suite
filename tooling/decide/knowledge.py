@@ -109,6 +109,7 @@ def parse_constraints(path):
 DECISION_ROUND_HEADER_RE = re.compile(r"^## (D\d{3}) · (Round \d+ — .+)$", re.M)
 DECISION_ANY_HEADER_RE = re.compile(r"^## D\d{3} ·", re.M)
 BOUNDED_SENTENCE_RE = re.compile(r"Bounded by ([^.]+)\.")
+COUPLING_ARROW_RE = re.compile(r"F\d{2}(?:\.\d+)?(?:↔F\d{2}(?:\.\d+)?)+(?:/F\d{2}(?:\.\d+)?)?")
 
 
 def parse_decision_rounds(path):
@@ -126,11 +127,15 @@ def parse_decision_rounds(path):
         later = [a.start() for a in all_headers if a.start() > h.start()]
         end = min(later) if later else len(text)
         block = text[start:end]
+        # Strip coupling arrow expressions (e.g., "F02↔F22", "F04↔F31/F34/F39")
+        # before extracting family IDs, to avoid capturing families mentioned in
+        # explanatory asides that are controlled by other rounds.
+        block_without_couplings = COUPLING_ARROW_RE.sub("", block)
         bounded_m = BOUNDED_SENTENCE_RE.search(block)
         rounds.append({
             "id": did,
             "title": title.strip(),
-            "families": extract_family_ids(block),
+            "families": extract_family_ids(block_without_couplings),
             "guidance": block.strip(),
             "bounded_by": extract_constraint_ids(bounded_m.group(1)) if bounded_m else [],
         })

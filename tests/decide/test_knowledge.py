@@ -164,3 +164,47 @@ def test_build_family_knowledge_f01_no_bounds_at_all(suite_snapshot):
         suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"]
     )
     assert knowledge["F01"]["bounded_by"] == {}
+
+
+def test_parse_decision_rounds_f31_resolves_to_d007_not_d003(suite_snapshot):
+    """Regression: F31 is mentioned in a coupling aside in Round 1 (D003)
+    but actually governed by Round 5 (D007). _find_round should return D007, not D003."""
+    rounds = parse_decision_rounds(suite_snapshot["decision"])
+    # First verify F31 appears in D007's families (its real round)
+    d007 = next(r for r in rounds if r["id"] == "D007")
+    assert "F31" in d007["families"]
+    # Now verify _find_round returns D007, not D003
+    from tooling.decide.knowledge import _find_round
+    result = _find_round(rounds, "F31")
+    assert result["id"] == "D007", f"F31 should resolve to D007 but got {result['id']}"
+
+
+def test_build_family_knowledge_f31_includes_round_bounds_from_d007(suite_snapshot):
+    """Regression: F31's bounded_by should include Round 5's constraints (C011, C021, C022, C023)
+    not just Composition's bounds. This was failing because F31 was wrongly mapped to D003."""
+    knowledge = build_family_knowledge(
+        suite_snapshot["composition"], suite_snapshot["constraints"], suite_snapshot["decision"]
+    )
+    f31 = knowledge["F31"]
+    # F31 should be in D007, not D003
+    assert f31["round"]["id"] == "D007", f"F31 round should be D007 but is {f31['round']['id']}"
+    # D007's bounded_by constraints should be included
+    bounded_ids = set(f31["bounded_by"].keys())
+    # Check that D007's specific constraints are present
+    assert "C011" in bounded_ids, f"C011 missing from F31 bounds. Got: {bounded_ids}"
+    assert "C021" in bounded_ids, f"C021 missing from F31 bounds. Got: {bounded_ids}"
+    assert "C022" in bounded_ids, f"C022 missing from F31 bounds. Got: {bounded_ids}"
+    assert "C023" in bounded_ids, f"C023 missing from F31 bounds. Got: {bounded_ids}"
+
+
+def test_parse_decision_rounds_f22_resolves_to_d008_not_d003(suite_snapshot):
+    """Regression: F22 is mentioned in a coupling aside in Round 1 (D003)
+    but actually governed by Round 6 (D008). _find_round should return D008, not D003."""
+    rounds = parse_decision_rounds(suite_snapshot["decision"])
+    # First verify F22 appears in D008's families (its real round)
+    d008 = next(r for r in rounds if r["id"] == "D008")
+    assert "F22" in d008["families"]
+    # Now verify _find_round returns D008, not D003
+    from tooling.decide.knowledge import _find_round
+    result = _find_round(rounds, "F22")
+    assert result["id"] == "D008", f"F22 should resolve to D008 but got {result['id']}"
