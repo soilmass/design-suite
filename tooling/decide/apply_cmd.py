@@ -42,6 +42,12 @@ def _load_decisions(path):
         for field in ("family", "value", "rationale"):
             if field not in d:
                 raise DecisionsFileError(f"{path}: decisions[{i}] is missing '{field}'")
+        for field in ("value", "rationale"):
+            if not isinstance(d[field], str):
+                raise DecisionsFileError(
+                    f"{path}: decisions[{i}].{field} must be a string, "
+                    f"got {type(d[field]).__name__}"
+                )
     return decisions
 
 
@@ -63,7 +69,12 @@ def run_apply(target_repo, decisions_path, suite_composition_path, suite_constra
         suite_composition_path, suite_constraints_path, suite_decision_path
     )
     adr_dir = os.path.join(target_repo, "adr")
+    # Families already decided by a PRE-EXISTING ADR on disk, from before this run
+    # started. Never mutated below -- kept separate from `seen_in_batch` so a
+    # same-batch duplicate (a real input problem) is never conflated with "a prior
+    # run already decided this" (expected, not an error). See Finding 3.
     decided = already_decided_families(adr_dir, TARGET_FAMILIES)
+    seen_in_batch = set()
 
     written = []
     skipped_already_decided = []
@@ -78,6 +89,17 @@ def run_apply(target_repo, decisions_path, suite_composition_path, suite_constra
         if family not in TARGET_FAMILIES:
             rejected.append({"family": family, "reason": f"'{family}' is not a target family (see TARGET_FAMILIES)"})
             continue
+
+        if family in seen_in_batch:
+            rejected.append({
+                "family": family,
+                "reason": (
+                    f"duplicate entry for {family} within this decisions.yaml "
+                    f"-- only the first is considered"
+                ),
+            })
+            continue
+        seen_in_batch.add(family)
 
         if family in decided:
             skipped_already_decided.append(family)
@@ -102,8 +124,8 @@ def run_apply(target_repo, decisions_path, suite_composition_path, suite_constra
             low_confidence_families.add(family)
 
         accepted_decisions.append((d, family, fam_knowledge, confidence))
-        # Add to decided set immediately to catch same-batch duplicates
-        decided.add(family)
+        # seen_in_batch (added above) already guards against a same-batch
+        # duplicate reaching this point twice -- `decided` stays pre-existing-only.
 
     # coupling propagation: a second pass, since a family's own stated confidence
     # can be overridden by a tightly-coupled sibling's low confidence, and that
@@ -118,13 +140,31 @@ def run_apply(target_repo, decisions_path, suite_composition_path, suite_constra
             os.makedirs(adr_dir)
         adr_id = next_adr_id(adr_dir)
         title = f"{family}: {d['value'][:60]}" if len(d["value"]) <= 60 else f"{family}: {d['value'][:57]}..."
+
+        # Finding 5: persist `confidence` durably in the ADR itself (not just
+        # stdout), so a human reviewing the batch knows where to look first.
+        if confidence == "low":
+            confidence_note = "Recorded with `confidence: low` -- worth a closer look during batch review."
+        else:
+            confidence_note = "Recorded with `confidence: high`."
+        # Finding 6: record which Decision round governed this family.
+        round_ = fam_knowledge.get("round")
+        round_note = f"Decided per Decision's {round_['id']}." if round_ else None
+        consequences = " ".join(
+            filter(None, [
+                "Recorded by tooling/decide; review before treating as final.",
+                confidence_note,
+                round_note,
+            ])
+        )
+
         content = render_adr(
             adr_id=adr_id,
             title=title,
             families=[family],
             context=d["rationale"],
             decision=d["value"],
-            consequences="Recorded by tooling/decide; review before treating as final.",
+            consequences=consequences,
             date=datetime.date.today().isoformat(),
         )
         filename = f"{adr_id.split('-')[1]}-{slugify(family + ' ' + d['value'][:40])}.md"

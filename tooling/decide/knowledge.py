@@ -23,6 +23,15 @@ CONSTRAINT_HEADER_RE = re.compile(r"^\*\*(C\d{3}) · (.+?)\*\*(?: — .+)?$", re
 SECTION_BOUNDARY_RE = re.compile(r"^#{1,3} ", re.M)
 
 
+class KnowledgeError(Exception):
+    """Raised when a suite document (composition/constraints/decision) is
+    readable and parses, but is missing content tooling/decide needs -- e.g. a
+    stale or mismatched vendored copy of the suite passed via --composition/
+    --constraints/--decision. Distinct from a bare KeyError, which gives the
+    calling agent no actionable signal about what's wrong or where."""
+    pass
+
+
 def extract_constraint_ids(text):
     """Every C### id mentioned in text, sorted and deduplicated. Expands a
     "C###-C###" or "C###–C###" range (either dash) into every id in between
@@ -174,6 +183,11 @@ def build_family_knowledge(composition_path, constraints_path, decision_path):
     knowledge = {}
     for fid in TARGET_FAMILIES:
         parent = _parent_family(fid)
+        if parent not in composition:
+            raise KnowledgeError(
+                f"{composition_path}: missing family '{parent}' (required by target "
+                f"family '{fid}') -- is this a stale or mismatched --composition file?"
+            )
         comp = composition[parent]
         round_ = _find_round(rounds, fid)
 

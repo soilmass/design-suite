@@ -30,12 +30,22 @@ python3 -m tooling.decide context ../my-project --out context.yaml
 python3 -m tooling.decide apply ../my-project decisions.yaml
 ```
 
-`apply` exits `1` if anything in `decisions.yaml` was rejected (an unknown family,
-an already-decided family, or a rationale missing a required constraint citation)
-— check the `rejected` list in its output before re-running. `self_check_passed`
-being `false` is normal for a partial decision set (this tool only ever decides
-the 11 target families; `decision_completeness.py`'s own registry covers all 67)
-— it is not itself a failure.
+`apply` exits `1` if anything in `decisions.yaml` was **rejected** — an unknown family, a
+rationale missing a required constraint citation, or a family listed more than once within
+the same `decisions.yaml` (only the first occurrence is considered; later ones are rejected
+as duplicates) — check the `rejected` list in its output before re-running. A family already
+decided by a *prior* `apply` run (a pre-existing ADR already on disk) is **not** a rejection:
+it's expected, normal behavior — it lands in `skipped_already_decided` and does not affect
+the exit code.
+
+Every decision's `rationale` must cite, by id, every constraint listed in that family's
+`bounded_by` in `context`'s output (e.g. write `C004` somewhere in the rationale if `C004`
+is one of the bounding constraints) — a rationale missing one of these citations is rejected.
+
+`self_check_passed` being `false` means `decision_completeness.py` found something actually
+wrong with what `apply` wrote — a malformed ADR or an unresolved citation — never merely that
+coverage is incomplete: deciding only 1 of the 11 target families (or the suite's full 67)
+still reports `self_check_passed: true` as long as what was written is clean.
 
 ## Testing
 

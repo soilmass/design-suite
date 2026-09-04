@@ -39,6 +39,22 @@ def test_cli_context_then_apply_end_to_end(tmp_path):
     assert len(os.listdir(repo / "adr")) == 4
 
 
+def test_cli_context_output_preserves_non_ascii_characters(tmp_path):
+    """Regression test for Finding 4: context.yaml's yaml.safe_dump must pass
+    allow_unicode=True, so the suite's em-dashes / arrows in cited prose come
+    through readable rather than escaped as \\uXXXX sequences."""
+    repo = tmp_path / "target_repo"
+    repo.mkdir()
+
+    result = subprocess.run(
+        [sys.executable, "-m", "tooling.decide", "context", str(repo)],
+        cwd=REPO_ROOT, capture_output=True, text=True,
+    )
+    assert result.returncode == 0, result.stderr
+    assert "\\u" not in result.stdout, "non-ASCII characters should not be \\uXXXX-escaped"
+    assert "—" in result.stdout or "↔" in result.stdout
+
+
 def test_cli_apply_exits_nonzero_on_rejection(tmp_path):
     repo = tmp_path / "target_repo"
     repo.mkdir()
@@ -72,6 +88,50 @@ def test_cli_apply_handles_missing_decisions_file(tmp_path):
     assert result.returncode == 1
     assert "Traceback" not in result.stderr, "Should have clean error message, not Python traceback"
     assert "Error:" in result.stderr or "could not read" in result.stderr, "Should have error message in stderr"
+
+
+def test_cli_context_handles_bad_out_path(tmp_path):
+    """Regression test for Finding 1a: a bad --out path (nonexistent parent dir)
+    should exit 1 with a clean error message, not a raw FileNotFoundError traceback."""
+    repo = tmp_path / "target_repo"
+    repo.mkdir()
+
+    result = subprocess.run(
+        [
+            sys.executable, "-m", "tooling.decide", "context", str(repo),
+            "--out", str(tmp_path / "nonexistent_dir" / "context.yaml"),
+        ],
+        cwd=REPO_ROOT, capture_output=True, text=True,
+    )
+    assert result.returncode == 1
+    assert "Traceback" not in result.stderr, "Should have clean error message, not Python traceback"
+    assert "Error:" in result.stderr
+
+
+def test_cli_context_handles_composition_missing_target_family(tmp_path):
+    """Regression test for Finding 1c: a --composition file missing an expected
+    family (e.g. a stale/mismatched vendored suite copy) should exit 1 with a
+    clean error message, not a raw KeyError traceback."""
+    repo = tmp_path / "target_repo"
+    repo.mkdir()
+
+    real_composition = os.path.join(REPO_ROOT, "docs", "composition-1.0.0.md")
+    text = open(real_composition, encoding="utf-8").read()
+    assert "### F01 · Mandate" in text
+    corrupted = text.replace("### F01 · Mandate", "### XX99 · Not Mandate")
+    corrupt_path = tmp_path / "composition-corrupt.md"
+    corrupt_path.write_text(corrupted, encoding="utf-8")
+
+    result = subprocess.run(
+        [
+            sys.executable, "-m", "tooling.decide", "context", str(repo),
+            "--composition", str(corrupt_path),
+        ],
+        cwd=REPO_ROOT, capture_output=True, text=True,
+    )
+    assert result.returncode == 1
+    assert "Traceback" not in result.stderr, "Should have clean error message, not Python traceback"
+    assert "Error:" in result.stderr
 
 
 def test_cli_apply_handles_bad_composition_path(tmp_path):

@@ -4,6 +4,9 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".."))
 from tooling.decide.knowledge import parse_decision_rounds, TARGET_FAMILIES, build_family_knowledge
 from tooling.decide.knowledge import extract_constraint_ids, parse_composition, parse_constraints
+from tooling.decide.knowledge import KnowledgeError
+
+import pytest
 
 
 def test_extract_constraint_ids_plain_list():
@@ -233,3 +236,27 @@ def test_coupling_arrow_re_strips_multiple_slash_separated_families():
     assert "F31" not in found_families, f"F31 should be stripped but found in: {stripped}"
     assert "F34" not in found_families, f"F34 should be stripped but found in: {stripped}"
     assert "F39" not in found_families, f"F39 should be stripped but found in: {stripped}"
+
+
+def test_build_family_knowledge_missing_family_raises_clear_error(tmp_path, suite_snapshot):
+    """Regression for Finding 1c: a --composition file that's readable, valid
+    Markdown, but missing an expected family (e.g. a stale or mismatched vendored
+    copy of the suite) should raise a clear KnowledgeError naming the missing
+    family and the path, not a bare KeyError."""
+    comp_path = suite_snapshot["composition"]
+    text = open(comp_path, encoding="utf-8").read()
+    # Remove F01's section header so it no longer parses as a family -- simulates
+    # a structurally-wrong/stale composition doc missing a family TARGET_FAMILIES needs.
+    assert "### F01 · Mandate" in text
+    corrupted = text.replace("### F01 · Mandate", "### XX99 · Not Mandate")
+    assert corrupted != text
+    corrupt_path = tmp_path / "composition-corrupt.md"
+    corrupt_path.write_text(corrupted, encoding="utf-8")
+
+    with pytest.raises(KnowledgeError) as excinfo:
+        build_family_knowledge(
+            str(corrupt_path), suite_snapshot["constraints"], suite_snapshot["decision"]
+        )
+    message = str(excinfo.value)
+    assert "F01" in message
+    assert str(corrupt_path) in message

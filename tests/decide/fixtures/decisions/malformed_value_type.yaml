@@ -1,0 +1,11 @@
+decisions:
+  - family: F01
+    value: "Single job: drive trial signups. Primary conversion is Start free trial. Success = conversion. Permanent."
+    rationale: "Per brief.purpose (SaaS trial-signup site) and D003's F01-first-and-alone guidance."
+    confidence: high
+  - family: F02
+    value:
+      - not
+      - a string
+    rationale: "Per brief.audience and D003's F02/F03/F04-together guidance."
+    confidence: high

@@ -14,6 +14,7 @@ import yaml
 
 from .apply_cmd import run_apply, DecisionsFileError
 from .context_cmd import run_context
+from .knowledge import KnowledgeError
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DEFAULT_COMPOSITION = os.path.join(REPO_ROOT, "docs", "composition-1.0.0.md")
@@ -52,16 +53,18 @@ def main(argv=None):
                 args.target_repo, args.decisions_path, args.composition, args.constraints, args.decision
             )
             exit_code = 1 if result["rejected"] else 0
-    except (DecisionsFileError, OSError) as e:
+
+        output = yaml.safe_dump(
+            result, sort_keys=False, default_flow_style=False, width=100, allow_unicode=True
+        )
+        if args.out:
+            with open(args.out, "w", encoding="utf-8") as f:
+                f.write(output)
+        else:
+            print(output)
+    except (DecisionsFileError, KnowledgeError, OSError) as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1
-
-    output = yaml.safe_dump(result, sort_keys=False, default_flow_style=False, width=100)
-    if args.out:
-        with open(args.out, "w", encoding="utf-8") as f:
-            f.write(output)
-    else:
-        print(output)
 
     return exit_code
 
