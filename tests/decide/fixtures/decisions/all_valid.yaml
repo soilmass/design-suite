@@ -1,0 +1,17 @@
+decisions:
+  - family: F01
+    value: "Single job: drive trial signups. Primary conversion is Start free trial. Success = conversion. Permanent."
+    rationale: "Per brief.purpose (SaaS trial-signup site) and D003's F01-first-and-alone guidance."
+    confidence: high
+  - family: F02
+    value: "One named segment: technical decision-makers. Assumes some field expertise. Arrives to find out specifics. Addressed as 'you'."
+    rationale: "Per brief.audience and D003's F02/F03/F04-together guidance."
+    confidence: high
+  - family: F15
+    value: "Content-dominant, moderate density, generous whitespace around code samples."
+    rationale: "Per D006's density-cluster guidance, bounded by C004, C027, C028 -- generous target sizes and measure respected throughout."
+    confidence: low
+  - family: F64
+    value: "404, offline, empty, and error surfaces all designed with cause/consequence/next-action stated."
+    rationale: "Per D012 Round 10 guidance, bounded by C001, C002, C003, C066, C067, C068, C069, C070 -- forgiveness and failure clarity honored throughout."
+    confidence: high
