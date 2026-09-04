@@ -228,7 +228,7 @@ _Nothing yet._
   → actual 1.1.1), and the registered-identifier count was off by two (1,238 vs. the registry's
   1,240). PR #56 (`docs/readme-version-table-resync-2026-09-03`, `40c2a50`), merged.
 - `CLAUDE.md`'s and `suite-architecture.md`'s "Stable identifiers" worked-example tables cited
-  five IDs that don't exist anywhere in the suite (`V-204`, `A-118`, `T044`, `K019`, `X031`,
+  six IDs that don't exist anywhere in the suite (`V-204`, `A-118`, `T044`, `K019`, `X031`,
   `G004`) and two more that exist but mean something different than claimed (`C012`, `D007`).
   Replaced all nine examples in `suite-architecture.md` §3 with real, grepped-and-verified IDs, and
   removed `CLAUDE.md`'s duplicate copy of the table — the exact mechanism that had let the two
