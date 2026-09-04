@@ -208,3 +208,28 @@ def test_parse_decision_rounds_f22_resolves_to_d008_not_d003(suite_snapshot):
     from tooling.decide.knowledge import _find_round
     result = _find_round(rounds, "F22")
     assert result["id"] == "D008", f"F22 should resolve to D008 but got {result['id']}"
+
+
+def test_coupling_arrow_re_strips_multiple_slash_separated_families():
+    """Regression (fix round 2): COUPLING_ARROW_RE must match patterns like F04↔F31/F34/F39
+    (two or more slash-separated families after the arrow), not just F04↔F31/F34.
+
+    The regex's final group was using ? (zero or one) instead of * (zero or more),
+    causing patterns with 2+ slash-separated families to be only partially stripped,
+    leaving trailing families in the text."""
+    from tooling.decide.knowledge import COUPLING_ARROW_RE, extract_family_ids
+
+    # Test text with a coupling expression containing two slash-separated families
+    text = "Audience interlock through F04↔F31/F34/F39 and other prose."
+
+    # Strip the coupling expression using the regex
+    stripped = COUPLING_ARROW_RE.sub("", text)
+
+    # After stripping, extract family IDs from the remaining text
+    # None of the coupling families (F31, F34, F39) should be found
+    found_families = extract_family_ids(stripped)
+
+    # Verify none of the coupling families are extracted
+    assert "F31" not in found_families, f"F31 should be stripped but found in: {stripped}"
+    assert "F34" not in found_families, f"F34 should be stripped but found in: {stripped}"
+    assert "F39" not in found_families, f"F39 should be stripped but found in: {stripped}"

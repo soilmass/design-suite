@@ -109,7 +109,7 @@ def parse_constraints(path):
 DECISION_ROUND_HEADER_RE = re.compile(r"^## (D\d{3}) · (Round \d+ — .+)$", re.M)
 DECISION_ANY_HEADER_RE = re.compile(r"^## D\d{3} ·", re.M)
 BOUNDED_SENTENCE_RE = re.compile(r"Bounded by ([^.]+)\.")
-COUPLING_ARROW_RE = re.compile(r"F\d{2}(?:\.\d+)?(?:↔F\d{2}(?:\.\d+)?)+(?:/F\d{2}(?:\.\d+)?)?")
+COUPLING_ARROW_RE = re.compile(r"F\d{2}(?:\.\d+)?(?:↔F\d{2}(?:\.\d+)?)+(?:/F\d{2}(?:\.\d+)?)*")
 
 
 def parse_decision_rounds(path):
