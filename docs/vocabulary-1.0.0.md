@@ -1,6 +1,6 @@
 ```yaml
 document: Vocabulary
-version: 1.1.0
+version: 1.1.1
 tier: 0
 owns:
   - what each term denotes
@@ -202,7 +202,7 @@ Other documents cite a V-ID only where a term is genuinely contested or confusab
 **V-175 · Tint** — A hue mixed with white.
 **V-176 · Shade** — A hue mixed with black.
 **V-177 · sRGB** — The historical baseline web color space.
-**V-178 · Display P3** — A wider-gamut space covering roughly 25% more than sRGB.
+**V-178 · Display P3** — A wider-gamut color space than sRGB.
 **V-179 · HSL** — A cylindrical model of hue, saturation, and lightness that is not perceptually uniform.
 **V-180 · OKLCH** — A perceptually uniform cylindrical model of lightness, chroma, and hue.
 **V-181 · OKLab** — The Cartesian form of OKLCH, used for interpolation.
@@ -415,7 +415,7 @@ Other documents cite a V-ID only where a term is genuinely contested or confusab
 **V-441 · Jank** — Visible stutter caused by missed frames.
 **V-442 · Frame budget** — The time available to produce one frame.
 **V-443 · Scroll-driven animation** — Motion whose progress is tied to scroll position rather than time.
-**V-444 · Micro-interaction** — A small contained moment of feedback, comprising trigger, rules, feedback, and loops.
+**V-444 · Micro-interaction** — A small contained moment of feedback.
 
 ## K · Accessibility
 
