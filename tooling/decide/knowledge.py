@@ -195,6 +195,11 @@ def build_family_knowledge(composition_path, constraints_path, decision_path):
             segments = comp["segments"]
             name = comp["name"]
         else:
+            if fid not in comp["segments"]:
+                raise KnowledgeError(
+                    f"{composition_path}: missing segment '{fid}' (required by target "
+                    f"family '{fid}') -- is this a stale or mismatched --composition file?"
+                )
             segments = {fid: comp["segments"][fid]}
             name = comp["segments"][fid]
 

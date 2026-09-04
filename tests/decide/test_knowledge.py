@@ -260,3 +260,31 @@ def test_build_family_knowledge_missing_family_raises_clear_error(tmp_path, suit
     message = str(excinfo.value)
     assert "F01" in message
     assert str(corrupt_path) in message
+
+
+def test_build_family_knowledge_missing_segment_raises_clear_error(tmp_path, suite_snapshot):
+    """Regression for D2 (independent peer review of PR #72): a --composition file
+    whose target family's PARENT is present, but whose specific segment id (e.g.
+    F05.1, needed because F05.1 is a TARGET_FAMILIES entry) is missing -- e.g. a
+    renamed or removed segment in a stale/mismatched vendored copy -- should raise
+    a clear KnowledgeError naming the missing segment id and the path, not a bare
+    KeyError. Same class of gap as the existing family-level KnowledgeError test
+    above, corrupting a segment id instead of a family header."""
+    comp_path = suite_snapshot["composition"]
+    text = open(comp_path, encoding="utf-8").read()
+    # Rename F05.1's segment marker so it no longer parses as F05.1 -- simulates a
+    # renamed/removed segment in a stale vendored composition doc. F05's family
+    # header (and thus F05 itself) stays intact.
+    assert "**F05.1** " in text
+    corrupted = text.replace("**F05.1** ", "**F05.9** ", 1)
+    assert corrupted != text
+    corrupt_path = tmp_path / "composition-corrupt-segment.md"
+    corrupt_path.write_text(corrupted, encoding="utf-8")
+
+    with pytest.raises(KnowledgeError) as excinfo:
+        build_family_knowledge(
+            str(corrupt_path), suite_snapshot["constraints"], suite_snapshot["decision"]
+        )
+    message = str(excinfo.value)
+    assert "F05.1" in message
+    assert str(corrupt_path) in message
