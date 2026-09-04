@@ -20,6 +20,7 @@ COMPOSITION_BOUNDED_RE = re.compile(r"^\*Bounded by\* — (.+?)\.\s*$", re.M)
 COMPOSITION_COUPLING_RE = re.compile(r"^\*Coupling\* — (.+)$", re.M)
 
 CONSTRAINT_HEADER_RE = re.compile(r"^\*\*(C\d{3}) · (.+?)\*\*(?: — .+)?$", re.M)
+SECTION_BOUNDARY_RE = re.compile(r"^#{1,3} ", re.M)
 
 
 def extract_constraint_ids(text):
@@ -85,7 +86,8 @@ def parse_composition(path):
 
 def parse_constraints(path):
     """Parse docs/constraints-1.0.0.md into {C### id: {name, text}}. text is
-    everything in the constraint's block after its header line."""
+    everything in the constraint's block after its header line, up to the next
+    constraint header or section boundary, whichever comes first."""
     text = open(path, encoding="utf-8").read()
     headers = list(CONSTRAINT_HEADER_RE.finditer(text))
     constraints = {}
@@ -93,6 +95,12 @@ def parse_constraints(path):
         cid, name = h.group(1), h.group(2)
         start = h.end()
         end = headers[i + 1].start() if i + 1 < len(headers) else len(text)
+
+        # Check for section boundary (Markdown heading) within this constraint's block
+        section_match = SECTION_BOUNDARY_RE.search(text[start:end])
+        if section_match:
+            end = start + section_match.start()
+
         body = text[start:end].strip()
         constraints[cid] = {"name": name.strip(), "text": body}
     return constraints

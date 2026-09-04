@@ -66,3 +66,29 @@ def test_parse_constraints_c028_target_size(suite_snapshot):
     c028 = constraints["C028"]
     assert c028["name"] == "Target size minimum"
     assert "24" in c028["text"]
+
+
+def test_parse_constraints_c046_no_section_bleed(suite_snapshot):
+    """Regression: C046's text should NOT bleed into the next section heading."""
+    constraints = parse_constraints(suite_snapshot["constraints"])
+    c046 = constraints["C046"]
+    assert "programmatically determinable" in c046["text"]
+    # Should not include content from the next section (# PART C)
+    assert "PART C" not in c046["text"]
+    assert "# PART" not in c046["text"]
+    # Should contain the key constraint description but not section content
+    assert "custom controls expensive" in c046["text"]
+    # Should not include any other constraint's name (C060 comes after the section)
+    assert "European Accessibility Act" not in c046["text"]
+
+
+def test_parse_constraints_c124_no_export_bleed(suite_snapshot):
+    """Regression: C124 (last constraint) should NOT include export index/review sections."""
+    constraints = parse_constraints(suite_snapshot["constraints"])
+    c124 = constraints["C124"]
+    assert "Third-party budget" in c124["name"]
+    # Should not include the export index or anything after
+    assert "EXPORT INDEX" not in c124["text"]
+    assert "Review schedule" not in c124["text"]
+    # C124's body should be reasonably short (just the constraint desc, not 5.6KB)
+    assert len(c124["text"]) < 2000, f"C124 text is too long ({len(c124['text'])} chars)"
